@@ -3146,16 +3146,21 @@
       // Ouvrir la modale au clic
       videoTrigger.addEventListener('click', () => {
         videoModal.style.display = 'flex'; // Affiche la popup
-        // On supprime modalVideo.play() ! L'utilisateur cliquera sur le Play de YouTube.
+
+        // On récupère le lien actuel de l'iframe
+        let currentSrc = modalVideo.src;
+        // On ajoute l'ordre de lecture automatique si ce n'est pas déjà fait
+        if (!currentSrc.includes('autoplay=1')) {
+          modalVideo.src = currentSrc + "&autoplay=1";
+        }
       });
 
       // Fermer la modale au clic sur la croix
       closeModal.addEventListener('click', () => {
         videoModal.style.display = 'none'; // Cache la popup
 
-        // L'astuce magique pour couper une vidéo YouTube : on recharge la source !
-        let iframeSrc = modalVideo.src;
-        modalVideo.src = iframeSrc;
+        // On retire l'autoplay et on recharge le lien pour couper le son instantanément
+        modalVideo.src = modalVideo.src.replace("&autoplay=1", "");
       });
 
       // Optionnel : Met à jour le texte du curseur immédiatement si on clique sur FR/EN pendant qu'on survole la vidéo

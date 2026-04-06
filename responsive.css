@@ -1,0 +1,409 @@
+/* ===========================================
+   CORRECTIF MOBILE OPTIMISÉ V6 - DARYA LEARN FRENCH
+   =========================================== */
+
+@media (max-width: 768px) {
+
+    /* 1. Sécurité globale : on verrouille les bords */
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative;
+    }
+
+    /* 2. Typographie aérée */
+    h1 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+        text-align: center !important;
+    }
+
+    h2 {
+        font-size: 1.6rem !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+    }
+
+    h3 {
+        font-size: 1.3rem !important;
+    }
+
+    p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+    }
+
+    .hero-sub,
+    .section-intro,
+    .section-subtitle {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Cacher le paragraphe sous le H1 sur la page d'accueil */
+    .hero .hero-sub {
+        display: none !important;
+    }
+
+    /* 3. LE BOUCLIER ANTI-DÉBORDEMENT */
+    .hero-inner,
+    .split-layout,
+    .questions-grid,
+    .adv-grid,
+    .steps-grid,
+    .timing-row,
+    .packs-row,
+    .whom-grid,
+    .avantages__grid,
+    .programme-cards,
+    .processus__steps,
+    .footer__inner,
+    .site-footer-inner,
+    [class*="grid"],
+    [class*="testimonial"],
+    [class*="review"],
+    [class*="avis"] {
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+        gap: 24px !important;
+        min-width: 0 !important;
+    }
+
+    /* 4. ON RÉPARE LES BOÎTES ET LE FORMULAIRE DE CONTACT */
+    .hero-card,
+    .step-card,
+    .pack-card,
+    .avantage-card,
+    [class*="testimonial"]>*,
+    [class*="review"]>*,
+    [class*="avis"]>*,
+    form,
+    .contact-wrapper,
+    .contact-card,
+    .form-group,
+    input,
+    textarea,
+    select {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 5. Marges de sécurité */
+    section,
+    .section,
+    .hero,
+    .page-hero,
+    .container,
+    .legal-content,
+    .faq-layout {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 6. On cache les cercles de décoration sur mobile */
+    .hero::before,
+    .hero::after,
+    .page-hero::before {
+        display: none !important;
+    }
+
+    /* 7. GARANTIE ABSOLUE DU MENU */
+    site-header {
+        display: block !important;
+        position: relative !important;
+        z-index: 9999999 !important;
+        width: 100% !important;
+    }
+
+    /* On force les grands blocs bleus à passer en dessous du menu */
+    .page-hero,
+    .hero,
+    .page-hero__inner {
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    /* =========================================
+       8. BAZOOKA V3 - LE CORRECTIF ABSOLU FORMULAIRE
+       ========================================= */
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box !important;
+        max-width: 100vw !important;
+    }
+
+    /* =========================================
+       9. CORRECTION DES TABLEAUX (Mentions Légales)
+       ========================================= */
+    table,
+    .program-card table {
+        display: block !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* =========================================
+       10. CORRECTIONS SUBTILES DES BADGES/NIVEAUX (Across all pages)
+       ========================================= */
+
+    /* 1. Répare le gros bouton pour qu'il puisse passer à la ligne */
+    a[class*="btn"],
+    button[class*="btn"],
+    .navbar__cta-mobile a,
+    .cta-button {
+        white-space: normal !important;
+        height: auto !important;
+        line-height: 1.4 !important;
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+        text-align: center !important;
+    }
+
+    /* 2. On réduit la police et on enlève les tirets pour les petits badges (A1, pédagogie, avis, etc.) */
+    [class*="level"] span,
+    [class*="badge"] span,
+    [class*="tag"] span,
+    [class*="chip"] span,
+    .level-badge,
+    .review-tag,
+    .not-for-you span {
+        font-size: 0.65rem !important;
+        /* On réduit la police */
+        hyphens: none !important;
+        /* INTERDIT d'ajouter des tirets */
+        letter-spacing: -0.01em !important;
+        /* On resserre un peu les lettres */
+        line-height: 1.1 !important;
+        white-space: normal !important;
+        /* Autorise le texte à passer à la ligne s'il est vraiment trop long */
+    }
+
+    /* On réduit aussi un peu le padding (marge interne) sur ces badges pour mobile */
+    [class*="level"],
+    [class*="badge"],
+    [class*="tag"],
+    [class*="chip"],
+    .level-badge,
+    .review-tag,
+    .not-for-you {
+        padding: 6px 12px !important;
+        /* Padding plus petit pour mobile */
+    }
+
+    /* 3. On aligne les cartes pour le Programme Complet pour que ce soit propre et centré */
+    .level-card,
+    [class*="programme-card"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 15px !important;
+    }
+
+    /* =========================================
+       11. CORRECTION CHECKBOX RGPD (Contact)
+       ========================================= */
+
+    /* On force le conteneur de la case à cocher à ne pas dépasser 100% */
+    .checkbox-group,
+    .form-checkbox,
+    .rgpd-consent,
+    .consent-group {
+        display: flex !important;
+        align-items: flex-start !important;
+        /* Aligne la case en haut du texte */
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* On protège la case à cocher pour qu'elle ne s'écrase pas ou ne s'étire pas */
+    input[type="checkbox"] {
+        flex-shrink: 0 !important;
+        /* Interdit de rétrécir */
+        width: 18px !important;
+        height: 18px !important;
+        margin-top: 3px !important;
+        /* L'aligne avec la première ligne du texte */
+        margin-right: 12px !important;
+        /* Espace entre la case et le texte */
+        min-width: auto !important;
+    }
+
+    /* On oblige le texte de la case à cocher à revenir à la ligne */
+    input[type="checkbox"]+label,
+    input[type="checkbox"]~span,
+    .checkbox-group label,
+    .form-checkbox label {
+        flex: 1 !important;
+        /* Le texte prend UNIQUEMENT l'espace restant */
+        white-space: normal !important;
+        /* Autorise le retour à la ligne */
+        word-wrap: break-word !important;
+        font-size: 0.85rem !important;
+        /* Police un peu plus petite pour le mobile */
+        line-height: 1.4 !important;
+        max-width: calc(100% - 30px) !important;
+        /* Sécurité ultime pour la largeur */
+    }
+
+    /* =========================================
+       CORRECTIONS FINALES (Boutons, Badges et À Propos)
+       ========================================= */
+
+    /* 1. Autorise les longs boutons à passer à la ligne */
+    a[class*="btn"],
+    button[class*="btn"],
+    .cta-button {
+        white-space: normal !important;
+        height: auto !important;
+        line-height: 1.4 !important;
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+    }
+
+    /* 2. Réduit proprement la police "INTERMÉDIAIRE" dans les carrés bleus */
+    [class*="level"] span,
+    [class*="badge"] span {
+        font-size: 0.65rem !important;
+        line-height: 1.2 !important;
+        hyphens: none !important;
+    }
+
+    /* 3. Transforme le rond blanc écrasé (page À Propos) en un joli rectangle sous la photo */
+    .about-badge,
+    [class*="photo"] [class*="badge"],
+    [class*="image"] [class*="badge"] {
+        position: relative !important;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 10px !important;
+        margin-top: 15px !important;
+        padding: 15px !important;
+        display: block !important;
+        box-sizing: border-box !important;
+    }
+
+    /* =========================================
+       12. MORT AU ROND BLANC (PAGE À PROPOS)
+       ========================================= */
+    /* On cible la bulle superposée à la photo de Darya */
+    [class*="about"] img+div,
+    [class*="about"] [class*="image"]>div:not(img),
+    [class*="about"] [class*="photo"]>div:not(img),
+    .about-badge {
+        position: relative !important;
+        transform: none !important;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+        /* Casse la forme de cercle parfait ! */
+        border-radius: 12px !important;
+        /* Transforme en un joli rectangle arrondi */
+        margin-top: 20px !important;
+        padding: 20px !important;
+        display: block !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* =========================================
+       13. AFFICHAGE DES CARTES MOBILES (TARIFS)
+       ========================================= */
+    /* On cache définitivement le grand tableau complexe sur mobile */
+    .pricing-table-wrap,
+    .pricing-table {
+        display: none !important;
+    }
+
+    /* On active TES jolies cartes prévues spécifiquement pour le mobile */
+    .pricing-cards-mobile {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+        margin-top: 10px !important;
+    }
+
+    /* On s'assure qu'elles ne débordent pas */
+    .price-card-mobile {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    /* =========================================
+       14. CORRECTION DE LA CALCULATRICE ET GROUPES
+       ========================================= */
+    /* Boîte "Personnalisez votre forfait" */
+    .customize-box {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 20px 15px !important;
+        /* Marges réduites pour mobile */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Zone de calcul sombre */
+    .example-calc {
+        padding: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* On empile le texte et le prix pour éviter que ça se chevauche sur petit écran */
+    .calc-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+        padding: 10px 0 !important;
+    }
+
+    .calc-row strong {
+        align-self: flex-end !important;
+        /* Aligne le prix sur la droite */
+        color: var(--gold-light) !important;
+    }
+
+    /* Carte "Cours en Groupes" violette */
+    .group-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 25px 15px !important;
+    }
+
+    .group-card__cta {
+        white-space: normal !important;
+        height: auto !important;
+        line-height: 1.4 !important;
+        padding: 12px 20px !important;
+    }
+}

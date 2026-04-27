@@ -2049,7 +2049,7 @@
           style="position: absolute; top: -45px; right: 0; z-index: 99999; font-size: 35px; color: white; background: none; border: none; cursor: pointer;">&times;</button>
 
         <div style="width: 100%; height: 100%; border-radius: 16px; overflow: hidden;">
-          <iframe id="modalVideo" width="100%" height="100%" src="https://www.youtube.com/embed/W6REZQjI0eY"
+          <iframe id="modalVideo" width="100%" height="100%" src=""
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -3225,26 +3225,21 @@
 
       // Ouvrir la modale au clic
       videoTrigger.addEventListener('click', () => {
-        videoModal.style.display = 'flex'; // Affiche la popup
+        videoModal.style.display = 'flex';
 
-        // Cache le bouton play doré pour ne plus qu'il gêne (Correctif UX)
+        // Cache le bouton play doré
         const playBtn = document.getElementById('playButtonContainer');
         if (playBtn) playBtn.style.display = 'none';
 
-        // On récupère le lien actuel de l'iframe
-        let currentSrc = modalVideo.src;
-        // On ajoute l'ordre de lecture automatique si ce n'est pas déjà fait
-        if (!currentSrc.includes('autoplay=1')) {
-          modalVideo.src = currentSrc + "&autoplay=1";
-        }
+        // Injecte le src avec autoplay uniquement au moment du clic
+        modalVideo.src = 'https://www.youtube.com/embed/W6REZQjI0eY?autoplay=1&rel=0&modestbranding=1';
       });
 
       // Fermer la modale au clic sur la croix
       closeModal.addEventListener('click', () => {
-        videoModal.style.display = 'none'; // Cache la popup
-
-        // On retire l'autoplay et on recharge le lien pour couper le son instantanément
-        modalVideo.src = modalVideo.src.replace("&autoplay=1", "");
+        videoModal.style.display = 'none';
+        // Vide le src pour stopper la vidéo et le son immédiatement
+        modalVideo.src = '';
       });
 
       // Optionnel : Met à jour le texte du curseur immédiatement si on clique sur FR/EN pendant qu'on survole la vidéo

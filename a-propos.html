@@ -144,7 +144,8 @@
       background: var(--white);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      padding-top: 68px;
+      padding-top: 80px !important;
+      margin: 0 !important;
     }
 
     img {
@@ -959,49 +960,47 @@
 ══════════════════════════════════════════ */
     .stats-strip {
       padding: 48px 0;
-      background: var(--cream);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background: transparent;
+      border: none;
     }
 
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
+      gap: 20px;
+      background: transparent;
     }
 
     .stat-block {
-      padding: 26px 20px;
+      padding: 30px 20px;
       text-align: center;
       background: var(--white);
-      transition: background var(--transition);
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(27, 46, 75, 0.06);
+      transition: all var(--transition);
     }
 
     .stat-block:hover {
-      background: var(--cream-dark);
-    }
-
-    .stat-block__icon {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(27, 46, 75, 0.12);
+      border-color: var(--gold-light);
     }
 
     .stat-block__val {
       font-family: var(--font-display);
-      font-size: 1.65rem;
+      font-size: 1.85rem;
       font-weight: 700;
       color: var(--navy);
       line-height: 1;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
 
     .stat-block__label {
-      font-size: 0.74rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      line-height: 1.45;
+      line-height: 1.4;
+      font-weight: 500;
     }
 
     /* ══════════════════════════════════════════
@@ -1829,6 +1828,128 @@
         gap: 16px;
       }
     }
+
+    /* ══════════════════════════════════════════
+       🚀 PATCH MODERNISATION (DESKTOP & MOBILE) 🚀
+    ══════════════════════════════════════════ */
+
+    /* 1. Adoucissement du design global (Fini les bordures dures) */
+    .acc-item {
+      border: none !important;
+      background: var(--cream) !important;
+      box-shadow: 0 4px 15px rgba(27, 46, 75, 0.03) !important;
+    }
+
+    .acc-item.is-open {
+      background: var(--white) !important;
+      box-shadow: 0 8px 30px rgba(201, 169, 110, 0.12) !important;
+    }
+
+    .testi-card,
+    .phil-card,
+    .life-card {
+      border: none !important;
+      box-shadow: 0 6px 20px rgba(27, 46, 75, 0.04) !important;
+    }
+
+    @media (max-width: 768px) {
+
+      /* 2. Réorganisation propre de la photo et des badges */
+      .portrait-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+      }
+
+      /* Le badge "Examinatrice" passe au-dessus de la photo */
+      .portrait-float {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        margin-bottom: -20px !important;
+        z-index: 2;
+        width: 85%;
+        padding: 10px !important;
+      }
+
+      /* Le badge "Diplômes" passe en dessous de la photo, format carte */
+      .portrait-badge {
+        position: relative !important;
+        bottom: 0 !important;
+        left: auto !important;
+        transform: none !important;
+        margin-top: -25px !important;
+        z-index: 2;
+        width: 95%;
+        white-space: normal !important;
+        text-align: center;
+        flex-direction: column;
+        padding: 16px !important;
+        border-radius: 16px !important;
+      }
+
+      .portrait-badge__icon {
+        margin-bottom: 8px;
+      }
+
+      /* 3. Menu accordéon scrollable (Style App Mobile) */
+      .acc-nav {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        padding-bottom: 12px !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+      }
+
+      .acc-nav::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+      }
+
+      .acc-nav-btn {
+        flex: 0 0 auto !important;
+        white-space: nowrap;
+        background: var(--cream) !important;
+        border-radius: 100px !important;
+        padding: 10px 18px !important;
+      }
+
+      .acc-nav-btn.active {
+        background: var(--navy) !important;
+      }
+
+      /* 4. Typographie et aération mobile */
+      .hero__name {
+        font-size: 2.6rem !important;
+      }
+
+      .hero__role {
+        font-size: 1rem !important;
+      }
+
+      .section-title {
+        font-size: 2.1rem !important;
+      }
+
+      .prose p {
+        font-size: 1rem !important;
+        line-height: 1.65 !important;
+      }
+
+      /* On empêche les éléments de la checklist de se déformer */
+      .check-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .check-item__icon {
+        margin-bottom: 8px;
+      }
+    }
   </style>
 
   <link rel="stylesheet" href="./responsive.css">
@@ -1859,12 +1980,23 @@
 
         <!-- Texte gauche -->
         <div class="fade-up">
-          <div class="hero__breadcrumb lang-fr"><a href="./index.html">Accueil</a> &nbsp;/&nbsp; <span>À propos</span>
+          <div class="hero__breadcrumb lang-fr">
+            <a href="./index.html">Accueil</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>À propos</span>
           </div>
-          <div class="hero__breadcrumb lang-en"><a href="./index.html">Home</a> &nbsp;/&nbsp; <span>About</span></div>
+          <div class="hero__breadcrumb lang-en">
+            <a href="./index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>About</span>
+          </div>
 
-          <div class="hero__eyebrow lang-fr">👋 Professeure de FLE � Examinatrice DELF-DALF</div>
-          <div class="hero__eyebrow lang-en">👋 French Teacher � DELF-DALF Examiner</div>
+          <div class="hero__eyebrow lang-fr">
+            <span class="lang-fr">👋 Professeure de FLE — Examinatrice DELF-DALF</span>
+          </div>
+          <div class="hero__eyebrow lang-en">
+            <span class="lang-en">👋 French Teacher — DELF-DALF Examiner</span>
+          </div>
 
           <h1 class="hero__name lang-fr" id="hero-name"><em>Darya</em> Feral</h1>
           <p class="hero__name lang-en" aria-hidden="true" id="hero-name-en"><em>Darya</em> Feral</p>
@@ -1890,22 +2022,34 @@
 
           <div class="hero__stats-row">
             <div class="hero__stat">
-              <span class="hero__stat__val">5+</span>
+              <span class="hero__stat__val">
+                <span class="lang-fr">5+</span>
+                <span class="lang-en">5+</span>
+              </span>
               <span class="hero__stat__lbl lang-fr">Années<br>d'enseignement</span>
               <span class="hero__stat__lbl lang-en">Years<br>teaching</span>
             </div>
             <div class="hero__stat">
-              <span class="hero__stat__val">200+</span>
+              <span class="hero__stat__val">
+                <span class="lang-fr">200+</span>
+                <span class="lang-en">200+</span>
+              </span>
               <span class="hero__stat__lbl lang-fr">Heures<br>de cours</span>
               <span class="hero__stat__lbl lang-en">Hours<br>of lessons</span>
             </div>
             <div class="hero__stat">
-              <span class="hero__stat__val">100%</span>
+              <span class="hero__stat__val">
+                <span class="lang-fr">100%</span>
+                <span class="lang-en">100%</span>
+              </span>
               <span class="hero__stat__lbl lang-fr">Réussite<br>DELF/DALF<br>à ce jour</span>
               <span class="hero__stat__lbl lang-en">DELF/DALF<br>pass rate<br>to date</span>
             </div>
             <div class="hero__stat">
-              <span class="hero__stat__val">3</span>
+              <span class="hero__stat__val">
+                <span class="lang-fr">3</span>
+                <span class="lang-en">3</span>
+              </span>
               <span class="hero__stat__lbl lang-fr">Langues<br>parlées</span>
               <span class="hero__stat__lbl lang-en">Languages<br>spoken</span>
             </div>
@@ -1916,7 +2060,10 @@
         <div class="fade-up">
           <div class="portrait-wrap">
             <div class="portrait-float">
-              <div class="portrait-float__val">🏅</div>
+              <div class="portrait-float__val">
+                <span class="lang-fr">🏅</span>
+                <span class="lang-en">🏅</span>
+              </div>
               <div class="portrait-float__lbl lang-fr">Examinatrice<br>officielle<br>DELF-DALF</div>
               <div class="portrait-float__lbl lang-en">Official<br>DELF-DALF<br>Examiner</div>
             </div>
@@ -1927,13 +2074,13 @@
                 style="width: 100%; height: 100%; object-fit: cover; display: block;">
             </div>
 
-            <div class="portrait-badge">
-              <span class="portrait-badge__icon">🎓</span>
-              <div class="portrait-badge__inner">
-                <span class="portrait-badge__title lang-fr">Master · Licence · DPAFP · DELF-DALF</span>
-                <span class="portrait-badge__title lang-en">Master's · Bachelor's · DPAFP · DELF-DALF</span>
-                <span class="portrait-badge__sub lang-fr">Genève · Montréal · Alliance Française · FEI</span>
-                <span class="portrait-badge__sub lang-en">Geneva · Montreal · Alliance Française · FEI</span>
+            <div class="about__photo-badge">
+              <span class="about__photo-badge-num">★★★★★</span>
+              <div class="about__photo-badge-label lang-fr">
+                Note 5/5<br>Amériques • Europe • Asie • Afrique • Moyen-Orient
+              </div>
+              <div class="about__photo-badge-label lang-en">
+                Rated 5/5<br>Americas • Europe • Asia • Africa • Middle East
               </div>
             </div>
           </div>
@@ -1951,27 +2098,42 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-block">
-          <div class="stat-block__icon">🎓</div>
+          <div class="stat-block__icon">
+            <span class="lang-fr">🎓</span>
+            <span class="lang-en">🎓</span>
+          </div>
           <div class="stat-block__val lang-fr">Master</div>
           <div class="stat-block__val lang-en">Master's</div>
           <div class="stat-block__label lang-fr">Littérature française<br>Université de Genève</div>
           <div class="stat-block__label lang-en">French Literature<br>University of Geneva</div>
         </div>
         <div class="stat-block">
-          <div class="stat-block__icon">🏅</div>
-          <div class="stat-block__val">DPAFP</div>
+          <div class="stat-block__icon">
+            <span class="lang-fr">🏅</span>
+            <span class="lang-en">🏅</span>
+          </div>
+          <div class="stat-block__val">
+            <span class="lang-fr">DPAFP</span>
+            <span class="lang-en">DPAFP</span>
+          </div>
           <div class="stat-block__label lang-fr">Alliance Française Paris<br>Certification pédagogique</div>
           <div class="stat-block__label lang-en">Alliance Française Paris<br>Teaching certification</div>
         </div>
         <div class="stat-block">
-          <div class="stat-block__icon">✅</div>
+          <div class="stat-block__icon">
+            <span class="lang-fr">✅</span>
+            <span class="lang-en">✅</span>
+          </div>
           <div class="stat-block__val lang-fr">Examinatrice</div>
           <div class="stat-block__val lang-en">Examiner</div>
           <div class="stat-block__label lang-fr">DELF-DALF officielle<br>France Éducation International</div>
           <div class="stat-block__label lang-en">Official DELF-DALF<br>France Éducation International</div>
         </div>
         <div class="stat-block">
-          <div class="stat-block__icon">🎓</div>
+          <div class="stat-block__icon">
+            <span class="lang-fr">🎓</span>
+            <span class="lang-en">🎓</span>
+          </div>
           <div class="stat-block__val lang-fr">Licence</div>
           <div class="stat-block__val lang-en">Bachelor's</div>
           <div class="stat-block__label lang-fr">Littérature<br>Université de Montréal</div>
@@ -1992,24 +2154,39 @@
         <!-- Nav latérale (desktop) / pill row (mobile) -->
         <nav class="acc-nav" aria-label="Sections à propos">
           <button class="acc-nav-btn active" data-target="why" onclick="navClick(this,'why')">
-            <span class="acc-nav-btn__icon">💡</span>
+            <span class="acc-nav-btn__icon">
+              <span class="lang-fr">💡</span>
+              <span class="lang-en">💡</span>
+            </span>
             <span class="lang-fr" lang="fr">Pourquoi j'enseigne</span><span class="lang-en" lang="en">Why I teach</span>
           </button>
           <button class="acc-nav-btn" data-target="journey" onclick="navClick(this,'journey')">
-            <span class="acc-nav-btn__icon">📍</span>
+            <span class="acc-nav-btn__icon">
+              <span class="lang-fr">📍</span>
+              <span class="lang-en">📍</span>
+            </span>
             <span class="lang-fr" lang="fr">Mon parcours</span><span class="lang-en" lang="en">My journey</span>
           </button>
           <button class="acc-nav-btn" data-target="philo" onclick="navClick(this,'philo')">
-            <span class="acc-nav-btn__icon">🎯</span>
+            <span class="acc-nav-btn__icon">
+              <span class="lang-fr">🎯</span>
+              <span class="lang-en">🎯</span>
+            </span>
             <span class="lang-fr" lang="fr">Ma philosophie</span><span class="lang-en" lang="en">My philosophy</span>
           </button>
           <button class="acc-nav-btn" data-target="diff" onclick="navClick(this,'diff')">
-            <span class="acc-nav-btn__icon">✦</span>
+            <span class="acc-nav-btn__icon">
+              <span class="lang-fr">✦</span>
+              <span class="lang-en">✦</span>
+            </span>
             <span class="lang-fr" lang="fr">Ce qui me différencie</span><span class="lang-en" lang="en">What sets me
               apart</span>
           </button>
           <button class="acc-nav-btn" data-target="life" onclick="navClick(this,'life')">
-            <span class="acc-nav-btn__icon">🌍</span>
+            <span class="acc-nav-btn__icon">
+              <span class="lang-fr">🌍</span>
+              <span class="lang-en">🌍</span>
+            </span>
             <span class="lang-fr" lang="fr">Ma vie hors cours</span><span class="lang-en" lang="en">My life beyond
               teaching</span>
           </button>
@@ -2021,14 +2198,20 @@
           <!-- 1. POURQUOI J'ENSEIGNE -->
           <div class="acc-item is-open" id="acc-why">
             <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="true">
-              <div class="acc-header__icon-wrap">💡</div>
+              <div class="acc-header__icon-wrap">
+                <span class="lang-fr">💡</span>
+                <span class="lang-en">💡</span>
+              </div>
               <div class="acc-header__text">
                 <div class="acc-header__title lang-fr">Pourquoi j'enseigne le français</div>
                 <div class="acc-header__title lang-en">Why I teach French</div>
                 <div class="acc-header__sub lang-fr">Ma passion et mon histoire</div>
                 <div class="acc-header__sub lang-en">My passion and my story</div>
               </div>
-              <div class="acc-header__chevron">▲</div>
+              <div class="acc-header__chevron">
+                <span class="lang-fr">▲</span>
+                <span class="lang-en">▲</span>
+              </div>
             </button>
             <div class="acc-body">
               <div class="prose lang-fr">
@@ -2062,14 +2245,20 @@
           <!-- 2. MON PARCOURS -->
           <div class="acc-item" id="acc-journey">
             <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-              <div class="acc-header__icon-wrap">📍</div>
+              <div class="acc-header__icon-wrap">
+                <span class="lang-fr">📍</span>
+                <span class="lang-en">📍</span>
+              </div>
               <div class="acc-header__text">
                 <div class="acc-header__title lang-fr">Mon parcours</div>
                 <div class="acc-header__title lang-en">My journey</div>
-                <div class="acc-header__sub lang-fr">Formation � Certification � Expérience</div>
-                <div class="acc-header__sub lang-en">Training � Certification � Experience</div>
+                <div class="acc-header__sub lang-fr">Formation • Certification • Expérience</div>
+                <div class="acc-header__sub lang-en">Training • Certification • Experience</div>
               </div>
-              <div class="acc-header__chevron">▲</div>
+              <div class="acc-header__chevron">
+                <span class="lang-fr">▲</span>
+                <span class="lang-en">▲</span>
+              </div>
             </button>
             <div class="acc-body">
               <div class="timeline">
@@ -2126,14 +2315,20 @@
           <!-- 3. PHILOSOPHIE -->
           <div class="acc-item" id="acc-philo">
             <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-              <div class="acc-header__icon-wrap">🎯</div>
+              <div class="acc-header__icon-wrap">
+                <span class="lang-fr">🎯</span>
+                <span class="lang-en">🎯</span>
+              </div>
               <div class="acc-header__text">
                 <div class="acc-header__title lang-fr">Ma philosophie d'enseignement</div>
                 <div class="acc-header__title lang-en">My teaching philosophy</div>
                 <div class="acc-header__sub lang-fr">Vivant, pratique, personnalisé</div>
                 <div class="acc-header__sub lang-en">Living, practical, personalized</div>
               </div>
-              <div class="acc-header__chevron">▲</div>
+              <div class="acc-header__chevron">
+                <span class="lang-fr">▲</span>
+                <span class="lang-en">▲</span>
+              </div>
             </button>
             <div class="acc-body">
               <div class="prose lang-fr">
@@ -2160,46 +2355,70 @@
               </div>
               <div class="phil-grid lang-fr">
                 <div class="phil-card">
-                  <div class="phil-card__icon">🗣️</div>
+                  <div class="phil-card__icon">
+                    <span class="lang-fr">🗣️</span>
+                    <span class="lang-en">🗣️</span>
+                  </div>
                   <div class="phil-card__title">Pratique dès le 1er cours</div>
                   <div class="phil-card__desc">Pas d'attente — vous parlez et écrivez dès la première séance.</div>
                 </div>
                 <div class="phil-card">
-                  <div class="phil-card__icon">📰</div>
+                  <div class="phil-card__icon">
+                    <span class="lang-fr">📰</span>
+                    <span class="lang-en">📰</span>
+                  </div>
                   <div class="phil-card__title">Documents authentiques</div>
                   <div class="phil-card__desc">Podcasts, articles, films — le français vivant d'aujourd'hui.</div>
                 </div>
                 <div class="phil-card">
-                  <div class="phil-card__icon">🎨</div>
+                  <div class="phil-card__icon">
+                    <span class="lang-fr">🎨</span>
+                    <span class="lang-en">🎨</span>
+                  </div>
                   <div class="phil-card__title">Adapté à vos passions</div>
                   <div class="phil-card__desc">Architecture, gastronomie, cinéma… la grammaire par ce qui vous inspire.
                   </div>
                 </div>
                 <div class="phil-card">
-                  <div class="phil-card__icon">🌱</div>
+                  <div class="phil-card__icon">
+                    <span class="lang-fr">🌱</span>
+                    <span class="lang-en">🌱</span>
+                  </div>
                   <div class="phil-card__title">Progression visible</div>
                   <div class="phil-card__desc">Chaque cours est une étape concrète vers votre objectif.</div>
                 </div>
               </div>
               <div class="phil-grid lang-en">
                 <div class="phil-card">
-                  <div class="phil-card__icon">🗣️</div>
+                  <div class="phil-card__icon">
+                    <span class="lang-fr">🗣️</span>
+                    <span class="lang-en">🗣️</span>
+                  </div>
                   <div class="phil-card__title">Practice from lesson one</div>
                   <div class="phil-card__desc">No waiting — you speak and write from the very first session.</div>
                 </div>
                 <div class="phil-card">
-                  <div class="phil-card__icon">📰</div>
+                  <div class="phil-card__icon">
+                    <span class="lang-fr">📰</span>
+                    <span class="lang-en">📰</span>
+                  </div>
                   <div class="phil-card__title">Authentic materials</div>
                   <div class="phil-card__desc">Podcasts, articles, films — living French as spoken today.</div>
                 </div>
                 <div class="phil-card">
-                  <div class="phil-card__icon">🎨</div>
+                  <div class="phil-card__icon">
+                    <span class="lang-fr">🎨</span>
+                    <span class="lang-en">🎨</span>
+                  </div>
                   <div class="phil-card__title">Tailored to your passions</div>
                   <div class="phil-card__desc">Architecture, gastronomy, cinema… grammar through what inspires you.
                   </div>
                 </div>
                 <div class="phil-card">
-                  <div class="phil-card__icon">🌱</div>
+                  <div class="phil-card__icon">
+                    <span class="lang-fr">🌱</span>
+                    <span class="lang-en">🌱</span>
+                  </div>
                   <div class="phil-card__title">Visible progress</div>
                   <div class="phil-card__desc">Each lesson is a concrete step toward your goal.</div>
                 </div>
@@ -2210,14 +2429,20 @@
           <!-- 4. CE QUI ME DIFFÉRENCIE -->
           <div class="acc-item" id="acc-diff">
             <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-              <div class="acc-header__icon-wrap">✦</div>
+              <div class="acc-header__icon-wrap">
+                <span class="lang-fr">✦</span>
+                <span class="lang-en">✦</span>
+              </div>
               <div class="acc-header__text">
                 <div class="acc-header__title lang-fr">Ce qui me différencie</div>
                 <div class="acc-header__title lang-en">What sets me apart</div>
                 <div class="acc-header__sub lang-fr">Au-delà des diplômes</div>
                 <div class="acc-header__sub lang-en">Beyond the degrees</div>
               </div>
-              <div class="acc-header__chevron">▲</div>
+              <div class="acc-header__chevron">
+                <span class="lang-fr">▲</span>
+                <span class="lang-en">▲</span>
+              </div>
             </button>
             <div class="acc-body">
               <div class="prose lang-fr">
@@ -2231,62 +2456,92 @@
               </div>
               <ul class="diff-list lang-fr">
                 <li class="diff-item">
-                  <div class="diff-item__icon">📄</div>
+                  <div class="diff-item__icon">
+                    <span class="lang-fr">📄</span>
+                    <span class="lang-en">📄</span>
+                  </div>
                   <div class="diff-item__text">
-                    <div class="diff-item__title">Fiche récapitulative personnalisée après chaque cours</div>Un résumé
-                    de vos progrès et des points à consolider. Vous savez toujours exactement où vous en êtes.
+                    <div class="diff-item__title">Fiche récapitulative personnalisée après chaque cours</div>
+                    <span>Un résumé de vos progrès et des points à consolider. Vous savez toujours exactement où vous en
+                      êtes.</span>
                   </div>
                 </li>
                 <li class="diff-item">
-                  <div class="diff-item__icon">🏅</div>
+                  <div class="diff-item__icon">
+                    <span class="lang-fr">🏅</span>
+                    <span class="lang-en">🏅</span>
+                  </div>
                   <div class="diff-item__text">
-                    <div class="diff-item__title">Examinatrice officielle DELF-DALF</div>Une connaissance précise des
-                    pièges et des stratégies gagnantes pour vous préparer à l'examen de l'intérieur.
+                    <div class="diff-item__title">Examinatrice officielle DELF-DALF</div>
+                    <span>Une connaissance précise des pièges et des stratégies gagnantes pour vous préparer à l'examen
+                      de l'intérieur.</span>
                   </div>
                 </li>
                 <li class="diff-item">
-                  <div class="diff-item__icon">🤝</div>
+                  <div class="diff-item__icon">
+                    <span class="lang-fr">🤝</span>
+                    <span class="lang-en">🤝</span>
+                  </div>
                   <div class="diff-item__text">
-                    <div class="diff-item__title">Atmosphère bienveillante et encourageante</div>Chaque petite victoire
-                    est célébrée — progresser dans une langue demande de la confiance en soi.
+                    <div class="diff-item__title">Atmosphère bienveillante et encourageante</div>
+                    <span>Chaque petite victoire est célébrée — progresser dans une langue demande de la confiance en
+                      soi.</span>
                   </div>
                 </li>
                 <li class="diff-item">
-                  <div class="diff-item__icon">🔍</div>
+                  <div class="diff-item__icon">
+                    <span class="lang-fr">🔍</span>
+                    <span class="lang-en">🔍</span>
+                  </div>
                   <div class="diff-item__text">
-                    <div class="diff-item__title">Compréhension en profondeur de vos erreurs</div>Je ne corrige pas
-                    seulement vos erreurs — je comprends pourquoi vous les faites et comment restructurer votre façon de
-                    penser.
+                    <div class="diff-item__title">Compréhension en profondeur de vos erreurs</div>
+                    <span>Je ne corrige pas seulement vos erreurs — je comprends pourquoi vous les faites et comment
+                      restructurer votre façon de penser.</span>
                   </div>
                 </li>
               </ul>
               <ul class="diff-list lang-en">
                 <li class="diff-item">
-                  <div class="diff-item__icon">📄</div>
+                  <div class="diff-item__icon">
+                    <span class="lang-fr">📄</span>
+                    <span class="lang-en">📄</span>
+                  </div>
                   <div class="diff-item__text">
-                    <div class="diff-item__title">Personalized recap sheet after every lesson</div>A summary of your
-                    progress and points to consolidate. You always know exactly where you stand.
+                    <div class="diff-item__title">Personalized recap sheet after every lesson</div>
+                    <span>A summary of your progress and points to consolidate. You always know exactly where you
+                      stand.</span>
                   </div>
                 </li>
                 <li class="diff-item">
-                  <div class="diff-item__icon">🏅</div>
+                  <div class="diff-item__icon">
+                    <span class="lang-fr">🏅</span>
+                    <span class="lang-en">🏅</span>
+                  </div>
                   <div class="diff-item__text">
-                    <div class="diff-item__title">Official DELF-DALF examiner status</div>Precise knowledge of pitfalls
-                    and winning strategies to prepare you for the exam from the inside.
+                    <div class="diff-item__title">Official DELF-DALF examiner status</div>
+                    <span>Precise knowledge of pitfalls and winning strategies to prepare you for the exam from the
+                      inside.</span>
                   </div>
                 </li>
                 <li class="diff-item">
-                  <div class="diff-item__icon">🤝</div>
+                  <div class="diff-item__icon">
+                    <span class="lang-fr">🤝</span>
+                    <span class="lang-en">🤝</span>
+                  </div>
                   <div class="diff-item__text">
-                    <div class="diff-item__title">Supportive, encouraging atmosphere</div>Every small victory is
-                    celebrated — progressing in a language requires self-confidence.
+                    <div class="diff-item__title">Supportive, encouraging atmosphere</div>
+                    <span>Every small victory is celebrated — progressing in a language requires self-confidence.</span>
                   </div>
                 </li>
                 <li class="diff-item">
-                  <div class="diff-item__icon">🔍</div>
+                  <div class="diff-item__icon">
+                    <span class="lang-fr">🔍</span>
+                    <span class="lang-en">🔍</span>
+                  </div>
                   <div class="diff-item__text">
-                    <div class="diff-item__title">Deep understanding of your mistakes</div>I don't just correct your
-                    errors — I understand why you make them and how to restructure your thinking.
+                    <div class="diff-item__title">Deep understanding of your mistakes</div>
+                    <span>I don't just correct your errors — I understand why you make them and how to restructure your
+                      thinking.</span>
                   </div>
                 </li>
               </ul>
@@ -2296,14 +2551,20 @@
           <!-- 5. VIE HORS COURS -->
           <div class="acc-item" id="acc-life">
             <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-              <div class="acc-header__icon-wrap">🌍</div>
-              <div class="acc-header__text">
-                <div class="acc-header__title lang-fr">Ma vie au-delà de l'enseignement</div>
-                <div class="acc-header__title lang-en">My life beyond teaching</div>
-                <div class="acc-header__sub lang-fr">Littérature, théâtre, voyages &amp; empathie</div>
-                <div class="acc-header__sub lang-en">Literature, theatre, travel &amp; empathy</div>
+              <div class="acc-header__icon-wrap">
+                <span class="lang-fr">🌍</span>
+                <span class="lang-en">🌍</span>
               </div>
-              <div class="acc-header__chevron">▲</div>
+              <div class="acc-header__text">
+                <div class="acc-header__title lang-fr">Ma vie hors cours</div>
+                <div class="acc-header__title lang-en">My life beyond teaching</div>
+                <div class="acc-header__sub lang-fr">Passions • Voyages • Équilibre</div>
+                <div class="acc-header__sub lang-en">Passions • Travels • Balance</div>
+              </div>
+              <div class="acc-header__chevron">
+                <span class="lang-fr">▲</span>
+                <span class="lang-en">▲</span>
+              </div>
             </button>
             <div class="acc-body">
               <div class="prose lang-fr">
@@ -2324,28 +2585,44 @@
                   to make yourself understood. I bring this empathy back to my lessons.</p>
               </div>
               <div class="life-grid lang-fr">
-                <div class="life-card"><span class="life-card__icon">📚</span>
+                <div class="life-card">
+                  <div class="life-card__icon">
+                    <span class="lang-fr">📚</span>
+                    <span class="lang-en">📚</span>
+                  </div>
                   <div>
                     <div class="life-card__title">Littérature &amp; Théâtre</div>
                     <div class="life-card__desc">Pièces contemporaines, auteurs actuels — une source constante de
                       recommandations culturelles pour mes étudiants.</div>
                   </div>
                 </div>
-                <div class="life-card"><span class="life-card__icon">✈️</span>
+                <div class="life-card">
+                  <div class="life-card__icon">
+                    <span class="lang-fr">✈️</span>
+                    <span class="lang-en">✈️</span>
+                  </div>
                   <div>
                     <div class="life-card__title">Voyages</div>
                     <div class="life-card__desc">Chaque nouveau pays me rappelle l'expérience d'être apprenant — une
                       empathie que j'apporte dans mes cours.</div>
                   </div>
                 </div>
-                <div class="life-card"><span class="life-card__icon">🇮🇷</span>
+                <div class="life-card">
+                  <div class="life-card__icon">
+                    <span class="lang-fr">🇮🇷</span>
+                    <span class="lang-en">🇮🇷</span>
+                  </div>
                   <div>
                     <div class="life-card__title">Bilingue farsi-français</div>
                     <div class="life-card__desc">Atout précieux pour les apprenants persanophones — une compréhension
                       des défis spécifiques.</div>
                   </div>
                 </div>
-                <div class="life-card"><span class="life-card__icon">🏙️</span>
+                <div class="life-card">
+                  <div class="life-card__icon">
+                    <span class="lang-fr">🏙️</span>
+                    <span class="lang-en">🏙️</span>
+                  </div>
                   <div>
                     <div class="life-card__title">Parisienne dans l'âme</div>
                     <div class="life-card__desc">Grandie à Paris, formée à Montréal et Genève — un bagage culturel
@@ -2363,6 +2640,10 @@
                 </div>
                 <div class="life-card"><span class="life-card__icon">✈️</span>
                   <div>
+                    <div class="life-card__icon">
+                      <span class="lang-fr">📖</span>
+                      <span class="lang-en">📖</span>
+                    </div>
                     <div class="life-card__title">Travel</div>
                     <div class="life-card__desc">Every new country reminds me of the learner experience — empathy I
                       bring back to every lesson.</div>
@@ -2411,44 +2692,85 @@
       </div>
       <div class="checklist-grid fade-up lang-fr">
         <div class="check-item">
-          <div class="check-item__icon">☑</div>Vous êtes un adulte motivé avec un objectif précis
+          <div class="check-item__icon">
+            <span class="lang-fr">☑</span>
+            <span class="lang-en">☑</span>
+          </div>
+          <span>Vous êtes un adulte motivé avec un objectif précis</span>
         </div>
         <div class="check-item">
-          <div class="check-item__icon">☑</div>Vous souhaitez des cours vraiment personnalisés — pas un programme tout
-          fait
+          <div class="check-item__icon">
+            <span class="lang-fr">☑</span>
+            <span class="lang-en">☑</span>
+          </div>
+          <span>Vous souhaitez des cours vraiment personnalisés — pas un programme tout fait</span>
         </div>
         <div class="check-item">
-          <div class="check-item__icon">☑</div>Vous voulez parler et/ou écrire dès les premiers cours
+          <div class="check-item__icon">
+            <span class="lang-fr">☑</span>
+            <span class="lang-en">☑</span>
+          </div>
+          <span>Vous voulez parler et/ou écrire dès les premiers cours</span>
         </div>
         <div class="check-item">
-          <div class="check-item__icon">☑</div>Vous cherchez une professeure qui célèbre vos progrès et vous soutient
+          <div class="check-item__icon">
+            <span class="lang-fr">☑</span>
+            <span class="lang-en">☑</span>
+          </div>
+          <span>Vous cherchez une professeure qui célèbre vos progrès et vous soutient</span>
         </div>
         <div class="check-item">
-          <div class="check-item__icon">☑</div>Vous avez besoin de flexibilité (cours en ligne, adaptation au fuseau
-          horaire)
+          <div class="check-item__icon">
+            <span class="lang-fr">☑</span>
+            <span class="lang-en">☑</span>
+          </div>
+          <span>Vous avez besoin de flexibilité (cours en ligne, adaptation au fuseau horaire)</span>
         </div>
       </div>
       <div class="checklist-grid fade-up lang-en">
         <div class="check-item">
-          <div class="check-item__icon">☑</div>You're a motivated adult with a specific goal
+          <div class="check-item__icon">
+            <span class="lang-fr">☑</span>
+            <span class="lang-en">☑</span>
+          </div>
+          <span>You're a motivated adult with a specific goal</span>
         </div>
         <div class="check-item">
-          <div class="check-item__icon">☑</div>You want truly personalized lessons — not a one-size-fits-all program
+          <div class="check-item__icon">
+            <span class="lang-fr">☑</span>
+            <span class="lang-en">☑</span>
+          </div>
+          <span>You want truly personalized lessons — not a one-size-fits-all program</span>
         </div>
         <div class="check-item">
-          <div class="check-item__icon">☑</div>You want to speak and/or write from the very first lessons
+          <div class="check-item__icon">
+            <span class="lang-fr">☑</span>
+            <span class="lang-en">☑</span>
+          </div>
+          <span>You want to speak and/or write from the very first lessons</span>
         </div>
         <div class="check-item">
-          <div class="check-item__icon">☑</div>You're looking for a teacher who celebrates your progress and supports
-          you
+          <div class="check-item__icon">
+            <span class="lang-fr">☑</span>
+            <span class="lang-en">☑</span>
+          </div>
+          <span>You're looking for a teacher who celebrates your progress and supports you</span>
         </div>
         <div class="check-item">
-          <div class="check-item__icon">☑</div>You need flexibility (online lessons, time zone adaptation)
+          <div class="check-item__icon">
+            <span class="lang-fr">☑</span>
+            <span class="lang-en">☑</span>
+          </div>
+          <span>You need flexibility (online lessons, time zone adaptation)</span>
         </div>
       </div>
       <div style="text-align:center; margin-top:36px;" class="fade-up">
-        <a href="#cta" class="btn btn--gold btn--lg lang-fr">📧 Cours d'essai gratuit (30 min)</a>
-        <a href="#cta" class="btn btn--gold btn--lg lang-en">📧 Free trial class (30 min)</a>
+        <a href="#cta" class="btn btn--gold btn--lg lang-fr">
+          <span class="lang-fr">📧 Cours d'essai gratuit (30 min)</span>
+        </a>
+        <a href="#cta" class="btn btn--gold btn--lg lang-en">
+          <span class="lang-en">📧 Free trial class (30 min)</span>
+        </a>
       </div>
     </div>
   </section>
@@ -2541,8 +2863,8 @@
             <div class="testi-avatar" style="background:var(--cream-dark);color:var(--navy);">M</div>
             <div>
               <div class="testi-name">Maziyar</div>
-              <div class="testi-meta lang-fr">Iran � Architecte � Français professionnel</div>
-              <div class="testi-meta lang-en">Iran � Architect � Professional French</div>
+              <div class="testi-persona__info lang-fr">Iran • Architecte • Français professionnel</div>
+              <div class="testi-persona__info lang-en">Iran • Architect • Professional French</div>
               <span class="testi-prog-tag lang-fr">Programme Complet</span>
               <span class="testi-prog-tag lang-en">Complete Program</span>
             </div>
@@ -2589,8 +2911,8 @@
             <div class="testi-avatar" style="background:var(--cream-dark);color:var(--navy);">T</div>
             <div>
               <div class="testi-name">Thanatcha</div>
-              <div class="testi-meta lang-fr">Thaïlande � DELF A2 réussi ✓</div>
-              <div class="testi-meta lang-en">Thailand � DELF A2 passed ✓</div>
+              <div class="testi-persona__info lang-fr">Thaïlande • DELF A2 réussi ✓</div>
+              <div class="testi-persona__info lang-en">Thailand • DELF A2 passed ✓</div>
               <span class="testi-prog-tag lang-fr">Préparation DELF-DALF</span>
               <span class="testi-prog-tag lang-en">DELF-DALF Preparation</span>
             </div>
@@ -2710,68 +3032,6 @@
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
 
-  <!-- ── Sticky CTA mobile ── -->
-  <style>
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 800;
-      padding: 12px 16px 14px;
-      background: linear-gradient(135deg, var(--navy, #1B2E4B) 0%, #253d63 100%);
-      border-top: 1px solid rgba(201, 169, 110, 0.3);
-      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25);
-    }
-
-    .sticky-cta a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 8px;
-      background: var(--gold, #C9A96E);
-      color: var(--navy, #1B2E4B);
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(201, 169, 110, 0.4);
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .sticky-cta a:active {
-      transform: scale(0.98);
-    }
-
-    .sticky-cta .trust-line {
-      text-align: center;
-      font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.45);
-      margin-top: 6px;
-      letter-spacing: 0.03em;
-    }
-
-    @media(max-width:768px) {
-      .sticky-cta {
-        display: block;
-      }
-    }
-
-    @media(min-width:769px) {
-      .sticky-cta {
-        display: none !important;
-      }
-    }
-  </style>
-  <div class="sticky-cta" aria-label="Réserver un cours d'essai">
-    <a href="./contact.html" class="lang-fr">🎓 Cours d'essai gratuit — 30 min</a>
-    <a href="./contact.html" class="lang-en">🎓 Free trial class — 30 min</a>
-    <p class="trust-line lang-fr">Sans engagement � Réponse sous 24h</p>
-    <p class="trust-line lang-en">No commitment � Reply within 24h</p>
-  </div>
 </body>
 
 </html>

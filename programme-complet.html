@@ -102,7 +102,15 @@
       background: var(--white);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      padding-top: 68px;
+      padding-top: 80px !important;
+      margin: 0 !important;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
     }
 
     img {
@@ -116,17 +124,9 @@
     }
 
     /* ══ LANG ══ */
-    body.en .lang-fr {
-      display: none;
-    }
-
-    body.fr .lang-en {
-      display: none;
-    }
-
-    body:not(.en):not(.fr) .lang-en {
-      display: none;
-    }
+    body.fr .lang-en, body.fr .proof-en { display: none !important; }
+    body.en .lang-fr, body.en .proof-fr { display: none !important; }
+    body:not(.en):not(.fr) .lang-en, body:not(.en):not(.fr) .proof-en { display: none !important; }
 
     /* ══ CONTAINER ══ */
     .container {
@@ -1675,8 +1675,8 @@
             <span>Complete Program</span>
           </div>
 
-          <div class="hero__eyebrow lang-fr">📘 Programme Complet · A1 → C2</div>
-          <div class="hero__eyebrow lang-en">📘 Complete Program · A1 → C2</div>
+          <div class="hero__eyebrow lang-fr">📘 Programme Complet • A1 → C2</div>
+          <div class="hero__eyebrow lang-en">📘 Complete Program • A1 → C2</div>
 
           <h1 class="hero__title" id="hero-title">
             <span class="lang-fr">De débutant à <br><em>francophone confiant</em></span>
@@ -1700,8 +1700,8 @@
             <a href="#methode" class="btn btn--outline-white lang-fr">Découvrir la méthode</a>
             <a href="#methode" class="btn btn--outline-white lang-en">Discover the method</a>
           </div>
-          <p class="hero__note lang-fr">Disponible uniquement en forfait · 5 ou 10 heures · Sans engagement</p>
-          <p class="hero__note lang-en">Available as packages only · 5 or 10 hours · No commitment</p>
+          <p class="hero__note lang-fr">Disponible uniquement en forfait • 5 ou 10 heures • Sans engagement</p>
+          <p class="hero__note lang-en">Available as packages only • 5 or 10 hours • No commitment</p>
         </div>
 
         <div class="fade-up">
@@ -1986,27 +1986,27 @@
             <span class="lang-en" lang="en">Perfect for you if…</span>
           </div>
           <ul class="forwho-box__list lang-fr">
-            <li class="forwho-item"><span class="forwho-item__icon">👔</span>Vous êtes expatrié(e) et voulez être
-              autonome en français</li>
-            <li class="forwho-item"><span class="forwho-item__icon">🎓</span>Vous êtes étudiant(e) préparant des études
-              en pays francophone</li>
-            <li class="forwho-item"><span class="forwho-item__icon">💼</span>Vous êtes professionnel(le) ayant besoin du
-              français au travail</li>
-            <li class="forwho-item"><span class="forwho-item__icon">✈️</span>Vous préparez un long séjour en France ou
-              en pays francophone</li>
-            <li class="forwho-item"><span class="forwho-item__icon">📚</span>Vous voulez une progression structurée et
-              mesurable</li>
+            <li class="forwho-item"><span class="forwho-item__icon">👔</span><span>Vous êtes expatrié(e) et voulez être
+              autonome en français</span></li>
+            <li class="forwho-item"><span class="forwho-item__icon">🎓</span><span>Vous êtes étudiant(e) préparant des études
+              en pays francophone</span></li>
+            <li class="forwho-item"><span class="forwho-item__icon">💼</span><span>Vous êtes professionnel(le) ayant besoin du
+              français au travail</span></li>
+            <li class="forwho-item"><span class="forwho-item__icon">✈️</span><span>Vous préparez un long séjour en France ou
+              en pays francophone</span></li>
+            <li class="forwho-item"><span class="forwho-item__icon">📚</span><span>Vous voulez une progression structurée et
+              mesurable</span></li>
           </ul>
           <ul class="forwho-box__list lang-en">
-            <li class="forwho-item"><span class="forwho-item__icon">👔</span>You're an expat and want to be autonomous
-              in French</li>
-            <li class="forwho-item"><span class="forwho-item__icon">🎓</span>You're a student preparing for
-              French-speaking studies</li>
-            <li class="forwho-item"><span class="forwho-item__icon">💼</span>You're a professional who needs French at
-              work</li>
-            <li class="forwho-item"><span class="forwho-item__icon">✈️</span>You're preparing a long stay in France or a
-              French-speaking country</li>
-            <li class="forwho-item"><span class="forwho-item__icon">📚</span>You want structured and measurable progress
+            <li class="forwho-item"><span class="forwho-item__icon">👔</span><span>You're an expat and want to be autonomous
+              in French</span></li>
+            <li class="forwho-item"><span class="forwho-item__icon">🎓</span><span>You're a student preparing for
+              French-speaking studies</span></li>
+            <li class="forwho-item"><span class="forwho-item__icon">💼</span><span>You're a professional who needs French at
+              work</span></li>
+            <li class="forwho-item"><span class="forwho-item__icon">✈️</span><span>You're preparing a long stay in France or a
+              French-speaking country</span></li>
+            <li class="forwho-item"><span class="forwho-item__icon">📚</span><span>You want structured and measurable progress</span>
             </li>
           </ul>
         </div>
@@ -2030,7 +2030,7 @@
             </li>
             <li class="forwho-item">
               <span class="forwho-item__icon">⚡</span>
-              Vous cherchez une solution miracle sans effort — apprendre demande du temps et de la régularité
+              <span>Vous cherchez une solution miracle sans effort — apprendre demande du temps et de la régularité</span>
             </li>
           </ul>
           <ul class="forwho-box__list lang-en">
@@ -2046,7 +2046,7 @@
             </li>
             <li class="forwho-item">
               <span class="forwho-item__icon">⚡</span>
-              You're hoping for overnight fluency — learning requires time and consistency
+              <span>You're hoping for overnight fluency — learning requires time and consistency</span>
             </li>
           </ul>
         </div>
@@ -2057,10 +2057,8 @@
           gratuit (30 min)</a>
         <a href="./contact.html" class="btn btn--gold lang-en">🎓 Start your journey today — free 30-minute trial
           lesson</a>
-        <p style="margin-top:10px;font-size:0.78rem;color:var(--text-muted);" class="lang-fr">Évaluation de niveau ·
-          Programme personnalisé · Sans engagement</p>
-        <p style="margin-top:10px;font-size:0.78rem;color:var(--text-muted);" class="lang-en">Level assessment ·
-          Personalized program · No commitment</p>
+        <p style="margin-top:10px;font-size:0.78rem;color:var(--text-muted);" class="lang-fr">Évaluation de niveau • Programme personnalisé • Sans engagement</p>
+        <p style="margin-top:10px;font-size:0.78rem;color:var(--text-muted);" class="lang-en">Level assessment • Personalized program • No commitment</p>
       </div>
     </div>
   </section>
@@ -2217,8 +2215,8 @@
             improved working with her."</p>
           <div class="testi-card__author">
             <span class="testi-card__name">Peter 🇺🇸</span>
-            <span class="testi-card__detail lang-fr">États-Unis · Niveau B1 → B2 · Programme Complet</span>
-            <span class="testi-card__detail lang-en">United States · Level B1 → B2 · Complete Program</span>
+            <span class="testi-card__detail lang-fr">États-Unis • Niveau B1 → B2 • Programme Complet</span>
+            <span class="testi-card__detail lang-en">United States • Level B1 → B2 • Complete Program</span>
           </div>
         </div>
 
@@ -2232,8 +2230,8 @@
             French language and its culture."</p>
           <div class="testi-card__author">
             <span class="testi-card__name">Latifeh 🇮🇷</span>
-            <span class="testi-card__detail lang-fr">Iran · Programme Complet</span>
-            <span class="testi-card__detail lang-en">Iran · Complete Program</span>
+            <span class="testi-card__detail lang-fr">Iran • Programme Complet</span>
+            <span class="testi-card__detail lang-en">Iran • Complete Program</span>
           </div>
         </div>
 
@@ -2257,9 +2255,9 @@
           </p>
           <div class="testi-card__author">
             <span class="testi-card__name">Maziyar 🇮🇷</span>
-            <span class="testi-card__detail lang-fr">Iran · Architecte · Français professionnel · Programme
+            <span class="testi-card__detail lang-fr">Iran • Architecte • Français professionnel • Programme
               Complet</span>
-            <span class="testi-card__detail lang-en">Iran · Architect · Professional French · Complete Program</span>
+            <span class="testi-card__detail lang-en">Iran • Architect • Professional French • Complete Program</span>
           </div>
         </div>
       </div>
@@ -2424,30 +2422,30 @@
 
         <div class="cta-checklist lang-fr">
           <div class="cta-check">
-            <div class="cta-check__icon">✓</div>Évaluer votre niveau actuel
+            <div class="cta-check__icon">✓</div><span>Évaluer votre niveau actuel</span>
           </div>
           <div class="cta-check">
-            <div class="cta-check__icon">✓</div>Discuter de vos objectifs précis
+            <div class="cta-check__icon">✓</div><span>Discuter de vos objectifs précis</span>
           </div>
           <div class="cta-check">
-            <div class="cta-check__icon">✓</div>Créer votre programme personnalisé
+            <div class="cta-check__icon">✓</div><span>Créer votre programme personnalisé</span>
           </div>
           <div class="cta-check">
-            <div class="cta-check__icon">✓</div>Découvrir ma méthode dès le 1er cours
+            <div class="cta-check__icon">✓</div><span>Découvrir ma méthode dès le 1er cours</span>
           </div>
         </div>
         <div class="cta-checklist lang-en">
           <div class="cta-check">
-            <div class="cta-check__icon">✓</div>Assess your current level
+            <div class="cta-check__icon">✓</div><span>Assess your current level</span>
           </div>
           <div class="cta-check">
-            <div class="cta-check__icon">✓</div>Discuss your specific goals
+            <div class="cta-check__icon">✓</div><span>Discuss your specific goals</span>
           </div>
           <div class="cta-check">
-            <div class="cta-check__icon">✓</div>Create your personalized program
+            <div class="cta-check__icon">✓</div><span>Create your personalized program</span>
           </div>
           <div class="cta-check">
-            <div class="cta-check__icon">✓</div>Discover my method from lesson one
+            <div class="cta-check__icon">✓</div><span>Discover my method from lesson one</span>
           </div>
         </div>
 
@@ -2458,25 +2456,20 @@
           <a href="./tarifs.html" class="btn btn--outline-white lang-fr">Voir les tarifs</a>
           <a href="./tarifs.html" class="btn btn--outline-white lang-en">View pricing</a>
         </div>
-        <p class="cta-final__note lang-fr">Disponible en forfait (5 ou 10 heures) · Annulable jusqu'à 24h avant ·
-          Réponse sous 24h en semaine, 48h le week-end</p>
-        <p class="cta-final__note lang-en">Available as packages (5 or 10 hours) · Cancellable up to 24h before ·
-          Response within 24h weekdays, 48h weekends</p>
+        <p class="cta-final__note lang-fr">Disponible en forfait (5 ou 10 heures) • Annulable jusqu'à 24h avant • Réponse sous 24h en semaine, 48h le week-end</p>
+        <p class="cta-final__note lang-en">Available as packages (5 or 10 hours) • Cancellable up to 24h before • Response within 24h weekdays, 48h weekends</p>
       </div>
     </div>
   </section>
 
   <site-footer data-base="./"></site-footer>
 
+  <!-- Sticky CTA styles handled globally by responsive.css -->
   <div class="sticky-cta" id="sticky-cta" role="complementary" aria-label="Réserver un cours d'essai gratuit">
-    <div>
-      <div class="sticky-cta__text lang-fr">Cours d'essai gratuit</div>
-      <div class="sticky-cta__text lang-en">Free trial class</div>
-      <div class="sticky-cta__sub lang-fr">30 min · Sans engagement</div>
-      <div class="sticky-cta__sub lang-en">30 min · No commitment</div>
-    </div>
-    <a href="#cta" class="btn btn--blue lang-fr" style="padding:10px 20px;font-size:0.85rem;">Réserver →</a>
-    <a href="#cta" class="btn btn--blue lang-en" style="padding:10px 20px;font-size:0.85rem;">Book →</a>
+    <a href="./contact.html" class="lang-fr">🎓 Cours d'essai gratuit — 30 min</a>
+    <a href="./contact.html" class="lang-en">🎓 Free trial class — 30 min</a>
+    <p class="trust-line lang-fr">Sans engagement • Réponse sous 24h</p>
+    <p class="trust-line lang-en">No commitment • Reply within 24h</p>
   </div>
 
   <script>

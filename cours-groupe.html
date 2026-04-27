@@ -98,7 +98,15 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      padding-top: 68px;
+      padding-top: 80px !important;
+      margin: 0 !important;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
     }
 
     h1,
@@ -202,7 +210,7 @@
 
     /* Avantages */
     .avantages {
-      padding: 100px 24px;
+      padding: 120px 24px;
       background: var(--cream);
     }
 
@@ -266,7 +274,7 @@
 
     /* Programmes */
     .programmes {
-      padding: 100px 24px;
+      padding: 120px 24px;
       background: var(--white);
     }
 
@@ -410,7 +418,7 @@
 
     /* Conditions */
     .conditions {
-      padding: 100px 24px;
+      padding: 120px 24px;
       background: var(--cream);
     }
 
@@ -463,7 +471,7 @@
 
     /* Processus */
     .processus {
-      padding: 100px 24px;
+      padding: 120px 24px;
       background: var(--white);
     }
 
@@ -512,7 +520,7 @@
 
     /* FAQ */
     .faq {
-      padding: 100px 24px;
+      padding: 120px 24px;
       background: var(--cream);
     }
 
@@ -634,17 +642,9 @@
     }
 
     /* BILINGUAL */
-    body.en .lang-fr {
-      display: none;
-    }
-
-    body.fr .lang-en {
-      display: none;
-    }
-
-    body:not(.en):not(.fr) .lang-en {
-      display: none;
-    }
+    body.fr .lang-en, body.fr .proof-en { display: none !important; }
+    body.en .lang-fr, body.en .proof-fr { display: none !important; }
+    body:not(.en):not(.fr) .lang-en, body:not(.en):not(.fr) .proof-en { display: none !important; }
 
     @media (max-width: 900px) {
       .hero-group h1 {
@@ -679,114 +679,6 @@
         font-size: 2rem;
       }
     }
-
-    /* Footer Fix */
-    .site-footer-wrapper,
-    footer {
-      background: #101e30;
-      padding: 64px 0 32px;
-      text-align: left;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .site-footer-inner,
-    .footer__inner {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 24px 40px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    }
-
-    .site-footer-brand-name,
-    .footer__brand-name {
-      font-family: var(--font-display, 'Playfair Display', serif);
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-
-    .site-footer-brand-name span,
-    .footer__brand-name span {
-      color: var(--gold, #C9A96E);
-    }
-
-    .site-footer-tagline,
-    .footer__tagline {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      max-width: 260px;
-      margin-bottom: 20px;
-    }
-
-    .site-footer-col-title,
-    .footer__col-title {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold-light, #dbbe93);
-      margin-bottom: 16px;
-    }
-
-    .site-footer-links,
-    .footer__links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .site-footer-links a,
-    .footer__links a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: color 0.2s;
-      font-size: 0.9rem;
-    }
-
-    .site-footer-links a:hover,
-    .footer__links a:hover {
-      color: var(--gold-light, #dbbe93);
-    }
-
-    .site-footer-bottom,
-    .footer__bottom {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 24px 24px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 900px) {
-
-      .site-footer-inner,
-      .footer__inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-      }
-    }
-
-    @media (max-width: 600px) {
-
-      .site-footer-inner,
-      .footer__inner {
-        grid-template-columns: 1fr;
-      }
-
-      .site-footer-bottom,
-      .footer__bottom {
-        flex-direction: column;
-        text-align: center;
-        gap: 16px;
-      }
-    }
   </style>
 
   <link rel="stylesheet" href="./responsive.css">
@@ -798,6 +690,8 @@
   <script src="./components/footer.js" defer></script>
 
   <site-header data-active="programmes" data-base="./"></site-header>
+
+  <main class="page-wrapper">
 
   <section class="hero-group">
     <div class="hero-group__inner">
@@ -1236,7 +1130,7 @@
           <div class="faq__a-inner lang-fr">Pour garantir la qualité pédagogique, tous les membres doivent avoir un
             niveau similaire (écart max : 1 sous-niveau, ex : A2/B1). Le cours d'essai gratuit permet de vérifier cela.
           </div>
-          <div class="faq-a-inner lang-en">To ensure teaching quality, all members must have a similar level (max gap:
+          <div class="faq__a-inner lang-en">To ensure teaching quality, all members must have a similar level (max gap:
             1 sub-level, e.g., A2/B1). The free trial class allows us to verify this.</div>
         </div>
       </div>
@@ -1284,10 +1178,14 @@
       <p class="fade-up lang-en">Book your free 30-minute trial class to test the format and verify that your group's
         level is homogeneous.</p>
 
-      <a href="./contact.html" class="cta-final__btn fade-up lang-fr">📝 Réserver le cours d'essai gratuit</a>
-      <a href="./contact.html" class="cta-final__btn fade-up lang-en">📝 Book the free trial class</a>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="./contact.html" class="cta-final__btn fade-up lang-fr">📝 Réserver le cours d'essai gratuit</a>
+        <a href="./contact.html" class="cta-final__btn fade-up lang-en">📝 Book the free trial class</a>
+      </div>
     </div>
   </section>
+
+  </main>
 
   <site-footer data-base="./"></site-footer>
 
@@ -1323,66 +1221,11 @@
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
 
-  <style>
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 800;
-      padding: 12px 16px 14px;
-      background: linear-gradient(135deg, var(--navy, #1B2E4B) 0%, #253d63 100%);
-      border-top: 1px solid rgba(201, 169, 110, 0.3);
-      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25);
-    }
-
-    .sticky-cta a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 8px;
-      background: var(--gold, #C9A96E);
-      color: var(--navy, #1B2E4B);
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(201, 169, 110, 0.4);
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .sticky-cta a:active {
-      transform: scale(0.98);
-    }
-
-    .sticky-cta .trust-line {
-      text-align: center;
-      font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.45);
-      margin-top: 6px;
-      letter-spacing: 0.03em;
-    }
-
-    @media(max-width:768px) {
-      .sticky-cta {
-        display: block;
-      }
-    }
-
-    @media(min-width:769px) {
-      .sticky-cta {
-        display: none !important;
-      }
-    }
-  </style>
   <div class="sticky-cta" aria-label="Réserver un cours d'essai">
     <a href="./contact.html" class="lang-fr">🎓 Cours d'essai gratuit — 30 min</a>
     <a href="./contact.html" class="lang-en">🎓 Free trial class — 30 min</a>
-    <p class="trust-line lang-fr">Sans engagement · Réponse sous 24h</p>
-    <p class="trust-line lang-en">No commitment · Reply within 24h</p>
+    <p class="trust-line lang-fr">Sans engagement • Réponse sous 24h</p>
+    <p class="trust-line lang-en">No commitment • Reply within 24h</p>
   </div>
 </body>
 

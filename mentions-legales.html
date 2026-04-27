@@ -58,7 +58,8 @@
       background: var(--white);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      padding-top: 68px
+      padding-top: 80px !important;
+      margin: 0 !important;
     }
 
     img {
@@ -72,17 +73,9 @@
     }
 
     /* Lang visibility */
-    body.en .lang-fr {
-      display: none
-    }
-
-    body.fr .lang-en {
-      display: none
-    }
-
-    body:not(.en):not(.fr) .lang-en {
-      display: none
-    }
+    body.fr .lang-en, body.fr .proof-en { display: none !important; }
+    body.en .lang-fr, body.en .proof-fr { display: none !important; }
+    body:not(.en):not(.fr) .lang-en, body:not(.en):not(.fr) .proof-en { display: none !important; }
 
     .container {
       max-width: var(--container);
@@ -762,7 +755,8 @@
         <nav class="page-hero__breadcrumb" aria-label="Fil d'Ariane">
           <a href="./index.html" class="lang-fr">Accueil</a>
           <a href="./index.html" class="lang-en">Home</a>
-          <span>›</span>
+          <span class="lang-fr">›</span>
+          <span class="lang-en">›</span>
           <span class="lang-fr">Mentions légales</span>
           <span class="lang-en">Legal Notice</span>
         </nav>
@@ -793,13 +787,15 @@
           <p class="lang-fr">Le site <strong>daryalearnfrench.com</strong> est édité par :</p>
           <p class="lang-en">The website <strong>daryalearnfrench.com</strong> is published by:</p>
           <p>
-            <strong>Darya FERAL</strong><br>
+            <strong class="lang-fr">Darya FERAL</strong>
+            <strong class="lang-en">Darya FERAL</strong><br>
             <span class="lang-fr">Professeure de français certifiée — Auto-entrepreneuse</span>
             <span class="lang-en">Certified French teacher — Self-employed</span><br>
-            SIRET : [<span class="lang-fr">à compléter</span><span class="lang-en">to be completed</span>]<br>
-            <span class="lang-fr">Adresse :</span><span class="lang-en">Address:</span> [<span class="lang-fr">à
-              compléter</span><span class="lang-en">to be completed</span>]<br>
-            Email : <a href="mailto:contact@daryalearnfrench.com">contact@daryalearnfrench.com</a>
+            <span class="lang-fr">SIRET : [à compléter]</span>
+            <span class="lang-en">SIRET: [to be completed]</span><br>
+            <span class="lang-fr">Adresse : [à compléter]</span>
+            <span class="lang-en">Address: [to be completed]</span><br>
+            <span class="lang-fr">Email :</span><span class="lang-en">Email:</span> <a href="mailto:contact@daryalearnfrench.com">contact@daryalearnfrench.com</a>
           </p>
           <p class="lang-fr">
             <strong>Directrice de la publication :</strong> Darya FERAL
@@ -817,11 +813,12 @@
           <p class="lang-fr">Le site est hébergé par :</p>
           <p class="lang-en">The website is hosted by:</p>
           <p>
-            <strong>[Nom de l'hébergeur / Hosting provider name]</strong><br>
-            <span class="lang-fr">Adresse :</span><span class="lang-en">Address:</span> [<span class="lang-fr">à
-              compléter</span><span class="lang-en">to be completed</span>]<br>
-            <span class="lang-fr">Téléphone :</span><span class="lang-en">Phone:</span> [<span class="lang-fr">à
-              compléter</span><span class="lang-en">to be completed</span>]
+            <strong class="lang-fr">[Nom de l'hébergeur]</strong>
+            <strong class="lang-en">[Hosting provider name]</strong><br>
+            <span class="lang-fr">Adresse : [à compléter]</span>
+            <span class="lang-en">Address: [to be completed]</span><br>
+            <span class="lang-fr">Téléphone : [à compléter]</span>
+            <span class="lang-en">Phone: [to be completed]</span>
           </p>
         </div>
 
@@ -889,26 +886,18 @@
               <tbody>
                 <tr>
                   <td><span class="lang-fr">Programme Complet</span><span class="lang-en">Complete Program</span></td>
-                  <td><span class="lang-fr">Apprentissage structuré et progressif du français avec grammaire,
-                      vocabulaire, compréhension et expression</span><span class="lang-en">Structured and progressive
-                      French learning with grammar, vocabulary, comprehension and expression</span></td>
-                  <td>A1–C2</td>
+                  <td><span class="lang-fr">Apprentissage structuré et progressif du français avec grammaire, vocabulaire, compréhension et expression</span><span class="lang-en">Structured and progressive French learning with grammar, vocabulary, comprehension and expression</span></td>
+                  <td><span class="lang-fr">A1–C2</span><span class="lang-en">A1–C2</span></td>
                 </tr>
                 <tr>
-                  <td><span class="lang-fr">Préparation DELF-DALF</span><span class="lang-en">DELF-DALF
-                      Preparation</span></td>
-                  <td><span class="lang-fr">Préparation ciblée aux examens officiels DELF et DALF avec simulation et
-                      stratégies d'examen</span><span class="lang-en">Targeted preparation for official DELF and DALF
-                      exams with simulation and exam strategies</span></td>
-                  <td>A1–C1</td>
+                  <td><span class="lang-fr">Préparation DELF-DALF</span><span class="lang-en">DELF-DALF Preparation</span></td>
+                  <td><span class="lang-fr">Préparation ciblée aux examens officiels DELF et DALF avec simulation et stratégies d'examen</span><span class="lang-en">Targeted preparation for official DELF and DALF exams with simulation and exam strategies</span></td>
+                  <td><span class="lang-fr">A1–C1</span><span class="lang-en">A1–C1</span></td>
                 </tr>
                 <tr>
-                  <td><span class="lang-fr">Cours de Conversation</span><span class="lang-en">Conversation
-                      Classes</span></td>
-                  <td><span class="lang-fr">Pratique orale intensive centrée sur l'expression et la fluidité en
-                      français</span><span class="lang-en">Intensive oral practice focused on French expression and
-                      fluency</span></td>
-                  <td>A2–C2</td>
+                  <td><span class="lang-fr">Cours de Conversation</span><span class="lang-en">Conversation Classes</span></td>
+                  <td><span class="lang-fr">Pratique orale intensive centrée sur l'expression et la fluidité en français</span><span class="lang-en">Intensive oral practice focused on French expression and fluency</span></td>
+                  <td><span class="lang-fr">A2–C2</span><span class="lang-en">A2–C2</span></td>
                 </tr>
               </tbody>
             </table>
@@ -948,16 +937,16 @@
                 <tr>
                   <td><span class="lang-fr">Programme Complet</span><span class="lang-en">Complete Program</span></td>
                   <td>
-                    <span class="lang-fr">2-4 personnes · Niveau homogène requis (écart max. 1 sous-niveau)</span>
-                    <span class="lang-en">2-4 people · Homogeneous level required (max. 1 sub-level difference)</span>
+                    <span class="lang-fr">2-4 personnes • Niveau homogène requis (écart max. 1 sous-niveau)</span>
+                    <span class="lang-en">2-4 people • Homogeneous level required (max. 1 sub-level difference)</span>
                   </td>
                 </tr>
                 <tr>
                   <td><span class="lang-fr">Cours de Conversation</span><span class="lang-en">Conversation
                       Classes</span></td>
                   <td>
-                    <span class="lang-fr">2-4 personnes · Niveau homogène requis (écart max. 1 sous-niveau)</span>
-                    <span class="lang-en">2-4 people · Homogeneous level required (max. 1 sub-level difference)</span>
+                    <span class="lang-fr">2-4 personnes • Niveau homogène requis (écart max. 1 sous-niveau)</span>
+                    <span class="lang-en">2-4 people • Homogeneous level required (max. 1 sub-level difference)</span>
                   </td>
                 </tr>
               </tbody>
@@ -1120,11 +1109,8 @@
             For any questions regarding these legal notices, you can contact us:
           </p>
           <p>
-            <span class="lang-fr">Par email :</span><span class="lang-en">By email:</span> <a
-              href="mailto:contact@daryalearnfrench.com">contact@daryalearnfrench.com</a><br>
-            <span class="lang-fr">Via notre formulaire :</span><span class="lang-en">Via our form:</span> <a
-              href="./contact.html"><span class="lang-fr">Page de contact</span><span class="lang-en">Contact
-                page</span></a>
+            <span class="lang-fr">Par email :</span><span class="lang-en">By email:</span> <a href="mailto:contact@daryalearnfrench.com">contact@daryalearnfrench.com</a><br>
+            <span class="lang-fr">Via notre formulaire :</span><span class="lang-en">Via our form:</span> <a href="./contact.html"><span class="lang-fr">Page de contact</span><span class="lang-en">Contact page</span></a>
           </p>
         </div>
 
@@ -1134,67 +1120,6 @@
 
   <site-footer data-base="./"></site-footer>
 
-  <style>
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 800;
-      padding: 12px 16px 14px;
-      background: linear-gradient(135deg, var(--navy, #1B2E4B) 0%, #253d63 100%);
-      border-top: 1px solid rgba(201, 169, 110, 0.3);
-      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25);
-    }
-
-    .sticky-cta a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 8px;
-      background: var(--gold, #C9A96E);
-      color: var(--navy, #1B2E4B);
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(201, 169, 110, 0.4);
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .sticky-cta a:active {
-      transform: scale(0.98);
-    }
-
-    .sticky-cta .trust-line {
-      text-align: center;
-      font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.45);
-      margin-top: 6px;
-      letter-spacing: 0.03em;
-    }
-
-    @media(max-width:768px) {
-      .sticky-cta {
-        display: block;
-      }
-    }
-
-    @media(min-width:769px) {
-      .sticky-cta {
-        display: none !important;
-      }
-    }
-  </style>
-  <div class="sticky-cta" aria-label="Réserver un cours d'essai">
-    <a href="./contact.html" class="lang-fr">🎓 Cours d'essai gratuit — 30 min</a>
-    <a href="./contact.html" class="lang-en">🎓 Free trial class — 30 min</a>
-    <p class="trust-line lang-fr">Sans engagement · Réponse sous 24h</p>
-    <p class="trust-line lang-en">No commitment · Reply within 24h</p>
-  </div>
 </body>
 
 </html>

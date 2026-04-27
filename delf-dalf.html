@@ -144,21 +144,21 @@
       color: var(--text-dark);
       line-height: 1.65;
       font-size: 16px;
-      padding-top: 64px;
+      padding-top: 80px !important;
+      margin: 0 !important;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    main {
+      flex: 1;
     }
 
     /* ── LANG ── */
-    body.fr .lang-en {
-      display: none;
-    }
-
-    body.en .lang-fr {
-      display: none;
-    }
-
-    body:not(.en):not(.fr) .lang-en {
-      display: none;
-    }
+    body.fr .lang-en, body.fr .proof-en { display: none !important; }
+    body.en .lang-fr, body.en .proof-fr { display: none !important; }
+    body:not(.en):not(.fr) .lang-en, body:not(.en):not(.fr) .proof-en { display: none !important; }
 
     /* ── BREADCRUMB ── */
     .breadcrumb {
@@ -245,12 +245,105 @@
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 56px;
-      align-items: start;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px;
+      align-items: center;
       position: relative;
       z-index: 1;
     }
+
+    .success-counter {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(201, 169, 110, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .success-number {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 84px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 20px rgba(201, 169, 110, 0.2);
+    }
+
+    .success-label {
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      opacity: 0.9;
+    }
+
+    .success-sub {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 10px;
+    }
+
+    .section-spacious {
+      padding: 120px 24px;
+    }
+
+    .icon-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .icon-list-item {
+      display: flex;
+      gap: 16px;
+      background: var(--white);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border-navy);
+    }
+
+    .icon-list-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon-list-icon {
+      font-size: 24px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .icon-list-text {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .icon-list-text strong {
+      display: block;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .cta-center {
+      text-align: center;
+      margin-top: 64px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-bullets { align-items: center; }
+      .hero-ctas { justify-content: center; }
+    }
+
 
     .hero-tag {
       display: inline-flex;
@@ -681,7 +774,7 @@
     }
 
     .step-body .dot-list span::before {
-      content: '·  ';
+      content: ' • ';
       color: var(--gold);
     }
 
@@ -722,38 +815,39 @@
       line-height: 1.55;
     }
 
-    /* ── PACKAGES ── */
+    /* ── PACKAGES MODERNES ── */
     .packs-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 24px;
+      margin-top: 40px;
     }
 
     .pack-card {
       background: var(--white);
       border: 1px solid var(--border-navy);
-      border-radius: var(--r);
-      padding: 30px 26px 28px;
+      border-radius: 16px;
+      padding: 40px 32px;
       display: flex;
       flex-direction: column;
-      gap: 0;
-      transition: box-shadow 0.2s, transform 0.2s;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
     }
 
     .pack-card:hover {
       box-shadow: var(--shadow-lg);
-      transform: translateY(-3px);
+      transform: translateY(-8px);
     }
 
     .pack-card.featured {
       background: var(--navy);
-      border-color: rgba(201, 169, 110, 0.3);
+      border-color: var(--gold);
       position: relative;
     }
 
     .pack-badge {
       position: absolute;
-      top: -12px;
+      top: -14px;
       left: 50%;
       transform: translateX(-50%);
       background: var(--gold);
@@ -762,21 +856,17 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 4px 14px;
+      padding: 6px 18px;
       border-radius: 20px;
-    }
-
-    .pack-icon {
-      font-size: 26px;
-      margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(201, 169, 110, 0.3);
     }
 
     .pack-title {
       font-family: 'Playfair Display', serif;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 600;
       color: var(--text-dark);
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
 
     .pack-card.featured .pack-title {
@@ -784,9 +874,9 @@
     }
 
     .pack-sub {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-muted);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .pack-card.featured .pack-sub {
@@ -796,7 +886,7 @@
     .pack-divider {
       height: 1px;
       background: var(--border-navy);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .pack-card.featured .pack-divider {
@@ -806,22 +896,36 @@
     .pack-features {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       flex: 1;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
     .pack-feature {
       display: flex;
       align-items: center;
-      gap: 9px;
-      font-size: 13.5px;
+      gap: 10px;
+      font-size: 14px;
       color: var(--text-mid);
     }
 
     .pack-card.featured .pack-feature {
       color: rgba(255, 255, 255, 0.72);
     }
+
+    .pack-feature .check-icon {
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .packs-row { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+      .steps-grid::before { display: none; }
+      .whom-grid { grid-template-columns: 1fr; }
+    }
+
 
     .pack-feature::before {
       content: '✦';
@@ -1195,6 +1299,8 @@
 
   <site-header data-active="programmes" data-base="./"></site-header>
 
+  <main>
+
   <div class="breadcrumb">
     <div class="breadcrumb-inner">
       <a class="lang-fr" href="./index.html">Accueil</a>
@@ -1209,8 +1315,8 @@
     <div class="hero-inner">
       <div class="hero-left fade-up">
         <div class="hero-tag">🏅
-          <span class="lang-fr" lang="fr">Examinatrice officielle · France Éducation International depuis 2023</span>
-          <span class="lang-en" lang="en">Official Examiner · France Éducation International since 2023</span>
+          <span class="lang-fr" lang="fr">Examinatrice officielle • France Éducation International depuis 2023</span>
+          <span class="lang-en" lang="en">Official Examiner • France Éducation International since 2023</span>
         </div>
 
         <h1>
@@ -1252,34 +1358,19 @@
             <span class="lang-en" lang="en">View packages</span>
           </a>
         </div>
-        <p class="hero-note lang-fr">Sans engagement · Disponible 5j/7 · Amériques, Europe, Asie, Moyen-Orient et
+        <p class="hero-note lang-fr">Sans engagement • Disponible 5j/7 • Amériques, Europe, Asie, Moyen-Orient et
           Afrique</p>
-        <p class="hero-note lang-en">No commitment · Available 5 days/week · Americas, Europe, Asia, Middle East and
+        <p class="hero-note lang-en">No commitment • Available 5 days/week • Americas, Europe, Asia, Middle East and
           Africa</p>
       </div>
 
-      <div class="fade-up hero-card">
-        <div class="hero__card">
-          <div class="hero__stats">
-            <div class="hero__stat">
-              <span class="hero__stat__val">A1–C1</span>
-              <span class="hero__stat__lbl lang-fr">Niveaux préparés</span>
-              <span class="hero__stat__lbl lang-en">Levels covered</span>
-            </div>
-            <div class="hero__stat">
-              <span class="hero__stat__val">100%</span>
-              <span class="hero__stat__lbl lang-fr">Réussite à ce jour</span>
-              <span class="hero__stat__lbl lang-en">Pass rate to date</span>
-            </div>
-          </div>
-          <div class="hero__badges">
-            <span class="hero__badge lang-fr">✓ Examinatrice officielle FEI</span>
-            <span class="hero__badge lang-en">✓ Official FEI Examiner</span>
-            <span class="hero__badge lang-fr">✓ Simulations en conditions réelles</span>
-            <span class="hero__badge lang-en">✓ Real-condition mock exams</span>
-            <span class="hero__badge--gold hero__badge lang-fr">✓ Forfaits 5, 10 ou 20 heures</span>
-            <span class="hero__badge--gold hero__badge lang-en">✓ 5, 10 or 20 hour packages</span>
-          </div>
+      <div class="hero-right fade-up">
+        <div class="success-counter">
+          <span class="success-number">100%</span>
+          <span class="success-label lang-fr">Taux de réussite</span>
+          <span class="success-label lang-en">Pass rate</span>
+          <p class="success-sub lang-fr">À ce jour, tous mes élèves ont obtenu leur diplôme.</p>
+          <p class="success-sub lang-en">To date, all my students have passed their exam.</p>
         </div>
       </div>
     </div>
@@ -1294,26 +1385,34 @@
         <h2 class="lang-en">Are you asking yourself <em>these questions?</em></h2>
       </div>
 
-      <div class="questions-grid">
-        <div class="question-card">
-          <span class="q-icon">❓</span>
-          <p class="lang-fr">Quels sont exactement les critères de notation ?</p>
-          <p class="lang-en">What exactly are the scoring criteria?</p>
+      <div class="icon-list">
+        <div class="icon-list-item">
+          <span class="icon-list-icon">❓</span>
+          <div class="icon-list-text">
+            <span class="lang-fr">Quels sont exactement les critères de notation ?</span>
+            <span class="lang-en">What exactly are the scoring criteria?</span>
+          </div>
         </div>
-        <div class="question-card">
-          <span class="q-icon">❓</span>
-          <p class="lang-fr">Comment maximiser mes points à chaque épreuve ?</p>
-          <p class="lang-en">How do I maximize my score on each section?</p>
+        <div class="icon-list-item">
+          <span class="icon-list-icon">❓</span>
+          <div class="icon-list-text">
+            <span class="lang-fr">Comment maximiser mes points à chaque épreuve ?</span>
+            <span class="lang-en">How do I maximize my score on each section?</span>
+          </div>
         </div>
-        <div class="question-card">
-          <span class="q-icon">❓</span>
-          <p class="lang-fr">Est-ce que mon niveau est suffisant ?</p>
-          <p class="lang-en">Is my level good enough?</p>
+        <div class="icon-list-item">
+          <span class="icon-list-icon">❓</span>
+          <div class="icon-list-text">
+            <span class="lang-fr">Est-ce que mon niveau est suffisant ?</span>
+            <span class="lang-en">Is my level good enough?</span>
+          </div>
         </div>
-        <div class="question-card">
-          <span class="q-icon">❓</span>
-          <p class="lang-fr">Comment gérer le stress et le temps le jour J ?</p>
-          <p class="lang-en">How do I manage stress and time on exam day?</p>
+        <div class="icon-list-item">
+          <span class="icon-list-icon">❓</span>
+          <div class="icon-list-text">
+            <span class="lang-fr">Comment gérer le stress et le temps le jour J ?</span>
+            <span class="lang-en">How do I manage stress and time on exam day?</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1332,41 +1431,42 @@
           advantage.</p>
       </div>
 
-      <div class="adv-grid">
-        <div class="adv-item">
-          <span class="check-icon">✓</span>
-          <p class="lang-fr"><strong>Critères des correcteurs</strong> — Je connais en détail ce qui est évalué, point
-            par point, dans chaque épreuve.</p>
-          <p class="lang-en"><strong>Examiner criteria</strong> — I know in detail what is assessed, point by point, in
-            each section.</p>
+      <div class="icon-list">
+        <div class="icon-list-item">
+          <span class="icon-list-icon">🎯</span>
+          <div class="icon-list-text">
+            <strong class="lang-fr">Critères des correcteurs</strong>
+            <strong class="lang-en">Examiner criteria</strong>
+            <span class="lang-fr">Je connais en détail ce qui est évalué, point par point, dans chaque épreuve.</span>
+            <span class="lang-en">I know in detail what is assessed, point by point, in each section.</span>
+          </div>
         </div>
-        <div class="adv-item">
-          <span class="check-icon">✓</span>
-          <p class="lang-fr"><strong>Simulations en conditions réelles</strong> — Mes examens blancs reproduisent
-            fidèlement le déroulement officiel.</p>
-          <p class="lang-en"><strong>Real-condition simulations</strong> — My mock exams faithfully reproduce the
-            official exam format.</p>
+        <div class="icon-list-item">
+          <span class="icon-list-icon">⚡</span>
+          <div class="icon-list-text">
+            <strong class="lang-fr">Simulations réelles</strong>
+            <strong class="lang-en">Real simulations</strong>
+            <span class="lang-fr">Mes examens blancs reproduisent fidèlement le déroulement officiel.</span>
+            <span class="lang-en">My mock exams faithfully reproduce the official exam format.</span>
+          </div>
         </div>
-        <div class="adv-item">
-          <span class="check-icon">✓</span>
-          <p class="lang-fr"><strong>Feedback détaillé</strong> — Chaque production est corrigée avec précision et
-            accompagnée d'explications ciblées.</p>
-          <p class="lang-en"><strong>Detailed feedback</strong> — Each piece of work is corrected with precision and
-            accompanied by targeted explanations.</p>
+        <div class="icon-list-item">
+          <span class="icon-list-icon">📝</span>
+          <div class="icon-list-text">
+            <strong class="lang-fr">Feedback détaillé</strong>
+            <strong class="lang-en">Detailed feedback</strong>
+            <span class="lang-fr">Chaque production est corrigée avec précision et accompagnée d'explications ciblées.</span>
+            <span class="lang-en">Each piece of work is corrected with precision and accompanied by targeted explanations.</span>
+          </div>
         </div>
-        <div class="adv-item">
-          <span class="check-icon">✓</span>
-          <p class="lang-fr"><strong>Stratégies d'examen</strong> — Je partage une vision de l'intérieur pour maximiser
-            vos points à chaque épreuve.</p>
-          <p class="lang-en"><strong>Exam strategies</strong> — I share insider knowledge to maximize your points on
-            every section.</p>
-        </div>
-        <div class="adv-item">
-          <span class="check-icon">✓</span>
-          <p class="lang-fr"><strong>Fiche personnalisée</strong> — Après chaque cours, vous recevez une fiche
-            récapitulative adaptée à vos besoins.</p>
-          <p class="lang-en"><strong>Personalized recap sheet</strong> — After each lesson, you receive a summary sheet
-            tailored to your needs.</p>
+        <div class="icon-list-item">
+          <span class="icon-list-icon">🧠</span>
+          <div class="icon-list-text">
+            <strong class="lang-fr">Stratégies d'examen</strong>
+            <strong class="lang-en">Exam strategies</strong>
+            <span class="lang-fr">Je partage une vision de l'intérieur pour maximiser vos points à chaque épreuve.</span>
+            <span class="lang-en">I share insider knowledge to maximize your points on every section.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1385,94 +1485,50 @@
           level.</p>
       </div>
 
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">1</div>
-          <div class="step-title lang-fr">Diagnostic</div>
-          <div class="step-title lang-en">Diagnosis</div>
-          <div class="step-body">
-            <strong class="lang-fr">Évaluation complète</strong>
-            <strong class="lang-en">Full assessment</strong>
-            <div class="dot-list">
-              <span class="lang-fr" lang="fr">Test des 4 compétences</span>
-              <span class="lang-en" lang="en">Test of all 4 skills</span>
-              <span class="lang-fr" lang="fr">Bilan détaillé avec score estimé</span>
-              <span class="lang-en" lang="en">Detailed report with estimated score</span>
-            </div>
+      <div class="icon-list">
+        <div class="icon-list-item">
+          <span class="icon-list-icon">1️⃣</span>
+          <div class="icon-list-text">
+            <strong class="lang-fr">Diagnostic</strong>
+            <strong class="lang-en">Diagnosis</strong>
+            <span class="lang-fr">Test des 4 compétences et bilan détaillé avec score estimé.</span>
+            <span class="lang-en">Test of all 4 skills and detailed report with estimated score.</span>
           </div>
         </div>
-
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <div class="step-title lang-fr">Plan</div>
-          <div class="step-title lang-en">Plan</div>
-          <div class="step-body">
-            <strong class="lang-fr">Stratégie personnalisée</strong>
-            <strong class="lang-en">Personalized strategy</strong>
-            <div class="dot-list">
-              <span class="lang-fr" lang="fr">Nombre de cours</span>
-              <span class="lang-en" lang="en">Number of lessons</span>
-              <span class="lang-fr" lang="fr">Compétences prioritaires</span>
-              <span class="lang-en" lang="en">Priority skills</span>
-              <span class="lang-fr" lang="fr">Planning jusqu'à l'examen</span>
-              <span class="lang-en" lang="en">Schedule up to the exam</span>
-            </div>
+        <div class="icon-list-item">
+          <span class="icon-list-icon">2️⃣</span>
+          <div class="icon-list-text">
+            <strong class="lang-fr">Plan Stratégique</strong>
+            <strong class="lang-en">Strategic Plan</strong>
+            <span class="lang-fr">Définition du nombre de cours et des compétences prioritaires.</span>
+            <span class="lang-en">Definition of the number of lessons and priority skills.</span>
           </div>
         </div>
-
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <div class="step-title lang-fr">Entraînement</div>
-          <div class="step-title lang-en">Training</div>
-          <div class="step-body">
-            <strong class="lang-fr">Pratique intensive</strong>
-            <strong class="lang-en">Intensive practice</strong>
-            <div class="dot-list">
-              <span class="lang-fr" lang="fr">Exercices types</span>
-              <span class="lang-en" lang="en">Typical exam exercises</span>
-              <span class="lang-fr" lang="fr">Erreurs qui coûtent des points</span>
-              <span class="lang-en" lang="en">Mistakes that cost points</span>
-              <span class="lang-fr" lang="fr">Fiche après chaque cours</span>
-              <span class="lang-en" lang="en">Recap sheet after each lesson</span>
-              <span class="lang-fr" lang="fr">Gestion du temps</span>
-              <span class="lang-en" lang="en">Time management</span>
-            </div>
+        <div class="icon-list-item">
+          <span class="icon-list-icon">3️⃣</span>
+          <div class="icon-list-text">
+            <strong class="lang-fr">Entraînement</strong>
+            <strong class="lang-en">Training</strong>
+            <span class="lang-fr">Pratique intensive sur les exercices types et gestion du temps.</span>
+            <span class="lang-en">Intensive practice on typical exercises and time management.</span>
           </div>
         </div>
-
-        <div class="step-card">
-          <div class="step-num">4</div>
-          <div class="step-title lang-fr">Simulation</div>
-          <div class="step-title lang-en">Simulation</div>
-          <div class="step-body">
-            <strong class="lang-fr">Examen blanc complet</strong>
-            <strong class="lang-en">Full mock exam</strong>
-            <div class="dot-list">
-              <span class="lang-fr" lang="fr">Conditions réelles</span>
-              <span class="lang-en" lang="en">Real exam conditions</span>
-              <span class="lang-fr" lang="fr">Débriefing approfondi</span>
-              <span class="lang-en" lang="en">In-depth debriefing</span>
-            </div>
+        <div class="icon-list-item">
+          <span class="icon-list-icon">4️⃣</span>
+          <div class="icon-list-text">
+            <strong class="lang-fr">Simulation</strong>
+            <strong class="lang-en">Simulation</strong>
+            <span class="lang-fr">Examen blanc complet dans les conditions réelles du jour J.</span>
+            <span class="lang-en">Full mock exam in real conditions.</span>
           </div>
         </div>
-
-        <div class="step-card">
-          <div class="step-num">5</div>
-          <div class="step-title lang-fr">Finale</div>
-          <div class="step-title lang-en">Final stretch</div>
-          <div class="step-body">
-            <strong class="lang-fr">Dernière ligne droite</strong>
-            <strong class="lang-en">Final push</strong>
-            <div class="dot-list">
-              <span class="lang-fr" lang="fr">Révisions ciblées</span>
-              <span class="lang-en" lang="en">Targeted revision</span>
-              <span class="lang-fr" lang="fr">Conseils jour J</span>
-              <span class="lang-en" lang="en">Exam day tips</span>
-              <span class="lang-fr" lang="fr">Gestion du stress</span>
-              <span class="lang-en" lang="en">Stress management</span>
-              <span class="lang-fr" lang="fr">Boost de confiance</span>
-              <span class="lang-en" lang="en">Confidence boost</span>
-            </div>
+        <div class="icon-list-item">
+          <span class="icon-list-icon">5️⃣</span>
+          <div class="icon-list-text">
+            <strong class="lang-fr">Finale</strong>
+            <strong class="lang-en">Final Stretch</strong>
+            <span class="lang-fr">Révisions ciblées, conseils et boost de confiance.</span>
+            <span class="lang-en">Targeted revision, tips, and confidence boost.</span>
           </div>
         </div>
       </div>
@@ -1497,9 +1553,9 @@
               T</div>
             <div>
               <div style="font-size: 14px; font-weight: 600; color: var(--white);">Thanatcha</div>
-              <div class="lang-fr" style="font-size: 12px; color: rgba(255,255,255,0.45);">Thaïlande · DELF A2 réussi ✓
+              <div class="lang-fr" style="font-size: 12px; color: rgba(255,255,255,0.45);">Thaïlande • DELF A2 réussi ✓
                 (2023)</div>
-              <div class="lang-en" style="font-size: 12px; color: rgba(255,255,255,0.45);">Thailand · DELF A2 passed ✓
+              <div class="lang-en" style="font-size: 12px; color: rgba(255,255,255,0.45);">Thailand • DELF A2 passed ✓
                 (2023)</div>
             </div>
             <div style="margin-left: auto; color: var(--gold-light); font-size: 13px;">★★★★★</div>
@@ -1599,8 +1655,8 @@
             <div class="pack-feature lang-en">Full mock exam</div>
             <div class="pack-feature lang-fr">Fiche personnalisée après chaque cours</div>
             <div class="pack-feature lang-en">Personalized recap sheet after each lesson</div>
-            <div class="pack-feature lang-fr">Gestion du stress · Boost de confiance</div>
-            <div class="pack-feature lang-en">Stress management · Confidence boost</div>
+            <div class="pack-feature lang-fr">Gestion du stress • Boost de confiance</div>
+            <div class="pack-feature lang-en">Stress management • Confidence boost</div>
           </div>
           <a class="pack-cta lang-fr" href="./contact.html">Commencer</a>
           <a class="pack-cta lang-en" href="./contact.html">Get started</a>
@@ -1670,9 +1726,9 @@
           </button>
           <div class="faq-a">
             <div class="faq-a-inner">
-              <p class="lang-fr">1–2 cours par semaine pour une préparation confortable · 3 cours ou plus par semaine
+              <p class="lang-fr">1–2 cours par semaine pour une préparation confortable • 3 cours ou plus par semaine
                 pour une préparation intensive.</p>
-              <p class="lang-en">1–2 lessons per week for comfortable preparation · 3 or more lessons per week for
+              <p class="lang-en">1–2 lessons per week for comfortable preparation • 3 or more lessons per week for
                 intensive preparation.</p>
             </div>
           </div>
@@ -1748,22 +1804,24 @@
         <div class="cta-check-item lang-en">Personalized preparation plan</div>
       </div>
 
-      <div class="cta-buttons">
-        <a class="btn-gold" href="./contact.html">
-          <span class="lang-fr" lang="fr">🎓 Réservez votre cours d'essai gratuit</span>
-          <span class="lang-en" lang="en">🎓 Book your free trial lesson</span>
-        </a>
-        <a class="btn-ghost" href="#forfaits">
-          <span class="lang-fr" lang="fr">Voir les forfaits</span>
-          <span class="lang-en" lang="en">View packages</span>
-        </a>
+      <div class="cta-center">
+        <div class="cta-buttons">
+          <a class="btn-gold" href="./contact.html">
+            <span class="lang-fr" lang="fr">🎓 Réservez votre cours d'essai gratuit</span>
+            <span class="lang-en" lang="en">🎓 Book your free trial lesson</span>
+          </a>
+          <a class="btn-ghost" href="#forfaits">
+            <span class="lang-fr" lang="fr">Voir les forfaits</span>
+            <span class="lang-en" lang="en">View packages</span>
+          </a>
+        </div>
+        <p class="cta-small-note lang-fr">Sans engagement • Annulable jusqu'à 24h avant • Réponse sous 24h en semaine</p>
+        <p class="cta-small-note lang-en">No commitment • Cancellable up to 24h before • Response within 24h on weekdays</p>
       </div>
-
-      <p class="cta-small-note lang-fr">Sans engagement · Annulable jusqu'à 24h avant · Réponse sous 24h en semaine</p>
-      <p class="cta-small-note lang-en">No commitment · Cancellable up to 24h before · Response within 24h on weekdays
-      </p>
     </div>
   </section>
+
+  </main>
 
   <site-footer data-base="./"></site-footer>
 
@@ -1794,66 +1852,12 @@
     }
   </script>
 
-  <style>
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 800;
-      padding: 12px 16px 14px;
-      background: linear-gradient(135deg, var(--navy, #1B2E4B) 0%, #253d63 100%);
-      border-top: 1px solid rgba(201, 169, 110, 0.3);
-      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25);
-    }
-
-    .sticky-cta a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 8px;
-      background: var(--gold, #C9A96E);
-      color: var(--navy, #1B2E4B);
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(201, 169, 110, 0.4);
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .sticky-cta a:active {
-      transform: scale(0.98);
-    }
-
-    .sticky-cta .trust-line {
-      text-align: center;
-      font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.45);
-      margin-top: 6px;
-      letter-spacing: 0.03em;
-    }
-
-    @media(max-width:768px) {
-      .sticky-cta {
-        display: block;
-      }
-    }
-
-    @media(min-width:769px) {
-      .sticky-cta {
-        display: none !important;
-      }
-    }
-  </style>
+  <!-- Sticky CTA styles handled globally by responsive.css -->
   <div class="sticky-cta" aria-label="Réserver un cours d'essai">
     <a href="./contact.html" class="lang-fr">🎓 Cours d'essai gratuit — 30 min</a>
     <a href="./contact.html" class="lang-en">🎓 Free trial class — 30 min</a>
-    <p class="trust-line lang-fr">Sans engagement · Réponse sous 24h</p>
-    <p class="trust-line lang-en">No commitment · Reply within 24h</p>
+    <p class="trust-line lang-fr">Sans engagement • Réponse sous 24h</p>
+    <p class="trust-line lang-en">No commitment • Reply within 24h</p>
   </div>
 </body>
 

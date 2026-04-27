@@ -1,4 +1,4 @@
-﻿class SiteHeader extends HTMLElement {
+class SiteHeader extends HTMLElement {
   connectedCallback() {
     const active = this.getAttribute('data-active') || '';
     const base = this.getAttribute('data-base') || './';
@@ -10,7 +10,7 @@
     /* ══ NAVBAR CSS EMBARQUÉ ══ */
     .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border, #dde3ec); transition: box-shadow var(--transition, 0.25s ease); font-family: var(--font-body, 'Source Sans 3', sans-serif); }
     .navbar.scrolled { box-shadow: 0 2px 24px var(--shadow, rgba(27,46,75,0.10)); }
-    .navbar__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; max-width: var(--container, 1160px); margin: 0 auto; padding: 0 24px; gap: 32px; }
+    .navbar__inner { display: flex; align-items: center; justify-content: space-between; height: 80px; max-width: var(--container, 1160px); margin: 0 auto; padding: 0 24px; gap: 32px; }
     .navbar__logo { font-family: var(--font-display, 'Playfair Display', serif); font-size: 1.3rem; font-weight: 700; color: var(--navy, #1B2E4B); letter-spacing: -0.02em; text-decoration: none; flex-shrink: 0; line-height: 1; }
     .navbar__logo span { color: var(--gold, #C9A96E); }
     .navbar__links { display: flex; align-items: center; gap: 0; list-style: none; flex: 1; margin: 0; padding: 0; }
@@ -41,20 +41,20 @@
     .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; margin-left: 4px; }
     .nav-toggle span { width: 24px; height: 2px; background: var(--navy, #1B2E4B); border-radius: 2px; transition: all 0.22s ease; display: block; }
     @media (max-width: 900px) {
-      .navbar__links { display: none; flex-direction: column; align-items: stretch; gap: 0; position: absolute; top: 68px; left: 0; right: 0; background: var(--white, #FFFFFF); border-bottom: 1px solid var(--border, #dde3ec); box-shadow: 0 12px 32px var(--shadow, rgba(27,46,75,0.10)); padding: 12px 0 16px; z-index: 999; margin: 0; }
+      .navbar__links { display: none; flex-direction: column; align-items: stretch; gap: 0; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: var(--white, #FFFFFF); padding: 80px 0 30px; z-index: 9998; margin: 0; overflow-y: auto; }
       .navbar__links.mobile-open { display: flex; }
-      .navbar__links > li > a { padding: 12px 24px; font-size: 0.95rem; }
+      .navbar__links > li > a { padding: 14px 24px; font-size: 1.1rem; border-bottom: 1px solid var(--border, #dde3ec); }
       .navbar__links > li > a::after { display: none; }
-      .navbar__links > li.has-dropdown > a::before { right: 20px; }
+      .navbar__links > li.has-dropdown > a::before { right: 24px; top: 22px; }
       .navbar__dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; background: rgba(27,46,75,0.03); padding: 0; display: none; }
       .navbar__links > li.has-dropdown.open .navbar__dropdown { display: block; }
-      .navbar__dropdown li a { padding-left: 40px; font-size: 0.875rem; }
+      .navbar__dropdown li a { padding-left: 48px; font-size: 0.95rem; }
       .navbar__dropdown li + li { border-top: none; }
-      .nav-toggle { display: flex; }
+      .nav-toggle { display: flex; position: relative; z-index: 9999; }
       .navbar__cta { display: none; }
-      .navbar__right { gap: 10px; }
-      .navbar__cta-mobile { display: block; margin: 12px 20px 0; text-align: center; }
-      .navbar__cta-mobile a { display: block; padding: 12px 20px; border-radius: 100px; background: var(--gold, #C9A96E); color: var(--navy, #1B2E4B); font-weight: 700; font-size: 0.9rem; text-decoration: none; box-shadow: 0 4px 14px rgba(201,169,110,0.35); }
+      .navbar__right { gap: 10px; position: relative; z-index: 9999; }
+      .navbar__cta-mobile { display: block; margin: 20px 24px 0; text-align: center; }
+      .navbar__cta-mobile a { display: block; padding: 14px 24px; border-radius: 100px; background: var(--gold, #C9A96E); color: var(--navy, #1B2E4B); font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 14px rgba(201,169,110,0.35); }
     }
     @media (min-width: 901px) { .navbar__cta-mobile { display: none; } }
     </style>
@@ -79,7 +79,7 @@
           <li><a href="${base}tarifs.html" ${isActive('tarifs')}><span class="lang-fr" lang="fr">Tarifs</span><span class="lang-en" lang="en">Pricing</span></a></li>
           <li><a href="${base}a-propos.html" ${isActive('a-propos')}><span class="lang-fr" lang="fr">À propos</span><span class="lang-en" lang="en">About</span></a></li>
           <li><a href="${base}faq.html" ${isActive('faq')}>FAQ</a></li>
-          <li><a href="${base}blog.html" ${isActive('blog')}>Blog</a></li>
+          <!-- <li><a href="${base}blog.html" ${isActive('blog')}>Blog</a></li> -->
           <li><a href="${base}contact.html" ${isActive('contact')}><span class="lang-fr" lang="fr">Contact</span><span class="lang-en" lang="en">Contact</span></a></li>
           <li class="navbar__cta-mobile"><a href="${base}contact.html"><span class="lang-fr" lang="fr">Cours d'essai gratuit →</span><span class="lang-en" lang="en">Free trial class →</span></a></li>
         </ul>
@@ -170,6 +170,29 @@
         }
       });
     }
+
+    // 5. Logique Sticky CTA (Show on scroll down, hide on scroll up)
+    let lastScrollY = window.scrollY;
+    
+    window.addEventListener('scroll', () => {
+      const stickyCta = document.querySelector('.sticky-cta');
+      if (!stickyCta) return;
+
+      const currentScrollY = window.scrollY;
+      
+      // Seuil minimum pour éviter les micro-scrolls
+      if (Math.abs(currentScrollY - lastScrollY) < 5) return;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 300) {
+        // Scroll vers le bas - Affiche
+        stickyCta.classList.add('visible');
+      } else if (currentScrollY < lastScrollY) {
+        // Scroll vers le haut - Cache
+        stickyCta.classList.remove('visible');
+      }
+      
+      lastScrollY = currentScrollY;
+    }, { passive: true });
   }
 }
 

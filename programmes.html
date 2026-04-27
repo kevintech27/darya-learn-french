@@ -189,7 +189,15 @@
       background: var(--white);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      padding-top: 68px;
+      padding-top: 80px !important;
+      margin: 0 !important;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
     }
 
     img {
@@ -202,17 +210,9 @@
       text-decoration: none;
     }
 
-    body.en .lang-fr {
-      display: none;
-    }
-
-    body.fr .lang-en {
-      display: none;
-    }
-
-    body:not(.en):not(.fr) .lang-en {
-      display: none;
-    }
+    body.fr .lang-en, body.fr .proof-en { display: none !important; }
+    body.en .lang-fr, body.en .proof-fr { display: none !important; }
+    body:not(.en):not(.fr) .lang-en, body:not(.en):not(.fr) .proof-en { display: none !important; }
 
     .container {
       max-width: var(--container);
@@ -1611,16 +1611,18 @@
 <body class="fr">
   <site-header data-active="programmes" data-base="./"></site-header>
 
+  <main class="page-wrapper">
+
   <section class="page-hero" aria-labelledby="page-hero-title">
     <div class="container">
       <div class="page-hero__inner">
 
         <div class="fade-up">
           <div class="page-hero__breadcrumb lang-fr">
-            <a href="./index.html">Accueil</a> &nbsp;/&nbsp; <span>Programmes</span>
+            <a href="./index.html">Accueil</a> <span class="breadcrumb-sep">&nbsp;/&nbsp;</span> <span>Programmes</span>
           </div>
           <div class="page-hero__breadcrumb lang-en">
-            <a href="./index.html">Home</a> &nbsp;/&nbsp; <span>Programs</span>
+            <a href="./index.html">Home</a> <span class="breadcrumb-sep">&nbsp;/&nbsp;</span> <span>Programs</span>
           </div>
 
           <div class="page-hero__eyebrow lang-fr">🎯 Des cours qui s'adaptent à vous</div>
@@ -1644,44 +1646,68 @@
 
         <div class="fade-up">
           <a href="#programme-complet" class="page-hero__nav-item">
-            <div class="page-hero__nav-icon page-hero__nav-icon--1">📘</div>
+            <div class="page-hero__nav-icon page-hero__nav-icon--1">
+              <span class="lang-fr">📘</span>
+              <span class="lang-en">📘</span>
+            </div>
             <div class="page-hero__nav-text">
               <strong class="lang-fr">Programme Complet</strong>
               <strong class="lang-en">Complete Program</strong>
-              <span class="lang-fr" lang="fr">Débutant → C2 · Structuré</span>
-              <span class="lang-en" lang="en">Beginner → C2 · Structured</span>
+              <span class="lang-fr" lang="fr">Débutant → C2 • Structuré</span>
+              <span class="lang-en" lang="en">Beginner → C2 • Structured</span>
             </div>
-            <span class="page-hero__nav-arrow">→</span>
+            <span class="page-hero__nav-arrow">
+              <span class="lang-fr">→</span>
+              <span class="lang-en">→</span>
+            </span>
           </a>
           <a href="#delf-dalf" class="page-hero__nav-item">
-            <div class="page-hero__nav-icon page-hero__nav-icon--2">🏆</div>
+            <div class="page-hero__nav-icon page-hero__nav-icon--2">
+              <span class="lang-fr">🏆</span>
+              <span class="lang-en">🏆</span>
+            </div>
             <div class="page-hero__nav-text">
               <strong class="lang-fr">Préparation DELF/DALF</strong>
               <strong class="lang-en">DELF/DALF Preparation</strong>
-              <span class="lang-fr" lang="fr">Examinatrice officielle · 100% réussite à ce jour</span>
-              <span class="lang-en" lang="en">Official examiner · 100% pass rate to date</span>
+              <span class="lang-fr" lang="fr">Examinatrice officielle • 100% réussite à ce jour</span>
+              <span class="lang-en" lang="en">Official examiner • 100% pass rate to date</span>
             </div>
-            <span class="page-hero__nav-arrow">→</span>
+            <span class="page-hero__nav-arrow">
+              <span class="lang-fr">→</span>
+              <span class="lang-en">→</span>
+            </span>
           </a>
           <a href="#conversation" class="page-hero__nav-item">
-            <div class="page-hero__nav-icon page-hero__nav-icon--3">💬</div>
+            <div class="page-hero__nav-icon page-hero__nav-icon--3">
+              <span class="lang-fr">💬</span>
+              <span class="lang-en">💬</span>
+            </div>
             <div class="page-hero__nav-text">
               <strong class="lang-fr">Cours de Conversation</strong>
               <strong class="lang-en">Conversation Classes</strong>
-              <span class="lang-fr" lang="fr">À partir de A2 · Fluidité orale</span>
-              <span class="lang-en" lang="en">From A2 · Oral fluency</span>
+              <span class="lang-fr" lang="fr">À partir de A2 • Fluidité orale</span>
+              <span class="lang-en" lang="en">From A2 • Oral fluency</span>
             </div>
-            <span class="page-hero__nav-arrow">→</span>
+            <span class="page-hero__nav-arrow">
+              <span class="lang-fr">→</span>
+              <span class="lang-en">→</span>
+            </span>
           </a>
           <a href="#cours-groupe" class="page-hero__nav-item">
-            <div class="page-hero__nav-icon page-hero__nav-icon--4">👥</div>
+            <div class="page-hero__nav-icon page-hero__nav-icon--4">
+              <span class="lang-fr">👥</span>
+              <span class="lang-en">👥</span>
+            </div>
             <div class="page-hero__nav-text">
               <strong class="lang-fr">Cours en Groupe</strong>
               <strong class="lang-en">Group Classes</strong>
-              <span class="lang-fr" lang="fr">2-4 personnes · -30%</span>
-              <span class="lang-en" lang="en">2-4 people · -30%</span>
+              <span class="lang-fr" lang="fr">2-4 personnes • -30%</span>
+              <span class="lang-en" lang="en">2-4 people • -30%</span>
             </div>
-            <span class="page-hero__nav-arrow">→</span>
+            <span class="page-hero__nav-arrow">
+              <span class="lang-fr">→</span>
+              <span class="lang-en">→</span>
+            </span>
           </a>
         </div>
 
@@ -1705,12 +1731,15 @@
 
       <div class="quiz-wrapper fade-up">
         <div class="quiz-header">
-          <div class="quiz-header__icon">🎯</div>
+          <div class="quiz-header__icon">
+            <span class="lang-fr">🎯</span>
+            <span class="lang-en">🎯</span>
+          </div>
           <div class="quiz-header__text">
             <strong class="lang-fr">Quel programme vous convient ?</strong>
             <strong class="lang-en">Which program suits you?</strong>
-            <span class="lang-fr" lang="fr">4 questions · 1 minute</span>
-            <span class="lang-en" lang="en">4 questions · 1 minute</span>
+            <span class="lang-fr" lang="fr">4 questions • 1 minute</span>
+            <span class="lang-en" lang="en">4 questions • 1 minute</span>
           </div>
         </div>
 
@@ -1727,12 +1756,18 @@
             <p class="quiz-question lang-en">❓ Do you prefer learning alone or in a group?</p>
             <div class="quiz-options">
               <div class="quiz-option" onclick="quizSelect(1,'A')" data-q="1" data-a="A">
-                <span class="quiz-option__letter">A</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">A</span>
+                  <span class="lang-en">A</span>
+                </span>
                 <span class="lang-fr" lang="fr">Cours individuel — contenu 100% personnalisé</span>
                 <span class="lang-en" lang="en">Individual lessons — 100% personalized content</span>
               </div>
               <div class="quiz-option" onclick="quizSelect(1,'B')" data-q="1" data-a="B">
-                <span class="quiz-option__letter">B</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">B</span>
+                  <span class="lang-en">B</span>
+                </span>
                 <span class="lang-fr" lang="fr">Cours en groupe — apprendre avec des amis/collègues (-30%)</span>
                 <span class="lang-en" lang="en">Group classes — learn with friends/colleagues (-30%)</span>
               </div>
@@ -1744,17 +1779,26 @@
             <p class="quiz-question lang-en">❓ What is your main goal?</p>
             <div class="quiz-options">
               <div class="quiz-option" onclick="quizSelect(2,'A')" data-q="2" data-a="A">
-                <span class="quiz-option__letter">A</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">A</span>
+                  <span class="lang-en">A</span>
+                </span>
                 <span class="lang-fr" lang="fr">Progresser de manière complète et structurée</span>
                 <span class="lang-en" lang="en">Progress comprehensively and systematically</span>
               </div>
               <div class="quiz-option" onclick="quizSelect(2,'B')" data-q="2" data-a="B">
-                <span class="quiz-option__letter">B</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">B</span>
+                  <span class="lang-en">B</span>
+                </span>
                 <span class="lang-fr" lang="fr">Réussir un examen DELF ou DALF</span>
                 <span class="lang-en" lang="en">Pass a DELF or DALF exam</span>
               </div>
               <div class="quiz-option" onclick="quizSelect(2,'C')" data-q="2" data-a="C">
-                <span class="quiz-option__letter">C</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">C</span>
+                  <span class="lang-en">C</span>
+                </span>
                 <span class="lang-fr" lang="fr">Gagner en fluidité et spontanéité à l'oral</span>
                 <span class="lang-en" lang="en">Gain oral fluency and spontaneity</span>
               </div>
@@ -1766,17 +1810,26 @@
             <p class="quiz-question lang-en">❓ What is your current level?</p>
             <div class="quiz-options">
               <div class="quiz-option" onclick="quizSelect(3,'A')" data-q="3" data-a="A">
-                <span class="quiz-option__letter">A</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">A</span>
+                  <span class="lang-en">A</span>
+                </span>
                 <span class="lang-fr" lang="fr">Débutant (A1–A2) → Programme Complet recommandé</span>
                 <span class="lang-en" lang="en">Beginner (A1–A2) → Complete Program recommended</span>
               </div>
               <div class="quiz-option" onclick="quizSelect(3,'B')" data-q="3" data-a="B">
-                <span class="quiz-option__letter">B</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">B</span>
+                  <span class="lang-en">B</span>
+                </span>
                 <span class="lang-fr" lang="fr">Intermédiaire (B1–B2) → Tous les programmes disponibles</span>
                 <span class="lang-en" lang="en">Intermediate (B1–B2) → All programs available</span>
               </div>
               <div class="quiz-option" onclick="quizSelect(3,'C')" data-q="3" data-a="C">
-                <span class="quiz-option__letter">C</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">C</span>
+                  <span class="lang-en">C</span>
+                </span>
                 <span class="lang-fr" lang="fr">Avancé (C1–C2) → Tous les programmes disponibles</span>
                 <span class="lang-en" lang="en">Advanced (C1–C2) → All programs available</span>
               </div>
@@ -1788,17 +1841,26 @@
             <p class="quiz-question lang-en">❓ What is your learning preference?</p>
             <div class="quiz-options">
               <div class="quiz-option" onclick="quizSelect(4,'A')" data-q="4" data-a="A">
-                <span class="quiz-option__letter">A</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">A</span>
+                  <span class="lang-en">A</span>
+                </span>
                 <span class="lang-fr" lang="fr">Structure claire avec fiches récapitulatives</span>
                 <span class="lang-en" lang="en">Clear structure with recap sheets</span>
               </div>
               <div class="quiz-option" onclick="quizSelect(4,'B')" data-q="4" data-a="B">
-                <span class="quiz-option__letter">B</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">B</span>
+                  <span class="lang-en">B</span>
+                </span>
                 <span class="lang-fr" lang="fr">Approche informelle et détendue</span>
                 <span class="lang-en" lang="en">Informal and relaxed approach</span>
               </div>
               <div class="quiz-option" onclick="quizSelect(4,'C')" data-q="4" data-a="C">
-                <span class="quiz-option__letter">C</span>
+                <span class="quiz-option__letter">
+                  <span class="lang-fr">C</span>
+                  <span class="lang-en">C</span>
+                </span>
                 <span class="lang-fr" lang="fr">Les deux combinés pour des résultats optimaux</span>
                 <span class="lang-en" lang="en">Both combined for optimal results</span>
               </div>
@@ -1852,8 +1914,8 @@
       <div class="prog-inner fade-up">
 
         <div>
-          <div class="prog-label prog-label--1 lang-fr">📘 Programme 1 · Le plus populaire</div>
-          <div class="prog-label prog-label--1 lang-en">📘 Program 1 · Most popular</div>
+          <div class="prog-label prog-label--1 lang-fr">📘 Programme 1 • Le plus populaire</div>
+          <div class="prog-label prog-label--1 lang-en">📘 Program 1 • Most popular</div>
           <h2 class="prog-title-main prog-title-main--1 lang-fr" id="prog1-heading">
             Programme Complet <br><em>de Français</em>
           </h2>
@@ -1926,12 +1988,18 @@
 
           <div class="prog-stats">
             <div class="prog-stat">
-              <span class="prog-stat__val">A1</span>
+              <span class="prog-stat__val">
+                <span class="lang-fr">A1</span>
+                <span class="lang-en">A1</span>
+              </span>
               <span class="prog-stat__label lang-fr">Niveau<br>de départ</span>
               <span class="prog-stat__label lang-en">Starting<br>level</span>
             </div>
             <div class="prog-stat">
-              <span class="prog-stat__val">C2</span>
+              <span class="prog-stat__val">
+                <span class="lang-fr">C2</span>
+                <span class="lang-en">C2</span>
+              </span>
               <span class="prog-stat__label lang-fr">Niveau<br>maximum</span>
               <span class="prog-stat__label lang-en">Maximum<br>level</span>
             </div>
@@ -1969,12 +2037,16 @@
               <div class="prog-info-row">
                 <span class="prog-info-row__key lang-fr">Niveau</span>
                 <span class="prog-info-row__key lang-en">Level</span>
-                <span class="prog-info-row__val">A1 → C2</span>
+                <span class="prog-info-row__val">
+                  <span class="lang-fr">A1 → C2</span>
+                  <span class="lang-en">A1 → C2</span>
+                </span>
               </div>
               <div class="prog-info-row">
                 <span class="prog-info-row__key lang-fr">Plateforme</span>
                 <span class="prog-info-row__key lang-en">Platform</span>
-                <span class="prog-info-row__val">Zoom · 100% en ligne</span>
+                <span class="prog-info-row__val lang-fr">Zoom • 100% en ligne</span>
+                <span class="prog-info-row__val lang-en">Zoom • 100% online</span>
               </div>
             </div>
           </div>
@@ -2072,17 +2144,26 @@
 
           <div class="prog-stats">
             <div class="prog-stat">
-              <span class="prog-stat__val">100%</span>
+              <span class="prog-stat__val">
+                <span class="lang-fr">100%</span>
+                <span class="lang-en">100%</span>
+              </span>
               <span class="prog-stat__label lang-fr">Réussite<br>à ce jour</span>
               <span class="prog-stat__label lang-en">Pass rate<br>to date</span>
             </div>
             <div class="prog-stat">
-              <span class="prog-stat__val">4</span>
+              <span class="prog-stat__val">
+                <span class="lang-fr">4</span>
+                <span class="lang-en">4</span>
+              </span>
               <span class="prog-stat__label lang-fr">Épreuves<br>travaillées</span>
               <span class="prog-stat__label lang-en">Skills<br>trained</span>
             </div>
             <div class="prog-stat">
-              <span class="prog-stat__val" style="font-size:1rem;">∞</span>
+              <span class="prog-stat__val" style="font-size:1.5rem;">
+                <span class="lang-fr">∞</span>
+                <span class="lang-en">∞</span>
+              </span>
               <span class="prog-stat__label lang-fr">Diplôme<br>à vie</span>
               <span class="prog-stat__label lang-en">Lifelong<br>diploma</span>
             </div>
@@ -2114,7 +2195,10 @@
               <div class="prog-info-row">
                 <span class="prog-info-row__key lang-fr">Niveau</span>
                 <span class="prog-info-row__key lang-en">Level</span>
-                <span class="prog-info-row__val">A1 → C1</span>
+                <span class="prog-info-row__val">
+                  <span class="lang-fr">A1 → C1</span>
+                  <span class="lang-en">A1 → C1</span>
+                </span>
               </div>
               <div class="prog-info-row">
                 <span class="prog-info-row__key lang-fr">Réussite</span>
@@ -2213,18 +2297,26 @@
 
           <div class="prog-stats">
             <div class="prog-stat">
-              <span class="prog-stat__val">A2</span>
+              <span class="prog-stat__val">
+                <span class="lang-fr">A2</span>
+                <span class="lang-en">A2</span>
+              </span>
               <span class="prog-stat__label lang-fr">Niveau<br>minimum</span>
               <span class="prog-stat__label lang-en">Minimum<br>level</span>
             </div>
             <div class="prog-stat">
-              <span class="prog-stat__val">C2</span>
+              <span class="prog-stat__val">
+                <span class="lang-fr">C2</span>
+                <span class="lang-en">C2</span>
+              </span>
               <span class="prog-stat__label lang-fr">Niveau<br>maximum</span>
               <span class="prog-stat__label lang-en">Maximum<br>level</span>
             </div>
             <div class="prog-stat">
-              <span class="prog-stat__val lang-fr">Libre</span>
-              <span class="prog-stat__val lang-en">Open</span>
+              <span class="prog-stat__val">
+                <span class="lang-fr">Libre</span>
+                <span class="lang-en">Open</span>
+              </span>
               <span class="prog-stat__label lang-fr">Durée<br>selon objectifs</span>
               <span class="prog-stat__label lang-en">Duration<br>by goal</span>
             </div>
@@ -2256,7 +2348,10 @@
               <div class="prog-info-row">
                 <span class="prog-info-row__key lang-fr">Niveau</span>
                 <span class="prog-info-row__key lang-en">Level</span>
-                <span class="prog-info-row__val">A2 minimum</span>
+                <span class="prog-info-row__val">
+                  <span class="lang-fr">A2 minimum</span>
+                  <span class="lang-en">A2 minimum</span>
+                </span>
               </div>
               <div class="prog-info-row">
                 <span class="prog-info-row__key lang-fr">Fiches</span>
@@ -2278,8 +2373,8 @@
       <div class="prog-inner fade-up">
 
         <div>
-          <div class="prog-label prog-label--4 lang-fr">👥 Programme 4 · Économisez 30%</div>
-          <div class="prog-label prog-label--4 lang-en">👥 Program 4 · Save 30%</div>
+          <div class="prog-label prog-label--4 lang-fr">👥 Programme 4 • Économisez 30%</div>
+          <div class="prog-label prog-label--4 lang-en">👥 Program 4 • Save 30%</div>
           <h2 class="prog-title-main prog-title-main--4 lang-fr" id="prog4-heading">
             Cours de Français<br><em>en Petits Groupes</em>
           </h2>
@@ -2359,17 +2454,26 @@
 
           <div class="prog-stats">
             <div class="prog-stat">
-              <span class="prog-stat__val">2-4</span>
+              <span class="prog-stat__val">
+                <span class="lang-fr">2-4</span>
+                <span class="lang-en">2-4</span>
+              </span>
               <span class="prog-stat__label lang-fr">Personnes<br>par groupe</span>
               <span class="prog-stat__label lang-en">People<br>per group</span>
             </div>
             <div class="prog-stat">
-              <span class="prog-stat__val">-30%</span>
+              <span class="prog-stat__val">
+                <span class="lang-fr">-30%</span>
+                <span class="lang-en">-30%</span>
+              </span>
               <span class="prog-stat__label lang-fr">Réduction<br>sur tarifs</span>
               <span class="prog-stat__label lang-en">Discount<br>on rates</span>
             </div>
             <div class="prog-stat">
-              <span class="prog-stat__val">A1→C2</span>
+              <span class="prog-stat__val">
+                <span class="lang-fr">A1→C2</span>
+                <span class="lang-en">A1→C2</span>
+              </span>
               <span class="prog-stat__label lang-fr">Tous<br>niveaux</span>
               <span class="prog-stat__label lang-en">All<br>levels</span>
             </div>
@@ -2389,8 +2493,10 @@
               <div class="prog-info-row">
                 <span class="prog-info-row__key lang-fr">Taille du groupe</span>
                 <span class="prog-info-row__key lang-en">Group size</span>
-                <span class="prog-info-row__val">2-4 <span class="lang-fr">personnes</span><span
-                    class="lang-en">people</span></span>
+                <span class="prog-info-row__val">
+                  <span class="lang-fr">2-4 personnes</span>
+                  <span class="lang-en">2-4 people</span>
+                </span>
               </div>
               <div class="prog-info-row">
                 <span class="prog-info-row__key lang-fr">Programmes disponibles</span>
@@ -2401,12 +2507,18 @@
               <div class="prog-info-row">
                 <span class="prog-info-row__key lang-fr">Niveau</span>
                 <span class="prog-info-row__key lang-en">Level</span>
-                <span class="prog-info-row__val">A1 → C2</span>
+                <span class="prog-info-row__val">
+                  <span class="lang-fr">A1 → C2</span>
+                  <span class="lang-en">A1 → C2</span>
+                </span>
               </div>
               <div class="prog-info-row">
                 <span class="prog-info-row__key lang-fr">Réduction</span>
                 <span class="prog-info-row__key lang-en">Discount</span>
-                <span class="prog-info-row__val" style="color:var(--prog4-accent);font-weight:800;">-30%</span>
+                <span class="prog-info-row__val" style="color:var(--prog4-accent);font-weight:800;">
+                  <span class="lang-fr">-30%</span>
+                  <span class="lang-en">-30%</span>
+                </span>
               </div>
             </div>
           </div>
@@ -2448,8 +2560,10 @@
           </thead>
           <tbody>
             <tr>
-              <td>📘 <span class="lang-fr" lang="fr">Programme Complet</span><span class="lang-en" lang="en">Complete
-                  Program</span></td>
+              <td>
+                <span class="lang-fr">📘 Programme Complet</span>
+                <span class="lang-en">📘 Complete Program</span>
+              </td>
               <td>
                 <span class="lang-fr" lang="fr">Structuré avec fiches récapitulatives</span>
                 <span class="lang-en" lang="en">Structured with recap sheets</span>
@@ -2458,12 +2572,15 @@
                 <span class="lang-fr" lang="fr">6–12 mois / niveau</span>
                 <span class="lang-en" lang="en">6–12 months / level</span>
               </td>
-              <td>A1 → C2</td>
+              <td>
+                <span class="lang-fr">A1 → C2</span>
+                <span class="lang-en">A1 → C2</span>
+              </td>
             </tr>
             <tr>
               <td>
-                🏆 <span class="lang-fr" lang="fr">Préparation DELF/DALF</span><span class="lang-en" lang="en">DELF/DALF
-                  Preparation</span>
+                <span class="lang-fr">🏆 Préparation DELF/DALF</span>
+                <span class="lang-en">🏆 DELF/DALF Preparation</span>
               </td>
               <td>
                 <span class="lang-fr" lang="fr">Intensif ciblé, avec fiches récapitulatives</span>
@@ -2473,11 +2590,16 @@
                 <span class="lang-fr" lang="fr">3–6 mois</span>
                 <span class="lang-en" lang="en">3–6 months</span>
               </td>
-              <td>A1 → C1</td>
+              <td>
+                <span class="lang-fr">A1 → C1</span>
+                <span class="lang-en">A1 → C1</span>
+              </td>
             </tr>
             <tr>
-              <td>💬 <span class="lang-fr" lang="fr">Cours de Conversation</span><span class="lang-en"
-                  lang="en">Conversation Classes</span></td>
+              <td>
+                <span class="lang-fr">💬 Cours de Conversation</span>
+                <span class="lang-en">💬 Conversation Classes</span>
+              </td>
               <td>
                 <span class="lang-fr" lang="fr">Flexible, sans fiches récapitulatives</span>
                 <span class="lang-en" lang="en">Flexible informal, no recap sheets</span>
@@ -2486,11 +2608,20 @@
                 <span class="lang-fr" lang="fr">Selon objectifs</span>
                 <span class="lang-en" lang="en">According to goals</span>
               </td>
-              <td>A2 minimum</td>
+              <td>
+                <span class="lang-fr">A2 minimum</span>
+                <span class="lang-en">A2 minimum</span>
+              </td>
             </tr>
             <tr>
-              <td>👥 <span class="lang-fr" lang="fr">Cours en Groupe</span><span class="lang-en" lang="en">Group
-                  Classes</span> <span class="compare-badge">-30%</span></td>
+              <td>
+                <span class="lang-fr">👥 Cours en Groupe</span>
+                <span class="lang-en">👥 Group Classes</span>
+                <span class="compare-badge">
+                  <span class="lang-fr">-30%</span>
+                  <span class="lang-en">-30%</span>
+                </span>
+              </td>
               <td>
                 <span class="lang-fr" lang="fr">2-4 personnes, Programme Complet ou Conversation</span>
                 <span class="lang-en" lang="en">2-4 people, Complete Program or Conversation</span>
@@ -2499,7 +2630,10 @@
                 <span class="lang-fr" lang="fr">Selon programme choisi</span>
                 <span class="lang-en" lang="en">According to chosen program</span>
               </td>
-              <td>A1 → C2</td>
+              <td>
+                <span class="lang-fr">A1 → C2</span>
+                <span class="lang-en">A1 → C2</span>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -2533,7 +2667,10 @@
 
       <div class="common-grid fade-up">
         <div class="common-item">
-          <div class="common-item__icon">🎯</div>
+          <div class="common-item__icon">
+            <span class="lang-fr">🎯</span>
+            <span class="lang-en">🎯</span>
+          </div>
           <div class="common-item__title lang-fr">100% personnalisé</div>
           <div class="common-item__title lang-en">100% personalized</div>
           <div class="common-item__desc lang-fr">Selon vos objectifs et vos passions — jamais un programme standardisé
@@ -2542,14 +2679,20 @@
           </div>
         </div>
         <div class="common-item">
-          <div class="common-item__icon">📚</div>
+          <div class="common-item__icon">
+            <span class="lang-fr">📚</span>
+            <span class="lang-en">📚</span>
+          </div>
           <div class="common-item__title lang-fr">Ressources authentiques</div>
           <div class="common-item__title lang-en">Authentic resources</div>
           <div class="common-item__desc lang-fr">Actuelles et adaptées à votre niveau et vos intérêts</div>
           <div class="common-item__desc lang-en">Current and adapted to your level and interests</div>
         </div>
         <div class="common-item">
-          <div class="common-item__icon">💻</div>
+          <div class="common-item__icon">
+            <span class="lang-fr">💻</span>
+            <span class="lang-en">💻</span>
+          </div>
           <div class="common-item__title lang-fr">100% en ligne</div>
           <div class="common-item__title lang-en">100% online</div>
           <div class="common-item__desc lang-fr">Depuis chez vous, partout dans le monde — Amériques, Europe, Asie,
@@ -2564,7 +2707,10 @@
           <div class="common-item__desc lang-en">Available 5 days/week, adapted to your timetable</div>
         </div>
         <div class="common-item">
-          <div class="common-item__icon">💖</div>
+          <div class="common-item__icon">
+            <span class="lang-fr">💖</span>
+            <span class="lang-en">💖</span>
+          </div>
           <div class="common-item__title lang-fr">Approche bienveillante</div>
           <div class="common-item__title lang-en">Supportive approach</div>
           <div class="common-item__desc lang-fr">Vos erreurs sont des tremplins, jamais des obstacles</div>
@@ -2599,14 +2745,13 @@
           <a href="./tarifs.html" class="btn btn--outline-white lang-fr">Voir les tarifs</a>
           <a href="./tarifs.html" class="btn btn--outline-white lang-en">View pricing</a>
         </div>
-        <p class="cta-final__note lang-fr">Sans engagement · Annulable jusqu'à 24h avant · Réponse sous 24h en semaine,
+        <p class="cta-final__note lang-fr">Sans engagement • Annulable jusqu'à 24h avant • Réponse sous 24h en semaine,
           48h le week-end</p>
-        <p class="cta-final__note lang-en">No commitment · Cancellable up to 24h before · Response within 24h weekdays,
+        <p class="cta-final__note lang-en">No commitment • Cancellable up to 24h before • Response within 24h weekdays,
           48h weekends</p>
       </div>
     </div>
-  </section>
-
+  </main>
 
   <site-footer></site-footer>
 
@@ -2767,8 +2912,8 @@
     }
 
     function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      // Navigate directly to contact page (no internal scroll)
+      window.location.href = './contact.html';
     }
   </script>
 
@@ -2788,66 +2933,11 @@
       French online from home, individual French lessons and small group classes for adults.</p>
   </section>
 
-  <style>
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 800;
-      padding: 12px 16px 14px;
-      background: linear-gradient(135deg, var(--navy, #1B2E4B) 0%, #253d63 100%);
-      border-top: 1px solid rgba(201, 169, 110, 0.3);
-      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25);
-    }
-
-    .sticky-cta a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 8px;
-      background: var(--gold, #C9A96E);
-      color: var(--navy, #1B2E4B);
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(201, 169, 110, 0.4);
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .sticky-cta a:active {
-      transform: scale(0.98);
-    }
-
-    .sticky-cta .trust-line {
-      text-align: center;
-      font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.45);
-      margin-top: 6px;
-      letter-spacing: 0.03em;
-    }
-
-    @media(max-width:768px) {
-      .sticky-cta {
-        display: block;
-      }
-    }
-
-    @media(min-width:769px) {
-      .sticky-cta {
-        display: none !important;
-      }
-    }
-  </style>
   <div class="sticky-cta" aria-label="Réserver un cours d'essai">
     <a href="./contact.html" class="lang-fr">🎓 Cours d'essai gratuit — 30 min</a>
     <a href="./contact.html" class="lang-en">🎓 Free trial class — 30 min</a>
-    <p class="trust-line lang-fr">Sans engagement · Réponse sous 24h</p>
-    <p class="trust-line lang-en">No commitment · Reply within 24h</p>
+    <p class="trust-line lang-fr">Sans engagement • Réponse sous 24h</p>
+    <p class="trust-line lang-en">No commitment • Reply within 24h</p>
   </div>
 </body>
 

@@ -7,10 +7,8 @@
 
   <title lang="fr">Contact — Réservez votre cours d'essai gratuit | Cours individuels ou en groupes | Darya Learn French
   </title>
-  <meta name="description"
-    content="Contactez Darya, professeure de français certifiée DELF-DALF. Réservez votre cours d'essai gratuit (30 min) en ligne via Zoom. Cours individuels ou en groupes (2-4 personnes). Réponse sous 24h. Cours disponibles en Amériques, Europe, Asie." />
-  <meta name="description" lang="en"
-    content="Contact Darya, DELF-DALF certified French teacher. Book your free 30-minute trial lesson online via Zoom. Individual or group classes (2-4 people). Response within 24h. Lessons available worldwide — Americas, Europe, Asia." />
+  <meta name="description" class="lang-fr" content="Contactez Darya, professeure de français certifiée DELF-DALF. Réservez votre cours d'essai gratuit (30 min) en ligne via Zoom. Cours individuels ou en groupes (2-4 personnes). Réponse sous 24h. Cours disponibles en Amériques, Europe, Asie." />
+  <meta name="description" class="lang-en" content="Contact Darya, DELF-DALF certified French teacher. Book your free 30-minute trial lesson online via Zoom. Individual or group classes (2-4 people). Response within 24h. Lessons available worldwide — Americas, Europe, Asia." />
   <link rel="canonical" href="https://daryalearnfrench.com/contact" />
   <link rel="alternate" hreflang="fr" href="https://daryalearnfrench.com/contact" />
   <link rel="alternate" hreflang="en" href="https://daryalearnfrench.com/en/contact" />
@@ -90,6 +88,18 @@
 
   <style>
     /* ══════════════════════════════════════════
+       RADICAL FIX FOR WHITE BAND
+    ══════════════════════════════════════════ */
+    html, body { 
+       height: 100% !important; 
+       margin: 0 !important; 
+       background-color: #1B2E4B !important; /* Couleur du footer pour boucher le trou */
+    }
+    body { display: flex !important; flex-direction: column !important; }
+    main { flex: 1 0 auto !important; }
+    footer { flex-shrink: 0 !important; border: none !important; outline: none !important; box-shadow: none !important; }
+
+    /* ══════════════════════════════════════════
        CSS VARIABLES — DESIGN SYSTEM (identique à l'accueil)
     ══════════════════════════════════════════ */
     :root {
@@ -141,7 +151,8 @@
       background: var(--white);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      padding-top: 68px;
+      padding-top: 80px !important;
+      margin: 0 !important;
     }
 
     img {
@@ -1104,9 +1115,6 @@
         grid-template-columns: 1fr;
       }
 
-      body {
-        padding-bottom: 70px;
-      }
 
       .trust-item {
         border-right: none;
@@ -1144,36 +1152,62 @@
 
   <site-header data-active="contact" data-base="./"></site-header>
 
+  <main class="page-wrapper">
+
+
   <section class="page-hero" aria-label="En-tête Contact">
     <div class="container">
       <div class="page-hero__inner">
         <div class="lang-fr fade-up">
-          <div class="page-hero__eyebrow">📧 Contactez-moi</div>
+          <div class="page-hero__eyebrow">
+            <span class="lang-fr">📧 Contactez-moi</span>
+            <span class="lang-en">📧 Get in touch</span>
+          </div>
           <h1 class="page-hero__title">
-            Prêt(e) à commencer <em>votre aventure en français ?</em>
+            <span class="lang-fr">Prêt(e) à commencer <em>votre aventure en français ?</em></span>
           </h1>
           <p class="page-hero__subtitle">
-            Réservez votre cours d'essai gratuit de 30 minutes — sans engagement, sans carte bancaire. Je vous réponds
-            sous 24h.
+            <span class="lang-fr">Réservez votre cours d'essai gratuit de 30 minutes — sans engagement, sans carte bancaire. Je vous réponds sous 24h.</span>
           </p>
           <div class="page-hero__badges">
-            <span class="page-hero__badge"><strong>🎁 100% gratuit</strong> — cours d'essai 30 min</span>
-            <span class="page-hero__badge"><strong>⚡ Réponse sous 24h</strong></span>
-            <span class="page-hero__badge"><strong>🌍 Monde entier</strong> — via Zoom</span>
+            <span class="page-hero__badge">
+              <span class="lang-fr"><strong>🎁 100% gratuit</strong> — cours d'essai 30 min</span>
+              <span class="lang-en"><strong>🎁 100% free</strong> — 30-min trial lesson</span>
+            </span>
+            <span class="page-hero__badge">
+              <span class="lang-fr"><strong>⚡ Réponse sous 24h</strong></span>
+              <span class="lang-en"><strong>⚡ Reply within 24h</strong></span>
+            </span>
+            <span class="page-hero__badge">
+              <span class="lang-fr"><strong>🌍 Monde entier</strong> — via Zoom</span>
+              <span class="lang-en"><strong>🌍 Worldwide</strong> — via Zoom</span>
+            </span>
           </div>
         </div>
         <div class="lang-en" aria-hidden="true">
-          <div class="page-hero__eyebrow">📧 Get in touch</div>
+          <div class="page-hero__eyebrow">
+            <span class="lang-fr">📧 Contactez-moi</span>
+            <span class="lang-en">📧 Get in touch</span>
+          </div>
           <h1 class="page-hero__title">
-            Ready to start <em>your French adventure?</em>
+            <span class="lang-en">Ready to start <em>your French adventure?</em></span>
           </h1>
           <p class="page-hero__subtitle">
-            Book your free 30-minute trial lesson — no commitment, no credit card required. I'll reply within 24 hours.
+            <span class="lang-en">Book your free 30-minute trial lesson — no commitment, no credit card required. I'll reply within 24 hours.</span>
           </p>
           <div class="page-hero__badges">
-            <span class="page-hero__badge"><strong>🎁 100% free</strong> — 30-min trial lesson</span>
-            <span class="page-hero__badge"><strong>⚡ Reply within 24h</strong></span>
-            <span class="page-hero__badge"><strong>🌍 Worldwide</strong> — via Zoom</span>
+            <span class="page-hero__badge">
+              <span class="lang-fr"><strong>🎁 100% gratuit</strong> — cours d'essai 30 min</span>
+              <span class="lang-en"><strong>🎁 100% free</strong> — 30-min trial lesson</span>
+            </span>
+            <span class="page-hero__badge">
+              <span class="lang-fr"><strong>⚡ Réponse sous 24h</strong></span>
+              <span class="lang-en"><strong>⚡ Reply within 24h</strong></span>
+            </span>
+            <span class="page-hero__badge">
+              <span class="lang-fr"><strong>🌍 Monde entier</strong> — via Zoom</span>
+              <span class="lang-en"><strong>🌍 Worldwide</strong> — via Zoom</span>
+            </span>
           </div>
         </div>
       </div>
@@ -1184,24 +1218,36 @@
     <div class="container">
       <div class="trust-strip__inner">
         <div class="trust-item">
-          <span class="icon">🎁</span>
+          <span class="icon">
+            <span class="lang-fr">🎁</span>
+            <span class="lang-en">🎁</span>
+          </span>
           <span class="lang-fr" lang="fr">Premier cours 100% offert — 30 min</span>
           <span class="lang-en" lang="en">First lesson 100% free — 30 min</span>
         </div>
         <div class="trust-item">
-          <span class="icon">🌍</span>
+          <span class="icon">
+            <span class="lang-fr">🌍</span>
+            <span class="lang-en">🌍</span>
+          </span>
           <span class="lang-fr" lang="fr">Cours en ligne — monde entier</span>
           <span class="lang-en" lang="en">Online lessons — worldwide</span>
         </div>
         <div class="trust-item">
-          <span class="icon">📅</span>
+          <span class="icon">
+            <span class="lang-fr">📅</span>
+            <span class="lang-en">📅</span>
+          </span>
           <span class="lang-fr" lang="fr">Disponible 5j/7 via Zoom</span>
           <span class="lang-en" lang="en">Available 5 days/week via Zoom</span>
         </div>
         <div class="trust-item">
-          <span class="icon">🗣️</span>
-          <span class="lang-fr" lang="fr">Trilingue : français · anglais · farsi</span>
-          <span class="lang-en" lang="en">Trilingual: French · English · Farsi</span>
+          <span class="icon">
+            <span class="lang-fr">🗣️</span>
+            <span class="lang-en">🗣️</span>
+          </span>
+          <span class="lang-fr" lang="fr">Trilingue : français • anglais • farsi</span>
+          <span class="lang-en" lang="en">Trilingual: French • English • Farsi</span>
         </div>
       </div>
     </div>
@@ -1215,86 +1261,116 @@
 
           <div class="trial-hero fade-up">
             <div class="lang-fr">
-              <div class="trial-hero__label">🎁 Inclus — offert</div>
-              <h2 class="trial-hero__title">Cours d'essai <em>gratuit de 30 minutes</em></h2>
-              <p class="trial-hero__desc">Découvrez ma méthode et créons ensemble votre programme personnalisé.</p>
+              <div class="trial-hero__label">
+                <span class="lang-fr">🎁 Inclus — offert</span>
+                <span class="lang-en">🎁 Included — free</span>
+              </div>
+              <h2 class="trial-hero__title">
+                <span class="lang-fr">Cours d'essai <em>gratuit de 30 minutes</em></span>
+              </h2>
+              <p class="trial-hero__desc">
+                <span class="lang-fr">Découvrez ma méthode et créons ensemble votre programme personnalisé.</span>
+              </p>
               <ul class="trial-checklist">
-                <li>Faire connaissance et discuter de vos objectifs</li>
-                <li>Évaluer votre niveau actuel de français</li>
-                <li>Identifier la formation la plus adaptée à vos besoins</li>
-                <li>Créer votre parcours d'apprentissage personnalisé</li>
-                <li>Répondre à toutes vos questions</li>
+                <li><span class="lang-fr">Faire connaissance et discuter de vos objectifs</span></li>
+                <li><span class="lang-fr">Évaluer votre niveau actuel de français</span></li>
+                <li><span class="lang-fr">Identifier la formation la plus adaptée à vos besoins</span></li>
+                <li><span class="lang-fr">Créer votre parcours d'apprentissage personnalisé</span></li>
+                <li><span class="lang-fr">Répondre à toutes vos questions</span></li>
               </ul>
-              <p class="trial-hero__note">Aucun engagement · Aucun paiement requis · Juste une conversation pour voir si
-                nous sommes faits pour travailler ensemble.</p>
+              <p class="trial-hero__note">
+                <span class="lang-fr">Aucun engagement • Aucun paiement requis • Juste une conversation pour voir si nous sommes faits pour travailler ensemble.</span>
+              </p>
             </div>
             <div class="lang-en" aria-hidden="true">
-              <div class="trial-hero__label">🎁 Included — free of charge</div>
-              <h2 class="trial-hero__title"><em>Free 30-minute</em> trial lesson</h2>
-              <p class="trial-hero__desc">Discover my method and let's create your personalized program together.</p>
+              <div class="trial-hero__label">
+                <span class="lang-fr">🎁 Inclus — offert</span>
+                <span class="lang-en">🎁 Included — free of charge</span>
+              </div>
+              <h2 class="trial-hero__title">
+                <span class="lang-en"><em>Free 30-minute</em> trial lesson</span>
+              </h2>
+              <p class="trial-hero__desc">
+                <span class="lang-en">Discover my method and let's create your personalized program together.</span>
+              </p>
               <ul class="trial-checklist">
-                <li>Get to know each other and discuss your goals</li>
-                <li>Assess your current French level</li>
-                <li>Identify the most suitable program for your needs</li>
-                <li>Create your personalized learning path</li>
-                <li>Answer all your questions</li>
+                <li><span class="lang-en">Get to know each other and discuss your goals</span></li>
+                <li><span class="lang-en">Assess your current French level</span></li>
+                <li><span class="lang-en">Identify the most suitable program for your needs</span></li>
+                <li><span class="lang-en">Create your personalized learning path</span></li>
+                <li><span class="lang-en">Answer all your questions</span></li>
               </ul>
-              <p class="trial-hero__note">No commitment · No payment required · Just a conversation to see if we're a
-                good fit.</p>
+              <p class="trial-hero__note">
+                <span class="lang-en">No commitment • No payment required • Just a conversation to see if we're a good fit.</span>
+              </p>
             </div>
           </div>
 
           <div class="contact-form-wrap fade-up" id="form-wrap">
             <div class="form-header">
-              <h2 class="form-header__title lang-fr">📝 Formulaire de contact</h2>
-              <h2 class="form-header__title lang-en">📝 Contact form</h2>
-              <p class="form-header__sub lang-fr">Je vous réponds dans les <strong>24 heures</strong> ouvrées.</p>
-              <p class="form-header__sub lang-en">I'll get back to you within <strong>24 working hours</strong>.</p>
+              <h2 class="form-header__title">
+                <span class="lang-fr">📝 Formulaire de contact</span>
+                <span class="lang-en">📝 Contact form</span>
+              </h2>
+              <p class="form-header__sub">
+                <span class="lang-fr">Je vous réponds dans les <strong>24 heures</strong> ouvrées.</span>
+                <span class="lang-en">I'll get back to you within <strong>24 working hours</strong>.</span>
+              </p>
             </div>
 
             <div class="form-success" id="form-success" role="alert">
-              <div class="form-success__icon">🎉</div>
-              <h3 class="form-success__title lang-fr">Message envoyé !</h3>
-              <h3 class="form-success__title lang-en">Message sent!</h3>
-              <p class="form-success__text lang-fr">Merci pour votre message. Je vous réponds sous 24h avec plusieurs
-                créneaux pour votre cours d'essai gratuit. À très bientôt !</p>
-              <p class="form-success__text lang-en">Thank you for your message. I'll reply within 24h with several
-                available slots for your free trial lesson. See you very soon!</p>
-              <a href="./index.html" class="btn btn--gold lang-fr">← Retour à l'accueil</a>
-              <a href="./index.html" class="btn btn--gold lang-en">← Back to home</a>
+              <div class="form-success__icon">
+                <span class="lang-fr">🎉</span>
+                <span class="lang-en">🎉</span>
+              </div>
+              <h3 class="form-success__title">
+                <span class="lang-fr">Message envoyé !</span>
+                <span class="lang-en">Message sent!</span>
+              </h3>
+              <p class="form-success__text">
+                <span class="lang-fr">Merci pour votre message. Je vous réponds sous 24h avec plusieurs créneaux pour votre cours d'essai gratuit. À très bientôt !</span>
+                <span class="lang-en">Thank you for your message. I'll reply within 24h with several available slots for your free trial lesson. See you very soon!</span>
+              </p>
+              <a href="./index.html" class="btn btn--gold">
+                <span class="lang-fr">← Retour à l'accueil</span>
+                <span class="lang-en">← Back to home</span>
+              </a>
             </div>
 
             <form id="contact-form-el" action="https://formspree.io/f/xqeggarv" method="POST">
 
-              <div class="form-section-label lang-fr">Vos coordonnées</div>
-              <div class="form-section-label lang-en">Your details</div>
+              <div class="form-section-label">
+                <span class="lang-fr">Vos coordonnées</span>
+                <span class="lang-en">Your details</span>
+              </div>
 
               <div class="form-row">
                 <div class="form-group">
                   <label for="lastname">
-                    <span class="lang-fr" lang="fr">Nom</span><span class="lang-en" lang="en">Last name</span><span
-                      class="req">*</span>
+                    <span class="lang-fr" lang="fr">Nom</span>
+                    <span class="lang-en" lang="en">Last name</span>
+                    <span class="req">*</span>
                   </label>
-                  <input type="text" id="lastname" name="lastname" class="form-control" required placeholder="Dupont"
-                    autocomplete="family-name" />
+                  <input type="text" id="lastname" name="lastname" class="form-control" required placeholder="Dupont" autocomplete="family-name" />
                 </div>
                 <div class="form-group">
                   <label for="firstname">
-                    <span class="lang-fr" lang="fr">Prénom</span><span class="lang-en" lang="en">First name</span><span
-                      class="req">*</span>
+                    <span class="lang-fr" lang="fr">Prénom</span>
+                    <span class="lang-en" lang="en">First name</span>
+                    <span class="req">*</span>
                   </label>
-                  <input type="text" id="firstname" name="firstname" class="form-control" required placeholder="Marie"
-                    autocomplete="given-name" />
+                  <input type="text" id="firstname" name="firstname" class="form-control" required placeholder="Marie" autocomplete="given-name" />
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
                   <label for="email">
-                    Email<span class="req">*</span>
+                    <span class="lang-fr">Email</span>
+                    <span class="lang-en">Email</span>
+                    <span class="req">*</span>
                   </label>
-                  <input type="email" id="email" name="email" class="form-control" required
-                    placeholder="marie@email.com" autocomplete="email" />
+                  <input type="email" id="email" name="email" class="form-control" required placeholder="marie@email.com" autocomplete="email" />
                 </div>
                 <div class="form-group">
                   <label for="phone">
@@ -1318,8 +1394,10 @@
 
               <div class="form-divider"></div>
 
-              <div class="form-section-label lang-fr">Votre profil d'apprenant(e)</div>
-              <div class="form-section-label lang-en">Your learner profile</div>
+              <div class="form-section-label">
+                <span class="lang-fr">Votre profil d'apprenant(e)</span>
+                <span class="lang-en">Your learner profile</span>
+              </div>
 
               <div class="form-group">
                 <label for="level">
@@ -1329,89 +1407,129 @@
                 </label>
                 <select id="level" name="level" class="form-control" required>
                   <option value="" disabled selected>
-                    Sélectionnez / Select
+                    <span class="lang-fr">Sélectionnez votre niveau</span>
+                    <span class="lang-en">Select your level</span>
                   </option>
-                  <option value="A1">A1 — Débutant complet / Complete beginner</option>
-                  <option value="A2">A2 — Élémentaire / Elementary</option>
-                  <option value="B1">B1 — Intermédiaire / Intermediate</option>
-                  <option value="B2">B2 — Intermédiaire avancé / Upper intermediate</option>
-                  <option value="C1">C1 — Avancé / Advanced</option>
-                  <option value="C2">C2 — Maîtrise / Mastery</option>
-                  <option value="unknown">Je ne sais pas / I don't know</option>
+                  <option value="A1">
+                    <span class="lang-fr">A1 — Débutant complet</span>
+                    <span class="lang-en">A1 — Complete beginner</span>
+                  </option>
+                  <option value="A2">
+                    <span class="lang-fr">A2 — Élémentaire</span>
+                    <span class="lang-en">A2 — Elementary</span>
+                  </option>
+                  <option value="B1">
+                    <span class="lang-fr">B1 — Intermédiaire</span>
+                    <span class="lang-en">B1 — Intermediate</span>
+                  </option>
+                  <option value="B2">
+                    <span class="lang-fr">B2 — Intermédiaire avancé</span>
+                    <span class="lang-en">B2 — Upper intermediate</span>
+                  </option>
+                  <option value="C1">
+                    <span class="lang-fr">C1 — Avancé</span>
+                    <span class="lang-en">C1 — Advanced</span>
+                  </option>
+                  <option value="C2">
+                    <span class="lang-fr">C2 — Maîtrise</span>
+                    <span class="lang-en">C2 — Mastery</span>
+                  </option>
+                  <option value="unknown">
+                    <span class="lang-fr">Je ne sais pas</span>
+                    <span class="lang-en">I don't know</span>
+                  </option>
                 </select>
               </div>
 
               <div class="form-group">
                 <label>
-                  <span class="lang-fr" lang="fr">Formation qui vous intéresse</span>
-                  <span class="lang-en" lang="en">Program you're interested in</span>
+                  <span class="lang-fr">Formation qui vous intéresse</span>
+                  <span class="lang-en">Program you're interested in</span>
                 </label>
                 <div class="checkbox-grid">
                   <label class="checkbox-label">
                     <input type="radio" name="program" value="programme-complet" />
-                    <span class="lang-fr" lang="fr">Programme Complet</span>
-                    <span class="lang-en" lang="en">Complete Program</span>
+                    <span class="lang-fr">Programme Complet</span>
+                    <span class="lang-en">Complete Program</span>
                   </label>
                   <label class="checkbox-label">
                     <input type="radio" name="program" value="delf-dalf" />
-                    <span class="lang-fr" lang="fr">Préparation DELF/DALF</span>
-                    <span class="lang-en" lang="en">DELF/DALF Preparation</span>
+                    <span class="lang-fr">Préparation DELF/DALF</span>
+                    <span class="lang-en">DELF/DALF Preparation</span>
                   </label>
                   <label class="checkbox-label">
                     <input type="radio" name="program" value="conversation" />
-                    <span class="lang-fr" lang="fr">Cours de conversation</span>
-                    <span class="lang-en" lang="en">Conversation classes</span>
+                    <span class="lang-fr">Cours de conversation</span>
+                    <span class="lang-en">Conversation classes</span>
                   </label>
                   <label class="checkbox-label">
                     <input type="radio" name="program" value="cours-en-groupe" />
-                    <span class="lang-fr" lang="fr">Cours en Groupe</span>
-                    <span class="lang-en" lang="en">Group Classes</span>
+                    <span class="lang-fr">Cours en Groupe</span>
+                    <span class="lang-en">Group Classes</span>
                   </label>
                   <label class="checkbox-label">
                     <input type="radio" name="program" value="not-sure" />
-                    <span class="lang-fr" lang="fr">Je ne sais pas encore</span>
-                    <span class="lang-en" lang="en">Not sure yet</span>
+                    <span class="lang-fr">Je ne sais pas encore</span>
+                    <span class="lang-en">Not sure yet</span>
                   </label>
                 </div>
               </div>
 
               <div class="form-divider"></div>
 
-              <div class="form-section-label lang-fr">Votre message</div>
-              <div class="form-section-label lang-en">Your message</div>
+              <div class="form-section-label">
+                <span class="lang-fr">Votre message</span>
+                <span class="lang-en">Your message</span>
+              </div>
 
               <div class="form-group">
                 <label for="message">
-                  <span class="lang-fr" lang="fr">Parlez-moi de vous <span class="opt">(optionnel mais
-                      recommandé)</span></span>
-                  <span class="lang-en" lang="en">Tell me about yourself <span class="opt">(optional but
-                      encouraged)</span></span>
+                  <span class="lang-fr">Parlez-moi de vous <span class="opt">(optionnel mais recommandé)</span></span>
+                  <span class="lang-en">Tell me about yourself <span class="opt">(optional but encouraged)</span></span>
                 </label>
-                <textarea id="message" name="message" class="form-control"
-                  placeholder="Partagez vos motivations, vos centres d'intérêt, vos questions... / Share your motivations, interests, questions..."
-                  rows="5"></textarea>
+                <textarea id="message" name="message" class="form-control" rows="5"></textarea>
+                <div class="lang-fr-placeholder" style="display:none">Partagez vos motivations, vos centres d'intérêt, vos questions...</div>
+                <div class="lang-en-placeholder" style="display:none">Share your motivations, interests, questions...</div>
+                <script>
+                  document.addEventListener('DOMContentLoaded', () => {
+                    const messageArea = document.getElementById('message');
+                    const frPlaceholder = "Partagez vos motivations, vos centres d'intérêt, vos questions...";
+                    const enPlaceholder = "Share your motivations, interests, questions...";
+                    
+                    function updatePlaceholder() {
+                      const isEn = document.body.classList.contains('en');
+                      messageArea.placeholder = isEn ? enPlaceholder : frPlaceholder;
+                    }
+                    
+                    updatePlaceholder();
+                    // Monitor body class changes
+                    const observer = new MutationObserver(updatePlaceholder);
+                    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+                  });
+                </script>
               </div>
 
               <div class="consent-row">
                 <input type="checkbox" id="consent" name="consent" required />
                 <label for="consent">
-                  <span class="lang-fr" lang="fr">J'accepte que mes données soient utilisées pour traiter ma demande
-                    conformément à la <a href="./mentions-legales.html">Politique de confidentialité</a>. <span
-                      class="req">*</span></span>
-                  <span class="lang-en" lang="en">I agree that my data may be used to process my request in accordance
-                    with the <a href="./mentions-legales.html">Privacy Policy</a>. <span class="req">*</span></span>
+                  <span class="lang-fr">J'accepte que mes données soient utilisées pour traiter ma demande conformément à la <a href="./mentions-legales.html">Politique de confidentialité</a>. <span class="req">*</span></span>
+                  <span class="lang-en">I agree that my data may be used to process my request in accordance with the <a href="./mentions-legales.html">Privacy Policy</a>. <span class="req">*</span></span>
                 </label>
               </div>
-              <p class="form-required-note lang-fr">* Champs obligatoires</p>
-              <p class="form-required-note lang-en">* Required fields</p>
+              <p class="form-required-note">
+                <span class="lang-fr">* Champs obligatoires</span>
+                <span class="lang-en">* Required fields</span>
+              </p>
 
               <div class="form-submit-wrap">
                 <button type="submit" class="btn btn--gold btn--submit">
-                  <span class="lang-fr" lang="fr">🎓 Envoyer ma demande de cours d'essai</span>
-                  <span class="lang-en" lang="en">🎓 Send my trial lesson request</span>
+                  <span class="lang-fr">🎓 Envoyer ma demande de cours d'essai</span>
+                  <span class="lang-en">🎓 Send my trial lesson request</span>
                 </button>
-                <p class="form-note lang-fr">Données sécurisées · Réponse sous 24h · Aucun engagement</p>
-                <p class="form-note lang-en">Secure data · Reply within 24h · No commitment</p>
+                <p class="form-note">
+                  <span class="lang-fr">Données sécurisées • Réponse sous 24h • Aucun engagement</span>
+                  <span class="lang-en">Secure data • Reply within 24h • No commitment</span>
+                </p>
               </div>
 
             </form>
@@ -1422,61 +1540,100 @@
 
           <div class="sidebar-card fade-up">
             <div class="sidebar-card__header">
-              <div class="sidebar-card__header-title lang-fr">📍 Informations pratiques</div>
-              <div class="sidebar-card__header-title lang-en">📍 Practical details</div>
+              <div class="sidebar-card__header-title">
+                <span class="lang-fr">📍 Informations pratiques</span>
+                <span class="lang-en">📍 Practical details</span>
+              </div>
             </div>
             <div class="sidebar-card__body">
               <ul class="info-list">
                 <li class="info-item">
-                  <div class="info-item__icon">📍</div>
-                  <div class="info-item__text">
-                    <div class="info-item__label lang-fr">Localisation</div>
-                    <div class="info-item__label lang-en">Location</div>
-                    <div class="info-item__value lang-fr">Entre Paris et Normandie, France</div>
-                    <div class="info-item__value lang-en">Between Paris and Normandy, France</div>
+                  <div class="info-item__icon">
+                    <span class="lang-fr">📍</span>
+                    <span class="lang-en">📍</span>
                   </div>
-                </li>
-                <li class="info-item">
-                  <div class="info-item__icon">🕐</div>
                   <div class="info-item__text">
-                    <div class="info-item__label lang-fr">Fuseau horaire</div>
-                    <div class="info-item__label lang-en">Time zone</div>
-                    <div class="info-item__value">CET/CEST
-                      <small>UTC+1 hiver / UTC+2 été</small>
+                    <div class="info-item__label">
+                      <span class="lang-fr">Localisation</span>
+                      <span class="lang-en">Location</span>
+                    </div>
+                    <div class="info-item__value">
+                      <span class="lang-fr">Entre Paris et Normandie, France</span>
+                      <span class="lang-en">Between Paris and Normandy, France</span>
                     </div>
                   </div>
                 </li>
                 <li class="info-item">
-                  <div class="info-item__icon">💻</div>
+                  <div class="info-item__icon">
+                    <span class="lang-fr">🕐</span>
+                    <span class="lang-en">🕐</span>
+                  </div>
                   <div class="info-item__text">
-                    <div class="info-item__label lang-fr">Format des cours</div>
-                    <div class="info-item__label lang-en">How we meet</div>
-                    <div class="info-item__value lang-fr">100% en ligne — Zoom
-                      <small>Lien envoyé avant chaque cours</small>
+                    <div class="info-item__label">
+                      <span class="lang-fr">Fuseau horaire</span>
+                      <span class="lang-en">Time zone</span>
                     </div>
-                    <div class="info-item__value lang-en">100% online — Zoom
-                      <small>Link sent before each session</small>
+                    <div class="info-item__value">
+                      <span class="lang-fr">CET/CEST <small>UTC+1 hiver / UTC+2 été</small></span>
+                      <span class="lang-en">CET/CEST <small>UTC+1 winter / UTC+2 summer</small></span>
                     </div>
                   </div>
                 </li>
                 <li class="info-item">
-                  <div class="info-item__icon">📅</div>
+                  <div class="info-item__icon">
+                    <span class="lang-fr">💻</span>
+                    <span class="lang-en">💻</span>
+                  </div>
                   <div class="info-item__text">
-                    <div class="info-item__label lang-fr">Disponibilité</div>
-                    <div class="info-item__label lang-en">Availability</div>
-                    <div class="info-item__value lang-fr">Disponible 5 jours / 7</div>
-                    <div class="info-item__value lang-en">Available 5 days a week</div>
+                    <div class="info-item__label">
+                      <span class="lang-fr">Format des cours</span>
+                      <span class="lang-en">How we meet</span>
+                    </div>
+                    <div class="info-item__value">
+                      <span class="lang-fr">100% en ligne — Zoom <small>Lien envoyé avant chaque cours</small></span>
+                      <span class="lang-en">100% online — Zoom <small>Link sent before each session</small></span>
+                    </div>
                   </div>
                 </li>
                 <li class="info-item">
-                  <div class="info-item__icon">🌐</div>
+                  <div class="info-item__icon">
+                    <span class="lang-fr">📅</span>
+                    <span class="lang-en">📅</span>
+                  </div>
                   <div class="info-item__text">
-                    <div class="info-item__label lang-fr">Langues parlées</div>
-                    <div class="info-item__label lang-en">Languages I speak</div>
+                    <div class="info-item__label">
+                      <span class="lang-fr">Disponibilité</span>
+                      <span class="lang-en">Availability</span>
+                    </div>
+                    <div class="info-item__value">
+                      <span class="lang-fr">Disponible 5 jours / 7</span>
+                      <span class="lang-en">Available 5 days a week</span>
+                    </div>
+                  </div>
+                </li>
+                <li class="info-item">
+                  <div class="info-item__icon">
+                    <span class="lang-fr">🌐</span>
+                    <span class="lang-en">🌐</span>
+                  </div>
+                  <div class="info-item__text">
+                    <div class="info-item__label">
+                      <span class="lang-fr">Langues parlées</span>
+                      <span class="lang-en">Languages I speak</span>
+                    </div>
                     <div class="lang-badges">
-                      <span class="lang-badge">🇫🇷 Français</span>
-                      <span class="lang-badge">🇬🇧 English</span>
-                      <span class="lang-badge">🇮🇷 Farsi</span>
+                      <span class="lang-badge">
+                        <span class="lang-fr">🇫🇷 Français</span>
+                        <span class="lang-en">🇫🇷 French</span>
+                      </span>
+                      <span class="lang-badge">
+                        <span class="lang-fr">🇬🇧 Anglais</span>
+                        <span class="lang-en">🇬🇧 English</span>
+                      </span>
+                      <span class="lang-badge">
+                        <span class="lang-fr">🇮🇷 Farsi</span>
+                        <span class="lang-en">🇮🇷 Farsi</span>
+                      </span>
                     </div>
                   </div>
                 </li>
@@ -1486,46 +1643,75 @@
 
           <div class="sidebar-card fade-up">
             <div class="sidebar-card__header">
-              <div class="sidebar-card__header-title lang-fr">🚀 Prochaines étapes</div>
-              <div class="sidebar-card__header-title lang-en">🚀 Next steps</div>
+              <div class="sidebar-card__header-title">
+                <span class="lang-fr">🚀 Prochaines étapes</span>
+                <span class="lang-en">🚀 Next steps</span>
+              </div>
             </div>
             <div class="sidebar-card__body">
               <ol class="steps-list">
                 <li class="step-item">
-                  <div class="step-num">1</div>
-                  <div class="step-content">
-                    <div class="step-title lang-fr">Envoi du formulaire</div>
-                    <div class="step-title lang-en">Submit the form</div>
-                    <div class="step-desc lang-fr">Vous recevrez ma réponse personnalisée sous 24h</div>
-                    <div class="step-desc lang-en">You will receive my personalized reply within 24h</div>
+                  <div class="step-num">
+                    <span class="lang-fr">1</span>
+                    <span class="lang-en">1</span>
                   </div>
-                </li>
-                <li class="step-item">
-                  <div class="step-num">2</div>
                   <div class="step-content">
-                    <div class="step-title lang-fr">Choix du créneau</div>
-                    <div class="step-title lang-en">Choose your time slot</div>
-                    <div class="step-desc lang-fr">Vous choisissez l'heure qui vous convient parmi mes disponibilités
+                    <div class="step-title">
+                      <span class="lang-fr">Envoi du formulaire</span>
+                      <span class="lang-en">Submit the form</span>
                     </div>
-                    <div class="step-desc lang-en">You pick the time that works best for you from my availability</div>
+                    <div class="step-desc">
+                      <span class="lang-fr">Vous recevrez ma réponse personnalisée sous 24h</span>
+                      <span class="lang-en">You will receive my personalized reply within 24h</span>
+                    </div>
                   </div>
                 </li>
                 <li class="step-item">
-                  <div class="step-num">3</div>
+                  <div class="step-num">
+                    <span class="lang-fr">2</span>
+                    <span class="lang-en">2</span>
+                  </div>
                   <div class="step-content">
-                    <div class="step-title lang-fr">Confirmation + lien Zoom</div>
-                    <div class="step-title lang-en">Confirmation + Zoom link</div>
-                    <div class="step-desc lang-fr">Avec conseils pour bien préparer le cours</div>
-                    <div class="step-desc lang-en">With tips to prepare well</div>
+                    <div class="step-title">
+                      <span class="lang-fr">Choix du créneau</span>
+                      <span class="lang-en">Choose your time slot</span>
+                    </div>
+                    <div class="step-desc">
+                      <span class="lang-fr">Vous choisissez l'heure qui vous convient parmi mes disponibilités</span>
+                      <span class="lang-en">You pick the time that works best for you from my availability</span>
+                    </div>
                   </div>
                 </li>
                 <li class="step-item">
-                  <div class="step-num">4</div>
+                  <div class="step-num">
+                    <span class="lang-fr">3</span>
+                    <span class="lang-en">3</span>
+                  </div>
                   <div class="step-content">
-                    <div class="step-title lang-fr">🎓 Cours d'essai gratuit (30 min)</div>
-                    <div class="step-title lang-en">🎓 Free trial lesson (30 min)</div>
-                    <div class="step-desc lang-fr">On se rencontre et créons votre programme !</div>
-                    <div class="step-desc lang-en">We meet and build your program together!</div>
+                    <div class="step-title">
+                      <span class="lang-fr">Confirmation + lien Zoom</span>
+                      <span class="lang-en">Confirmation + Zoom link</span>
+                    </div>
+                    <div class="step-desc">
+                      <span class="lang-fr">Avec conseils pour bien préparer le cours</span>
+                      <span class="lang-en">With tips to prepare well</span>
+                    </div>
+                  </div>
+                </li>
+                <li class="step-item">
+                  <div class="step-num">
+                    <span class="lang-fr">4</span>
+                    <span class="lang-en">4</span>
+                  </div>
+                  <div class="step-content">
+                    <div class="step-title">
+                      <span class="lang-fr">🎓 Cours d'essai gratuit (30 min)</span>
+                      <span class="lang-en">🎓 Free trial lesson (30 min)</span>
+                    </div>
+                    <div class="step-desc">
+                      <span class="lang-fr">On se rencontre et créons votre programme !</span>
+                      <span class="lang-en">We meet and build your program together!</span>
+                    </div>
                   </div>
                 </li>
               </ol>
@@ -1556,7 +1742,10 @@
           <button class="faq__q" onclick="toggleFaq(this)" aria-expanded="false">
             <span class="lang-fr" lang="fr">Combien coûte le cours d'essai ?</span>
             <span class="lang-en" lang="en">How much does the trial lesson cost?</span>
-            <span class="faq__q-icon" aria-hidden="true">+</span>
+            <span class="faq__q-icon" aria-hidden="true">
+              <span class="lang-fr">+</span>
+              <span class="lang-en">+</span>
+            </span>
           </button>
           <div class="faq__a" role="region">
             <div class="faq__a-inner">
@@ -1571,14 +1760,15 @@
           <button class="faq__q" onclick="toggleFaq(this)" aria-expanded="false">
             <span class="lang-fr" lang="fr">Combien de temps avant le cours d'essai ?</span>
             <span class="lang-en" lang="en">How long between my request and the trial?</span>
-            <span class="faq__q-icon" aria-hidden="true">+</span>
+            <span class="faq__q-icon" aria-hidden="true">
+              <span class="lang-fr">+</span>
+              <span class="lang-en">+</span>
+            </span>
           </button>
           <div class="faq__a" role="region">
             <div class="faq__a-inner">
-              <span class="lang-fr" lang="fr">Généralement entre <strong>24h et 72h</strong> selon nos disponibilités.
-                Je vous propose plusieurs créneaux et nous choisissons ensemble celui qui vous convient.</span>
-              <span class="lang-en" lang="en">Generally between <strong>24h and 72h</strong> depending on our
-                availability. I suggest several time slots and we choose the one that suits you together.</span>
+              <span class="lang-fr" lang="fr">Généralement entre <strong>24h et 72h</strong> selon nos disponibilités. Je vous propose plusieurs créneaux et nous choisissons ensemble celui qui vous convient.</span>
+              <span class="lang-en" lang="en">Generally between <strong>24h and 72h</strong> depending on our availability. I suggest several time slots and we choose the one that suits you together.</span>
             </div>
           </div>
         </div>
@@ -1586,15 +1776,15 @@
           <button class="faq__q" onclick="toggleFaq(this)" aria-expanded="false">
             <span class="lang-fr" lang="fr">Je ne parle pas du tout français, est-ce un problème ?</span>
             <span class="lang-en" lang="en">I don't speak French at all — is that a problem?</span>
-            <span class="faq__q-icon" aria-hidden="true">+</span>
+            <span class="faq__q-icon" aria-hidden="true">
+              <span class="lang-fr">+</span>
+              <span class="lang-en">+</span>
+            </span>
           </button>
           <div class="faq__a" role="region">
             <div class="faq__a-inner">
-              <span class="lang-fr" lang="fr">Pas du tout ! Je suis <strong>trilingue</strong> et peux communiquer en
-                anglais ou en farsi/persan si nécessaire. Au fur et à mesure de votre progression, nous utilisons de
-                plus en plus le français.</span>
-              <span class="lang-en" lang="en">Not at all! I'm <strong>trilingual</strong> and can communicate in English
-                or Farsi/Persian as needed. As you progress, we'll use more and more French in class.</span>
+              <span class="lang-fr" lang="fr">Pas du tout ! Je suis <strong>trilingue</strong> et peux communiquer en anglais ou en farsi/persan si nécessaire. Au fur et à mesure de votre progression, nous utilisons de plus en plus le français.</span>
+              <span class="lang-en" lang="en">Not at all! I'm <strong>trilingual</strong> and can communicate in English or Farsi/Persian as needed. As you progress, we'll use more and more French in class.</span>
             </div>
           </div>
         </div>
@@ -1602,20 +1792,23 @@
           <button class="faq__q" onclick="toggleFaq(this)" aria-expanded="false">
             <span class="lang-fr" lang="fr">Proposez-vous des cours partout dans le monde ?</span>
             <span class="lang-en" lang="en">Do you offer lessons worldwide?</span>
-            <span class="faq__q-icon" aria-hidden="true">+</span>
+            <span class="faq__q-icon" aria-hidden="true">
+              <span class="lang-fr">+</span>
+              <span class="lang-en">+</span>
+            </span>
           </button>
           <div class="faq__a" role="region">
             <div class="faq__a-inner">
-              <span class="lang-fr" lang="fr">Oui ! Mes cours sont 100% en ligne via Zoom, disponibles <strong>partout
-                  dans le monde</strong>. Je m'adapte aux fuseaux horaires.</span>
-              <span class="lang-en" lang="en">Yes! My lessons are 100% online via Zoom, available
-                <strong>worldwide</strong>. I adapt to different time zones.</span>
+              <span class="lang-fr" lang="fr">Oui ! Mes cours sont 100% en ligne via Zoom, disponibles <strong>partout dans le monde</strong>. Je m'adapte aux fuseaux horaires.</span>
+              <span class="lang-en" lang="en">Yes! My lessons are 100% online via Zoom, available <strong>worldwide</strong>. I adapt to different time zones.</span>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  </main>
 
   <site-footer data-base="./"></site-footer>
 

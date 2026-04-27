@@ -108,7 +108,7 @@ class SiteFooter extends HTMLElement {
             <ul class="site-footer-links">
               <li><a href="${base}a-propos.html" class="lang-fr">À propos de moi</a><a href="${base}a-propos.html" class="lang-en">About me</a></li>
               <li><a href="${base}faq.html">FAQ</a></li>
-              <li><a href="${base}blog.html">Blog</a></li>
+              <!-- <li><a href="${base}blog.html">Blog</a></li> -->
               <li><a href="${base}contact.html">Contact</a></li>
               <li><a href="${base}tarifs.html" class="lang-fr">Tarifs</a><a href="${base}tarifs.html" class="lang-en">Pricing</a></li>
             </ul>
@@ -119,8 +119,6 @@ class SiteFooter extends HTMLElement {
             <div class="site-footer-col-title lang-en">Legal</div>
             <ul class="site-footer-links">
               <li><a href="${base}mentions-legales.html" class="lang-fr">Mentions légales</a><a href="${base}mentions-legales.html" class="lang-en">Legal notice</a></li>
-              <li><a href="${base}politique-confidentialite.html" class="lang-fr">Politique de confidentialité</a><a href="${base}politique-confidentialite.html" class="lang-en">Privacy policy</a></li>
-              <li><a href="${base}cgv.html">CGV</a></li>
             </ul>
           </div>
         </div>
@@ -150,6 +148,41 @@ class SiteFooter extends HTMLElement {
       const headerBtnEn = document.getElementById('btn-en');
       if (headerBtnEn) headerBtnEn.click();
     });
+
+    /* ── Sticky CTA : hide on scroll down, show on scroll up ── */
+    (function initStickyCtaScroll() {
+      const cta = document.querySelector('.sticky-cta');
+      if (!cta) return;
+
+      let lastScrollY = window.scrollY;
+      let ticking = false;
+
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            const currentScrollY = window.scrollY;
+            const scrollingDown = currentScrollY > lastScrollY;
+
+            // Only apply on mobile (CTA is hidden on desktop anyway)
+            if (window.innerWidth <= 768) {
+              if (scrollingDown && currentScrollY > 80) {
+                // Hide: add class → CSS transition plays
+                cta.classList.add('is-hidden');
+              } else {
+                // Show: remove class → CSS transition plays
+                cta.classList.remove('is-hidden');
+              }
+            }
+
+            lastScrollY = currentScrollY;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
   }
 }
 

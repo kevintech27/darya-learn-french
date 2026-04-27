@@ -155,7 +155,15 @@
       background: var(--cream);
       color: var(--text-dark);
       overflow-x: hidden;
-      padding-top: 64px;
+      padding-top: 80px !important;
+      margin: 0 !important;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
     }
 
     /* ── UTILS ── */
@@ -906,17 +914,9 @@
     }
 
     /* ── BILINGUAL ── */
-    body.en .lang-fr {
-      display: none;
-    }
-
-    body.fr .lang-en {
-      display: none;
-    }
-
-    body:not(.en):not(.fr) .lang-en {
-      display: none;
-    }
+    body.fr .lang-en, body.fr .proof-en { display: none !important; }
+    body.en .lang-fr, body.en .proof-fr { display: none !important; }
+    body:not(.en):not(.fr) .lang-en, body:not(.en):not(.fr) .proof-en { display: none !important; }
 
     /* ── SEARCH HIGHLIGHT ── */
     .highlight {
@@ -1021,7 +1021,7 @@
     </div>
   </section>
 
-  <div class="faq-layout">
+  <div class="faq-layout page-wrapper">
 
     <aside class="sidebar lang-fr fade-up">
       <ul class="sidebar-nav" id="sidebar-fr">
@@ -1259,8 +1259,8 @@
               de mes étudiants dans la limite du raisonnable. Si vous êtes en Asie, aux États-Unis ou ailleurs, nous
               trouverons un créneau qui convient aux deux.
               <div class="info-box" style="margin-top:0.75rem;">
-                <strong>Asie :</strong> cours matin Paris / soir Asie &nbsp;·&nbsp; <strong>Amériques :</strong> cours
-                soir Paris / matin NY &nbsp;·&nbsp; <strong>Moyen-Orient :</strong> adaptable
+                <strong>Asie :</strong> cours matin Paris / soir Asie &nbsp; • &nbsp; <strong>Amériques :</strong> cours
+                soir Paris / matin NY &nbsp; • &nbsp; <strong>Moyen-Orient :</strong> adaptable
               </div>
             </div>
           </div>
@@ -1548,11 +1548,9 @@
                   préparation DELF/DALF en individuel)</li>
                 <li>Les exercices complémentaires si vous en avez demandé</li>
               </ul>
-              <div class="info-box"><strong>Exceptions :</strong><br>
-                • <strong>Cours de conversation :</strong> Pas de fiche récapitulative écrite. Les corrections se font à
+              <div class="info-box"><strong>Exceptions :</strong><br> • <strong>Cours de conversation :</strong> Pas de fiche récapitulative écrite. Les corrections se font à
                 l'oral pendant la conversation, et je peux faire un bref récapitulatif oral en fin de séance si vous le
-                souhaitez.<br>
-                • <strong>Cours en groupe :</strong> Pas de fiche récapitulative personnalisée. Vous recevez les
+                souhaitez.<br> • <strong>Cours en groupe :</strong> Pas de fiche récapitulative personnalisée. Vous recevez les
                 documents utilisés pendant le cours, mais pas de fiche individuelle.</div>
               Vous gardez tous les supports pour réviser quand vous voulez.
             </div>
@@ -1845,8 +1843,8 @@
               reason. If you're in Asia, the United States, or elsewhere, we'll find a time slot that works for both of
               us.
               <div class="info-box" style="margin-top:0.75rem;">
-                <strong>Asia:</strong> morning Paris / evening Asia &nbsp;·&nbsp; <strong>Americas:</strong> evening
-                Paris / morning NY &nbsp;·&nbsp; <strong>Middle East:</strong> flexible
+                <strong>Asia:</strong> morning Paris / evening Asia &nbsp; • &nbsp; <strong>Americas:</strong> evening
+                Paris / morning NY &nbsp; • &nbsp; <strong>Middle East:</strong> flexible
               </div>
             </div>
           </div>
@@ -2128,10 +2126,8 @@
                   preparation for individual lessons)</li>
                 <li>Complementary exercises if you requested them</li>
               </ul>
-              <div class="info-box"><strong>Exceptions:</strong><br>
-                • <strong>Conversation classes:</strong> No written recap sheet. Corrections are made orally during the
-                conversation, and I can provide a brief oral recap at the end of the session if you wish.<br>
-                • <strong>Group classes:</strong> No personalized recap sheet. You receive the documents used during the
+              <div class="info-box"><strong>Exceptions:</strong><br> • <strong>Conversation classes:</strong> No written recap sheet. Corrections are made orally during the
+                conversation, and I can provide a brief oral recap at the end of the session if you wish.<br> • <strong>Group classes:</strong> No personalized recap sheet. You receive the documents used during the
                 lesson, but no individual sheet.</div>
               You keep all materials to review whenever you want.
             </div>
@@ -2574,68 +2570,6 @@
       revealObs.observe(el);
     });
   </script>
-
-  <style>
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 800;
-      padding: 12px 16px 14px;
-      background: linear-gradient(135deg, var(--navy, #1B2E4B) 0%, #253d63 100%);
-      border-top: 1px solid rgba(201, 169, 110, 0.3);
-      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25);
-    }
-
-    .sticky-cta a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 8px;
-      background: var(--gold, #C9A96E);
-      color: var(--navy, #1B2E4B);
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(201, 169, 110, 0.4);
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .sticky-cta a:active {
-      transform: scale(0.98);
-    }
-
-    .sticky-cta .trust-line {
-      text-align: center;
-      font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.45);
-      margin-top: 6px;
-      letter-spacing: 0.03em;
-    }
-
-    @media(max-width:768px) {
-      .sticky-cta {
-        display: block;
-      }
-    }
-
-    @media(min-width:769px) {
-      .sticky-cta {
-        display: none !important;
-      }
-    }
-  </style>
-  <div class="sticky-cta" aria-label="Réserver un cours d'essai">
-    <a href="./contact.html" class="lang-fr">🎓 Cours d'essai gratuit — 30 min</a>
-    <a href="./contact.html" class="lang-en">🎓 Free trial class — 30 min</a>
-    <p class="trust-line lang-fr">Sans engagement · Réponse sous 24h</p>
-    <p class="trust-line lang-en">No commitment · Reply within 24h</p>
-  </div>
 </body>
 
 </html>

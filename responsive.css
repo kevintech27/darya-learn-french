@@ -1,8 +1,92 @@
-/* ===========================================
-   CORRECTIF MOBILE OPTIMISÉ V6 - DARYA LEARN FRENCH
-   =========================================== */
+body.en .lang-fr { display: none !important; }
+body.fr .lang-en { display: none !important; }
+
+/* ══ REPARATION BADGE PHOTO ══ */
+.about__photo-badge {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff !important; /* Rétablit le fond blanc */
+  padding: 15px 20px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+  z-index: 10 !important;
+  width: auto !important;
+  min-width: 200px;
+  text-align: center;
+  border: 1px solid #eee !important;
+}
+
+.about__photo-badge-num {
+  color: #C9A96E !important; /* Doré */
+  font-size: 1.4rem !important;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.about__photo-badge-label {
+  color: #1A2840 !important; /* Bleu foncé */
+  font-size: 0.85rem !important;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+/* Correction Mobile */
+@media (max-width: 768px) {
+  .about__photo-badge {
+    display: block !important;
+    position: absolute !important;
+    bottom: -15px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    max-width: 300px;
+  }
+}
+
+/* REPARATION DU FOOTER (Suppression de la bande blanche sur pages courtes) */
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+main, .page-wrapper {
+    flex: 1;
+}
+
+
 
 @media (max-width: 768px) {
+
+    /* ─── PATCH URGENCE (VOIR/WATCH & POLICE PHOTO) ─── */
+    .video-play-btn, 
+    .watch-btn, 
+    .play-button-overlay,
+    .video-overlay,
+    #customCursor {
+        display: none !important;
+    }
+
+    .portrait-badge__title, 
+    .portrait-title,
+    .hero__card-role,
+    .hero-image-wrap h2,
+    .portrait-wrap h3 {
+        font-size: 1.2rem !important;
+        line-height: 1.3 !important;
+        padding: 10px !important;
+    }
+    /* ──────────────────────────────────────────────── */
+
 
     /* 1. Sécurité globale : on verrouille les bords */
     html,
@@ -12,42 +96,71 @@
         position: relative;
     }
 
-    /* 2. Typographie aérée */
-    h1 {
-        font-size: 2rem !important;
+    /* 2. Typographie - Alignement Accueil Gauche (Chirurgical) */
+    .hero__content,
+    .hero__inner,
+    .hero__title,
+    .hero__subtitle,
+    .hero__tagline,
+    .hero__actions,
+    .hero__proof {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        justify-content: flex-start !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        gap: 12px !important;
+    }
+
+    /* On s'assure que le conteneur ne se centre pas via des marges */
+    .hero__content {
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* Réduction du badge eyebrow pour mobile */
+    .hero__eyebrow {
+        font-size: 0.7rem !important;
+        padding: 6px 12px !important;
         line-height: 1.2 !important;
-        text-align: center !important;
+        margin-bottom: 1rem !important;
+    }
+
+    h1 {
+        font-size: 1.65rem !important;
+        /* Reduced for better balance */
+        line-height: 1.2 !important;
+        margin-bottom: 1.5rem !important;
+        /* Increased space */
     }
 
     h2 {
-        font-size: 1.6rem !important;
+        font-size: 1.5rem !important;
         line-height: 1.3 !important;
-        text-align: center !important;
     }
 
     h3 {
-        font-size: 1.3rem !important;
+        font-size: 1.25rem !important;
     }
 
-    p {
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
+    /* On restaure le texte Hero pour la narration */
+    .hero__subtitle,
+    .hero__tagline {
+        display: block !important;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
     }
 
-    .hero-sub,
-    .section-intro,
-    .section-subtitle {
-        text-align: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    /* Cacher le paragraphe sous le H1 sur la page d'accueil */
+    /* Cacher le paragraphe sous le H1 sur la page d'accueil si trop encombrant */
     .hero .hero-sub {
         display: none !important;
     }
 
-    /* 3. LE BOUCLIER ANTI-DÉBORDEMENT */
+    /* 3. LE BOUCLIER ANTI-DÉBORDEMENT & RÉDUCTION GAP (20%) */
     .hero-inner,
     .split-layout,
     .questions-grid,
@@ -68,7 +181,8 @@
         display: flex !important;
         flex-direction: column !important;
         flex-wrap: wrap !important;
-        gap: 24px !important;
+        gap: 19px !important;
+        /* 24px - 20% = 19px */
         min-width: 0 !important;
     }
 
@@ -95,7 +209,7 @@
         box-sizing: border-box !important;
     }
 
-    /* 5. Marges de sécurité */
+    /* 5. Marges de sécurité & RÉDUCTION PADDING (20%) */
     section,
     .section,
     .hero,
@@ -103,18 +217,27 @@
     .container,
     .legal-content,
     .faq-layout {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        padding-top: 3rem !important;
-        padding-bottom: 3rem !important;
+        padding-left: 16px !important;
+        /* 20px - 20% = 16px */
+        padding-right: 16px !important;
+        padding-top: 2.4rem !important;
+        /* 3rem - 20% = 2.4rem */
+        padding-bottom: 2.4rem !important;
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* 6. On cache les cercles de décoration sur mobile */
+    /* 6. Épuration : Cache les éléments purement décoratifs */
     .hero::before,
     .hero::after,
-    .page-hero::before {
+    .page-hero::before,
+    .page-hero::after,
+    .section::before,
+    .section::after,
+    .decoration,
+    .blob,
+    .shape,
+    [class*="decorative"] {
         display: none !important;
     }
 
@@ -132,6 +255,47 @@
     .page-hero__inner {
         position: relative !important;
         z-index: 1 !important;
+    }
+
+    /* 8. Refonte du 'Rond Blanc' en carte élégante (About Page) */
+    .portrait-badge {
+        position: relative !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 80% !important;
+        max-width: 290px !important;
+        margin: -22px auto 0 !important;
+        padding: 10px !important;
+        text-align: center !important;
+        border-radius: 16px !important;
+        white-space: normal !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        box-shadow: 0 12px 32px rgba(27, 46, 75, 0.15) !important;
+        z-index: 10 !important;
+    }
+
+    .portrait-badge__icon {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .portrait-badge__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .portrait-badge__title {
+        font-size: 0.9rem !important;
+        font-weight: 700 !important;
+    }
+
+    .portrait-badge__sub {
+        font-size: 0.75rem !important;
+        opacity: 0.8;
     }
 
     /* =========================================
@@ -160,6 +324,16 @@
        10. CORRECTIONS SUBTILES DES BADGES/NIVEAUX (Across all pages)
        ========================================= */
 
+    .video-overlay {
+        display: flex !important;
+        padding: 15px !important; /* Moins d'espace sur mobile */
+    }
+
+    .pulse-play {
+        width: 44px !important; /* Un peu plus petit sur mobile */
+        height: 44px !important;
+    }
+
     /* 1. Répare le gros bouton pour qu'il puisse passer à la ligne */
     a[class*="btn"],
     button[class*="btn"],
@@ -168,12 +342,13 @@
         white-space: normal !important;
         height: auto !important;
         line-height: 1.4 !important;
-        padding-top: 12px !important;
-        padding-bottom: 12px !important;
+        padding-top: 10px !important;
+        /* Réduit de 12px */
+        padding-bottom: 10px !important;
         text-align: center !important;
     }
 
-    /* 2. On réduit la police et on enlève les tirets pour les petits badges (A1, pédagogie, avis, etc.) */
+    /* 2. On réduit la police et on enlève les tirets pour les petits badges */
     [class*="level"] span,
     [class*="badge"] span,
     [class*="tag"] span,
@@ -182,17 +357,13 @@
     .review-tag,
     .not-for-you span {
         font-size: 0.65rem !important;
-        /* On réduit la police */
         hyphens: none !important;
-        /* INTERDIT d'ajouter des tirets */
         letter-spacing: -0.01em !important;
-        /* On resserre un peu les lettres */
         line-height: 1.1 !important;
         white-space: normal !important;
-        /* Autorise le texte à passer à la ligne s'il est vraiment trop long */
     }
 
-    /* On réduit aussi un peu le padding (marge interne) sur ces badges pour mobile */
+    /* Réduction padding badges (20%) */
     [class*="level"],
     [class*="badge"],
     [class*="tag"],
@@ -200,210 +371,327 @@
     .level-badge,
     .review-tag,
     .not-for-you {
-        padding: 6px 12px !important;
-        /* Padding plus petit pour mobile */
+        padding: 5px 10px !important;
+        /* 6px 12px -> 5px 10px */
     }
 
-    /* 3. On aligne les cartes pour le Programme Complet pour que ce soit propre et centré */
+    /* 3. On aligne les cartes pour le Programme Complet */
     .level-card,
     [class*="programme-card"] {
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        gap: 15px !important;
+        align-items: flex-start !important;
+        /* Changé de center à flex-start pour cohérence */
+        text-align: left !important;
+        gap: 12px !important;
     }
 
     /* =========================================
        11. CORRECTION CHECKBOX RGPD (Contact)
        ========================================= */
 
-    /* On force le conteneur de la case à cocher à ne pas dépasser 100% */
     .checkbox-group,
     .form-checkbox,
     .rgpd-consent,
     .consent-group {
         display: flex !important;
         align-items: flex-start !important;
-        /* Aligne la case en haut du texte */
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        margin-bottom: 15px !important;
+        margin-bottom: 12px !important;
     }
 
-    /* On protège la case à cocher pour qu'elle ne s'écrase pas ou ne s'étire pas */
     input[type="checkbox"] {
         flex-shrink: 0 !important;
-        /* Interdit de rétrécir */
         width: 18px !important;
         height: 18px !important;
         margin-top: 3px !important;
-        /* L'aligne avec la première ligne du texte */
         margin-right: 12px !important;
-        /* Espace entre la case et le texte */
         min-width: auto !important;
     }
 
-    /* On oblige le texte de la case à cocher à revenir à la ligne */
     input[type="checkbox"]+label,
     input[type="checkbox"]~span,
     .checkbox-group label,
     .form-checkbox label {
         flex: 1 !important;
-        /* Le texte prend UNIQUEMENT l'espace restant */
         white-space: normal !important;
-        /* Autorise le retour à la ligne */
         word-wrap: break-word !important;
         font-size: 0.85rem !important;
-        /* Police un peu plus petite pour le mobile */
         line-height: 1.4 !important;
         max-width: calc(100% - 30px) !important;
-        /* Sécurité ultime pour la largeur */
     }
 
-    /* =========================================
-       CORRECTIONS FINALES (Boutons, Badges et À Propos)
-       ========================================= */
 
-    /* 1. Autorise les longs boutons à passer à la ligne */
-    a[class*="btn"],
-    button[class*="btn"],
-    .cta-button {
-        white-space: normal !important;
-        height: auto !important;
-        line-height: 1.4 !important;
-        padding-top: 12px !important;
-        padding-bottom: 12px !important;
-    }
-
-    /* 2. Réduit proprement la police "INTERMÉDIAIRE" dans les carrés bleus */
-    [class*="level"] span,
-    [class*="badge"] span {
-        font-size: 0.65rem !important;
-        line-height: 1.2 !important;
-        hyphens: none !important;
-    }
-
-    /* 3. Transforme le rond blanc écrasé (page À Propos) en un joli rectangle sous la photo */
-    .about-badge,
-    [class*="photo"] [class*="badge"],
-    [class*="image"] [class*="badge"] {
-        position: relative !important;
-        transform: none !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        width: 100% !important;
-        height: auto !important;
-        border-radius: 10px !important;
-        margin-top: 15px !important;
-        padding: 15px !important;
-        display: block !important;
-        box-sizing: border-box !important;
-    }
-
-    /* =========================================
-       12. MORT AU ROND BLANC (PAGE À PROPOS)
-       ========================================= */
-    /* On cible la bulle superposée à la photo de Darya */
-    [class*="about"] img+div,
-    [class*="about"] [class*="image"]>div:not(img),
-    [class*="about"] [class*="photo"]>div:not(img),
-    .about-badge {
-        position: relative !important;
-        transform: none !important;
-        top: auto !important;
-        bottom: auto !important;
-        left: auto !important;
-        right: auto !important;
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: auto !important;
-        /* Casse la forme de cercle parfait ! */
-        border-radius: 12px !important;
-        /* Transforme en un joli rectangle arrondi */
-        margin-top: 20px !important;
-        padding: 20px !important;
-        display: block !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
-    }
 
     /* =========================================
        13. AFFICHAGE DES CARTES MOBILES (TARIFS)
        ========================================= */
-    /* On cache définitivement le grand tableau complexe sur mobile */
     .pricing-table-wrap,
     .pricing-table {
         display: none !important;
     }
 
-    /* On active TES jolies cartes prévues spécifiquement pour le mobile */
     .pricing-cards-mobile {
         display: flex !important;
         flex-direction: column !important;
-        gap: 20px !important;
+        gap: 16px !important;
+        /* 20px -> 16px */
         width: 100% !important;
-        margin-top: 10px !important;
+        margin-top: 8px !important;
     }
 
-    /* On s'assure qu'elles ne débordent pas */
     .price-card-mobile {
         width: 100% !important;
         box-sizing: border-box !important;
         margin: 0 !important;
+        padding: 1.2rem !important;
+        /* 1.5rem -> 1.2rem */
     }
 
     /* =========================================
        14. CORRECTION DE LA CALCULATRICE ET GROUPES
        ========================================= */
-    /* Boîte "Personnalisez votre forfait" */
     .customize-box {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        padding: 20px 15px !important;
-        /* Marges réduites pour mobile */
+        padding: 16px 12px !important;
+        /* 20px 15px -> 16px 12px */
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
 
-    /* Zone de calcul sombre */
     .example-calc {
-        padding: 15px !important;
+        padding: 12px !important;
+        /* 15px -> 12px */
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* On empile le texte et le prix pour éviter que ça se chevauche sur petit écran */
     .calc-row {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 4px !important;
-        padding: 10px 0 !important;
+        padding: 8px 0 !important;
+        /* 10px -> 8px */
     }
 
     .calc-row strong {
         align-self: flex-end !important;
-        /* Aligne le prix sur la droite */
         color: var(--gold-light) !important;
     }
 
-    /* Carte "Cours en Groupes" violette */
     .group-card {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
-        padding: 25px 15px !important;
+        padding: 20px 12px !important;
+        /* 25px 15px -> 20px 12px */
     }
 
     .group-card__cta {
         white-space: normal !important;
         height: auto !important;
         line-height: 1.4 !important;
-        padding: 12px 20px !important;
+        padding: 10px 16px !important;
+    }
+
+    /* <-- Il manquait cette accolade pour fermer le bouton CTA */
+
+
+    .close-video-btn {
+        top: 10px !important;
+        right: 10px !important;
+        font-size: 30px !important;
     }
 }
+
+
+/* ══════════════════════════════════════════
+   🚀 PATCH MOBILE FINAL (Fusionné) 🚀
+   - Règle l'entrechoc Texte/Badge (image_5ee652.jpg)
+   - Règle la suppression des barres grises (stats)
+══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  /* 1. HERO MOBILE (Réparation de l'entrechoc image_5ee652.jpg) */
+  .hero {
+    padding-top: 100px !important; /* Un peu moins de padding haut sur mobile */
+  }
+  .hero__inner {
+    grid-template-columns: 1fr !important; /* Force l'empilement vertical */
+    gap: 30px !important; /* Espace propre entre texte et photo */
+    text-align: center;
+  }
+  
+  /* Centre tous les éléments de texte et gère les marges propres */
+  .hero__quote {
+    border-left: none !important;
+    border-top: 3px solid rgba(201, 169, 110, 0.40); /* Déplace la ligne en haut */
+    padding-left: 0 !important;
+    padding-top: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90% !important;
+  }
+  
+  .hero__eyebrow,
+  .hero__cta-row,
+  .hero__stats-row {
+    justify-content: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Gère l'aération et le centrage du bloc photo pour mobile */
+  .portrait-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; /* Espace au-dessus du bloc photo */
+  }
+  
+  /* Règle le badge "Examinatrice" qui posait problème */
+  .portrait-float {
+    position: relative !important; /* Passe en position 'normale' dans le flux */
+    top: 0 !important;
+    right: 0 !important;
+    transform: translateY(15px); /* Se superpose légèrement au haut de la photo */
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    z-index: 2;
+    padding: 10px 16px !important;
+  }
+  
+  /* Règle le badge "Diplômes" du bas */
+  .portrait-badge {
+    position: static !important; /* Se remet proprement en dessous de la photo */
+    transform: none !important;
+    margin-top: 15px; /* Espace sous la photo */
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: normal !important; /* Autorise le texte à revenir à la ligne */
+    text-align: center;
+    flex-direction: column; /* Empile icônes et textes */
+    padding: 12px !important;
+    border-radius: 12px !important;
+  }
+  .portrait-badge__icon {
+    margin-bottom: 6px;
+    font-size: 1.4rem;
+  }
+  
+  /* 2. MODERNISATION DES STATS (Suppression des barres grises) */
+  .stats-strip {
+    background: transparent !important;
+    border: none !important;
+    padding: 20px 0 !important;
+  }
+  .stats-grid {
+    background: transparent !important;
+    gap: 12px !important; /* Vrai espace entre les cartes */
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+  .stat-block {
+    background: var(--white) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(27, 46, 75, 0.04) !important;
+    flex: 1 1 45% !important; /* Deux cartes par ligne sur mobile */
+    border: 1px solid var(--border) !important;
+    padding: 16px !important;
+    text-align: center !important;
+  }
+
+  /* 3. RESTAURATION BOUTON PLAY MOBILE */
+  #playButtonContainer {
+    display: block !important;
+    padding: 15px !important; /* Réduit un peu le padding sur mobile */
+  }
+
+  .pulse-play {
+    display: flex !important;
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 0 !important;
+    color: transparent !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  /* 4. REFINEMENT STICKY CTA MOBILE (PREMIUM STYLE) */
+  .sticky-cta {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: linear-gradient(135deg, #C9A96E 0%, #D4B87E 100%) !important;
+    border-radius: 20px 20px 0 0 !important;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15) !important;
+    padding: 12px 16px !important;
+    transform: translateY(0) !important;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    display: block !important;
+  }
+
+  /* Etat caché — ajouté/retiré par JS */
+  .sticky-cta.is-hidden {
+    transform: translateY(110%) !important;
+    pointer-events: none !important;
+  }
+
+  @keyframes ctaSlideUp {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+
+  .sticky-cta a {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2) !important; /* Subtle glass effect on the gold */
+    color: #1A2840 !important; /* Navy text */
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .sticky-cta .trust-line {
+    text-align: center;
+    font-size: 0.72rem;
+    color: rgba(26, 40, 64, 0.7); /* Darker text for readability on gold */
+    margin-top: 6px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Masquage global du Sticky CTA sur desktop */
+@media (min-width: 769px) {
+    .sticky-cta {
+        display: none !important;
+    }
+}
+
+/* Gère les très petits écrans pour les stats */
+@media (max-width: 480px) {
+  .stat-block { flex: 1 1 100% !important; } /* Empile complètement les stats */
+}
+

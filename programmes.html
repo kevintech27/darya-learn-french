@@ -85,7 +85,7 @@
               "description": "Cours de conversation guidée pour développer fluidité et spontanéité à l'oral, à partir du niveau A2",
               "provider": { "@type": "Person", "name": "Darya", "url": "https://daryalearnfrench.com/" },
               "courseMode": "online", "educationalLevel": "A2 to C2", "inLanguage": "fr",
-              "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "EUR", "description": "Forfait minimum 5 heures — tarif sur demande" }, "url": "https://daryalearnfrench.com/cours-de-conversation" }
+              "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "EUR", "description": "Forfait minimum 5 heures — tarif sur demande" }, "url": "https://daryalearnfrench.com/conversation" }
             }
           },
           {
@@ -1576,7 +1576,20 @@
       }
 
       .quiz-footer {
-        padding: 14px 20px;
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .quiz-footer__skip {
+        display: block;
+        line-height: 1.5;
+      }
+
+      .quiz-footer .btn {
+        width: 100%;
+        justify-content: center;
       }
 
       .quiz-header {
@@ -1605,10 +1618,15 @@
       .prog-forwho {
         flex-direction: column;
       }
+
+      .quiz-footer {
+        gap: 14px;
+      }
     }
   </style>
 
   <link rel="stylesheet" href="./responsive.css">
+  <link rel="stylesheet" href="./premium.css" />
 </head>
 
 <body class="fr">
@@ -2326,8 +2344,8 @@
           </div>
 
           <div class="prog-actions">
-            <a href="./cours-conversation.html" class="btn btn--outline-navy lang-fr">En savoir plus →</a>
-            <a href="./cours-conversation.html" class="btn btn--outline-navy lang-en">Learn more →</a>
+            <a href="./conversation.html" class="btn btn--outline-navy lang-fr">En savoir plus →</a>
+            <a href="./conversation.html" class="btn btn--outline-navy lang-en">Learn more →</a>
             <a href="./contact.html" class="btn btn--gold lang-fr">Cours d'essai gratuit</a>
             <a href="./contact.html" class="btn btn--gold lang-en">Free trial class</a>
           </div>
@@ -2766,7 +2784,7 @@
         els.forEach(function (el) { el.classList.add('visible'); });
         return;
       }
-      var observer = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add("visible"); } else { entry.target.classList.remove("visible"); } }); }, { threshold: 0.1 });
+      var observer = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
       els.forEach(function (el) { observer.observe(el); });
     })();
 
@@ -2809,7 +2827,7 @@
         badgeFr: '💬 Cours de Conversation Guidée',
         badgeEn: '💬 Guided Conversation Classes',
         badgeClass: 'quiz-result__prog--3',
-        linkHref: './cours-conversation.html',
+        linkHref: './conversation.html',
         linkFr: 'Découvrir les Cours de Conversation',
         linkEn: 'Discover Conversation Classes'
       },
@@ -2942,6 +2960,16 @@
     <p class="trust-line lang-fr">Sans engagement • Réponse sous 24h</p>
     <p class="trust-line lang-en">No commitment • Reply within 24h</p>
   </div>
-</body>
+  <!-- Premium fade-up observer -->
+  <script>
+    (function() {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+    })();
+  </script></body>
 
 </html>

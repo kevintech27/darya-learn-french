@@ -1956,6 +1956,7 @@
   </style>
 
   <link rel="stylesheet" href="./responsive.css">
+  <link rel="stylesheet" href="./premium.css" />
 
 </head>
 
@@ -3031,10 +3032,20 @@
     }
 
     /* ── FADE-UP ── */
-    const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); } else { entry.target.classList.remove("visible"); } }); }, { threshold: 0.07, rootMargin: '-36px' });
+    const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } }); }, { threshold: 0.07, rootMargin: '-36px' });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
 
-</body>
+  <!-- Premium fade-up observer -->
+  <script>
+    (function() {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+    })();
+  </script></body>
 
 </html>

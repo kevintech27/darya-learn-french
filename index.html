@@ -1887,6 +1887,7 @@
   </style>
 
   <link rel="stylesheet" href="./responsive.css">
+  <link rel="stylesheet" href="./premium.css" />
 
 </head>
 
@@ -2351,8 +2352,8 @@
             naturellement, comprendre et être compris sans bloquer.</p>
           <p class="persona-desc lang-en">You love France, its culture, its cuisine. You want to express yourself
             naturally — to understand and be understood without freezing up.</p>
-          <a href="./cours-conversation.html" class="persona-link lang-fr">Cours de Conversation →</a>
-          <a href="./cours-conversation.html" class="persona-link lang-en">Conversation Classes →</a>
+          <a href="./conversation.html" class="persona-link lang-fr">Cours de Conversation →</a>
+          <a href="./conversation.html" class="persona-link lang-en">Conversation Classes →</a>
         </div>
         <div class="persona-card fade-up">
           <div class="persona-icon">🎭</div>
@@ -2602,8 +2603,8 @@
               <li class="prog-feature"><span class="prog-feature-check">✦</span><span class="lang-fr" lang="fr">Niveau
                   minimum A2</span><span class="lang-en" lang="en">Minimum level A2</span></li>
             </ul>
-            <a href="./cours-conversation.html" class="prog-cta lang-fr">Voir les détails</a>
-            <a href="./cours-conversation.html" class="prog-cta lang-en">View details</a>
+            <a href="./conversation.html" class="prog-cta lang-fr">Voir les détails</a>
+            <a href="./conversation.html" class="prog-cta lang-en">View details</a>
           </div>
         </div>
 
@@ -3136,8 +3137,7 @@
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('visible');
-        } else {
-          e.target.classList.remove('visible');
+          observer.unobserve(e.target);
         }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
@@ -3250,6 +3250,16 @@
     }
   </script>
 
-</body>
+  <!-- Premium fade-up observer -->
+  <script>
+    (function() {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+    })();
+  </script></body>
 
 </html>

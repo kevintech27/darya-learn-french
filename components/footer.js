@@ -97,7 +97,7 @@ class SiteFooter extends HTMLElement {
               <li><a href="${base}programmes.html" class="lang-fr">Présentation des programmes</a><a href="${base}programmes.html" class="lang-en">Programs overview</a></li>
               <li><a href="${base}programme-complet.html" class="lang-fr">Programme Complet</a><a href="${base}programme-complet.html" class="lang-en">Complete Program</a></li>
               <li><a href="${base}delf-dalf.html" class="lang-fr">Préparation DELF-DALF</a><a href="${base}delf-dalf.html" class="lang-en">DELF-DALF Prep</a></li>
-              <li><a href="${base}cours-conversation.html" class="lang-fr">Cours de Conversation</a><a href="${base}cours-conversation.html" class="lang-en">Conversation Classes</a></li>
+              <li><a href="${base}conversation.html" class="lang-fr">Cours de Conversation</a><a href="${base}conversation.html" class="lang-en">Conversation Classes</a></li>
               <li><a href="${base}cours-groupe.html" class="lang-fr">Cours en Groupe</a><a href="${base}cours-groupe.html" class="lang-en">Group Classes</a></li>
             </ul>
           </div>

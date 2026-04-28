@@ -72,7 +72,7 @@ class SiteHeader extends HTMLElement {
               <li role="none"><a href="${base}programmes.html" role="menuitem"><span class="dd-icon">🗂️</span><span><span class="lang-fr" lang="fr">Présentation des programmes</span><span class="lang-en" lang="en">Programs overview</span></span></a></li>
               <li role="none"><a href="${base}programme-complet.html" role="menuitem"><span class="dd-icon">📘</span><span><span class="lang-fr" lang="fr">Programme Complet</span><span class="lang-en" lang="en">Complete Program</span></span></a></li>
               <li role="none"><a href="${base}delf-dalf.html" role="menuitem"><span class="dd-icon">🎯</span><span><span class="lang-fr" lang="fr">Préparation DELF-DALF</span><span class="lang-en" lang="en">DELF-DALF Preparation</span></span></a></li>
-              <li role="none"><a href="${base}cours-conversation.html" role="menuitem"><span class="dd-icon">💬</span><span><span class="lang-fr" lang="fr">Cours de conversation</span><span class="lang-en" lang="en">Conversation Classes</span></span></a></li>
+              <li role="none"><a href="${base}conversation.html" role="menuitem"><span class="dd-icon">💬</span><span><span class="lang-fr" lang="fr">Cours de conversation</span><span class="lang-en" lang="en">Conversation Classes</span></span></a></li>
               <li role="none"><a href="${base}cours-groupe.html" role="menuitem"><span class="dd-icon">👥</span><span><span class="lang-fr" lang="fr">Cours en Groupe</span><span class="lang-en" lang="en">Group Classes</span></span></a></li>
             </ul>
           </li>
@@ -193,6 +193,37 @@ class SiteHeader extends HTMLElement {
       
       lastScrollY = currentScrollY;
     }, { passive: true });
+
+    // 6. Nettoyage global des tirets "IA" dans les textes visibles
+    const normalizeAIDashes = (root = document.body) => {
+      if (!root) return;
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+      let node;
+      while ((node = walker.nextNode())) {
+        const parent = node.parentElement;
+        if (!parent) continue;
+        const tag = parent.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'TEXTAREA' || tag === 'CODE' || tag === 'PRE') {
+          continue;
+        }
+        const original = node.nodeValue;
+        if (!original) continue;
+        if (!original.includes('--') && !original.includes('—')) continue;
+        const normalized = original
+          .replace(/\s*--\s*/g, ' • ')
+          .replace(/\s*—\s*/g, ' • ')
+          .replace(/\s{2,}/g, ' ');
+        if (normalized !== original) {
+          node.nodeValue = normalized;
+        }
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => normalizeAIDashes(), { once: true });
+    } else {
+      normalizeAIDashes();
+    }
   }
 }
 

@@ -354,6 +354,7 @@
       text-decoration: none;
       transition: all 0.2s;
       border: 1px solid transparent;
+      justify-content: flex-start;
     }
 
     .sidebar-nav a:hover {
@@ -947,19 +948,20 @@
       }
 
       .sidebar-nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.55rem;
         margin-bottom: 1rem;
       }
 
       .sidebar-nav li {
-        flex: 0 0 auto;
+        width: 100%;
       }
 
       .sidebar-nav a {
-        padding: 0.45rem 0.8rem;
+        padding: 0.55rem 0.75rem;
         font-size: 0.8rem;
+        min-height: 46px;
       }
 
       .sidebar-cta {
@@ -977,6 +979,10 @@
     }
 
     @media (max-width: 600px) {
+      .sidebar-nav {
+        grid-template-columns: 1fr;
+      }
+
       .hero {
         padding: 6rem 1rem 3.5rem;
       }
@@ -984,6 +990,7 @@
   </style>
 
   <link rel="stylesheet" href="./responsive.css">
+  <link rel="stylesheet" href="./premium.css" />
 </head>
 
 <body class="fr">
@@ -2315,9 +2322,9 @@
           <span style="font-family:'Playfair Display',serif;font-weight:700;color:#1B2E4B;" class="lang-en">About
             Darya</span>
           <span style="font-size:0.83rem;color:#4a4a6a;line-height:1.55;" class="lang-fr">Certifications, parcours,
-            philosophie — pourquoi choisir Darya ?</span>
+            philosophie • pourquoi choisir Darya ?</span>
           <span style="font-size:0.83rem;color:#4a4a6a;line-height:1.55;" class="lang-en">Certifications, background,
-            philosophy — why choose Darya?</span>
+            philosophy • why choose Darya?</span>
           <span style="font-size:0.8rem;color:#8B6830;font-weight:600;margin-top:4px;" class="lang-fr">En savoir plus
             →</span>
           <span style="font-size:0.8rem;color:#8B6830;font-weight:600;margin-top:4px;" class="lang-en">Learn more
@@ -2573,6 +2580,16 @@
       revealObs.observe(el);
     });
   </script>
-</body>
+  <!-- Premium fade-up observer -->
+  <script>
+    (function() {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+    })();
+  </script></body>
 
 </html>

@@ -1291,6 +1291,7 @@
   </style>
 
   <link rel="stylesheet" href="./responsive.css">
+  <link rel="stylesheet" href="./premium.css" />
 </head>
 
 <body class="fr">
@@ -1840,8 +1841,7 @@
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
+            observer.unobserve(entry.target);
           }
         });
       }, { threshold: 0.1 });
@@ -1859,6 +1859,16 @@
     <p class="trust-line lang-fr">Sans engagement • Réponse sous 24h</p>
     <p class="trust-line lang-en">No commitment • Reply within 24h</p>
   </div>
-</body>
+  <!-- Premium fade-up observer -->
+  <script>
+    (function() {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+    })();
+  </script></body>
 
 </html>
